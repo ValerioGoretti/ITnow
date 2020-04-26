@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/registrazione.css">
+        <link href="css/styles.css" rel="stylesheet" />
+
+    </head>
+    <body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light  py-3" id="mainNav" style="background-color: #822433;">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">ITnow</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+                <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.html#login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contattaci</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="registrazione.html">Registrazione</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- registrazione -->
+    <div class="register">
+                    <div class="row">
+                        <div class="col-md-3 register-left">
+                            <img src="LOGHI/logo_con testo sotto_bianco.png" alt=""/><br>
+                            <input type="submit" name="" value="Login"/><br/>
+                        </div>
+                        <div class="col-md-9 register-right">
+                            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Studente</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Docente</a>
+                                </li>
+                            </ul>
+
+
+                            <!--STUDENTE-->
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                    <h3 class="register-heading">Apply as a Employee</h3>
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Password *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="maxl">
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" name="gender" value="male" checked>
+                                                        <span> Male </span> 
+                                                    </label>
+                                                    <label class="radio inline"> 
+                                                        <input type="radio" name="gender" value="female">
+                                                        <span>Female </span> 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Your Email *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                    <option>What is your Birthdate?</option>
+                                                    <option>What is Your old Phone Number</option>
+                                                    <option>What is your Pet Name?</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Enter Your Answer *" value="" />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Register"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--Docente-->
+                                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                    <h3  class="register-heading">Apply as a Hirer</h3>
+                                    <div class="row register-form">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="First Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Last Name *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Email *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                            </div>
+
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Password *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control" placeholder="Confirm Password *" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option class="hidden"  selected disabled>Please select your Sequrity Question</option>
+                                                    <option>What is your Birthdate?</option>
+                                                    <option>What is Your old Phone Number</option>
+                                                    <option>What is your Pet Name?</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="`Answer *" value="" />
+                                            </div>
+                                            <input type="submit" class="btnRegister"  value="Register"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                 <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="mt-0" style="color: #fff;">Contattaci</h2>
+                        <hr class="divider sapienza my-4" />
+                        <p class="text-muted mb-5">Siamo due ragazzi del corso di informatica.......................</p>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                        <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                        <div class="testobianco">+39 333333333333 </div>
+                        <a class="d-block testobianco" href="basile.1810355@studenti.uniroma1.it">basile.1810355@studenti.uniroma1.it</a>
+                    </div>
+
+                    <div class="col-lg-4 mr-auto text-center">
+                        <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                        <div class="testobianco">+39 3318455011</div>
+                        <a class="d-block testobianco" href="goretti.1811110@studenti.uniroma1.it">goretti.1811110@studenti.uniroma1.it</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
