@@ -543,10 +543,40 @@ pre code {
 
 .container {
   width: 100%;
+  
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+ 
+
+  
+
+}
+
+/*container dei form di registrazione*/
+.container2 {
+  width: 100%;
+  
+ background-color: #822433;
+
+}
+
+
+/* spazio destinato al form della registrazione*/
+.container_registrazione
+{
+  padding: 30px;
+
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color:#ffffff;  
+  width: auto; 
+  border-radius:6px;
+  box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.3), 0 30px 50px 0 rgba(0, 0, 0, 0.2);
+
+  
+  
 }
 @media (min-width: 576px) {
   .container {
@@ -620,10 +650,12 @@ pre code {
 .col-md-auto, .col-md-12, .col-md-11, .col-md-10, .col-md-9, .col-md-8, .col-md-7, .col-md-6, .col-md-5, .col-md-4, .col-md-3, .col-md-2, .col-md-1, .col-sm,
 .col-sm-auto, .col-sm-12, .col-sm-11, .col-sm-10, .col-sm-9, .col-sm-8, .col-sm-7, .col-sm-6, .col-sm-5, .col-sm-4, .col-sm-3, .col-sm-2, .col-sm-1, .col,
 .col-auto, .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1 {
-  position: relative;
+  position: relative; ;
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
+
+ 
 }
 
 .col {
@@ -2002,6 +2034,23 @@ pre code {
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+/*gestisce la singola casella di un form nella schermata di registrazione*/
+.form-control-registrazione {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + 0.75rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
