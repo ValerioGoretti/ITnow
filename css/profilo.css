@@ -1,0 +1,67 @@
+.copertina{
+    height: 250px;
+    background-image: url("/assets/img/prova_sfondo.jpg");
+}
+.circle {
+    width: 250px;
+    height: 250px;
+    margin-top: 5%;
+    margin-left: 5%;
+    color: white;
+    background: #822433;
+    overflow: hidden;
+    border-radius: 50%;
+    float: left;
+}
+.dati{
+    width: 70%;
+    height: 100%; 
+    float: right;
+    margin-right: 2%;
+    margin-top: 5%;
+    
+
+}
+
+.inserimento{
+    float: left;
+    margin-left: 10%;
+}
+
+.immagini{
+    height: 100%; 
+    margin-top: 5%;
+    margin-left: 2%;
+    width: 25%; 
+    float: left;
+}
+
+div.card{
+    width: 60%;
+    height: auto;
+    margin:  0 auto;
+    border-style:hidden;
+}
+.titolo{
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 2%;
+    float: left;
+}
+hr.card{
+    background-color:#822433;
+    width:30%;
+    height: 1px;
+    border-radius: 30%;
+}
+.valore{
+    color: black;
+    font-size: x-large;
+    margin-left: 2%;
+    float: right;
+}
+
+.footer{
+    height: 200px;
+    background-color: #822433;
+}
