@@ -15,7 +15,7 @@
 }
 .dati{
     width: 70%;
-    height: 100%; 
+    height:fit-content; 
     float: right;
     margin-right: 2%;
     margin-top: 5%;
@@ -42,7 +42,7 @@
 
 div.card{
     width: 60%;
-    height: auto;
+    height: fit-content;
     margin:  0 auto;
     border-style:hidden;
 }
@@ -57,6 +57,7 @@ hr.card{
     width:30%;
     height: 1px;
     border-radius: 30%;
+    
 }
 .valore{
     color: black;
