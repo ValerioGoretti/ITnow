@@ -19,12 +19,21 @@
     float: right;
     margin-right: 2%;
     margin-top: 5%;
-    /*
-    border: 2px;
-    border-radius: 10px;
-    box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5);
-    */
+    color:#822433;  
+    border-radius: 6px;
+    box-shadow: 0 30px 50px 0 rgba(130,36,51, 0.3), 0 30px 50px 0 rgba(130,36,51, 0.2);
 
+}
+
+.datiuni{
+    width: 70%;
+    height:fit-content; 
+    float: right;
+    margin-right: 2%;
+    margin-top: 10%;
+    color:#822433;  
+    border-radius: 6px;
+    box-shadow: 
 }
 
 .inserimento{
@@ -33,7 +42,7 @@
 }
 
 .immagini{
-    height: 100%; 
+    height: 80%; 
     margin-top: 5%;
     margin-left: 2%;
     width: 25%; 
@@ -41,7 +50,7 @@
 }
 
 div.card{
-    width: 60%;
+    width: 40%;
     height: fit-content;
     margin:  0 auto;
     border-style:hidden;
@@ -49,24 +58,90 @@ div.card{
 .titolo{
     font-weight: bold;
     font-size: x-large;
-    margin-left: 2%;
-    float: left;
 }
 hr.card{
     background-color:#822433;
-    width:30%;
+    width:50%;
+    margin-top: -5%;
     height: 1px;
     border-radius: 30%;
     
 }
+.line {
+    border-top: 3px solid #822433;
+    border-radius: 50%;
+    margin-top: -7%;
+    margin-bottom: 2%;
+    width: 200px;
+}
 .valore{
     color: black;
-    font-size: x-large;
-    margin-left: 2%;
-    float: right;
+    font-size: large;
+    
 }
 
 .footer{
     height: 200px;
     background-color: #822433;
 }
+
+h2.tit{
+    color: #822433;
+    text-align:  center;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+/*finestra che entra*/
+.sidenav {
+    height: 100%;
+    width: fit-content;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: small;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+    text-decoration: none;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    font-size: 36px;
+    margin-left: 15%;
+    text-decoration: none;
+    text-align: center;
+  }
+  .riga{
+      width: 100%;
+      height: 7%;
+      margin-bottom: 5%;
+  }
+.casella{
+    width: 10%; 
+    height: 100%; 
+    float: left;
+}
+.nome{
+    width: 90%; 
+    height: 100%; 
+    float: left; 
+    font-size:small;
+}
+ 

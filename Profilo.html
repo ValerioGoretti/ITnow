@@ -8,12 +8,19 @@
         <link href="css/profilo.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet"/>
 
+        <script>
+            function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            }
+
+            function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            }
+        </script>
     </head>
-    <body style="max-width: 100%;" >
-        
+    <body>
 
-
-    <div style="width: 100%; height:170%;">
+    <div style="width: 100%; height: 700px;">
         <!--immagine profilo-->
         <div class="immagini">
             <div class="circle ">
@@ -23,60 +30,159 @@
         </div>
             
         <!--riepilogo dati-->
-        <div class="dati" style="color:#822433;  border-radius: 6px;box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.3), 0 30px 50px 0 rgba(0, 0, 0, 0.2);">
-            
+        <div class="dati">
+            <h2 class="tit">Dati Personali</h2>
             <div class="row" style="padding: 10px; ">
-            <div class="col">
-            <div  class="card">
-                <div class="titolo">Nome</div>
-                <hr class="card">
+            <div class="col" style="text-align: center;">
+            <!-- colonna 1-->
+            
+                <div class="titolo">Nome</div> <br>
+                <div class="line" style="margin-left: 15%;"></div>
                 <div class="valore">Valerio</div>
-            </div> 
-            
-            <div class="card" >
-                <div class="titolo">Cognome</div>
-                <hr class="card">
-                <div class="valore">Goretti</div>
-            </div>
-            
-            
-            <div class="card"  >
-                <div class="titolo">Matricola</div>
-                <hr class="card">
-                <div class="valore">181110</div>
-            </div>
-            </div>
-            <div class="col">
-            
-            <div class="card"  >
-                <div class="titolo">Email</div>
-                <hr class="card">
-                <div class="valore">Goretti.1811110@studenti.uniroma1.it</div>
-            </div>    
-            
-            
-            <div class="card"  >
-                <div class="titolo">Anno iscrizione</div>
-                <hr class="card">
-                <div class="valore">III</div>
-            </div>
-
-            </div>
-            <div class="col">
-            <div class="card" >
-                <div class="titolo">Corsi che segui</div>
-                <hr class="card">
-                <div class="valore">Corso1<br>Corso2<br>Corso3</div>
-            </div>
-            </div>
-            </div>
-            
             
         </div>
-    </div>
-    <div class="footer">
+            <div class="col" style="text-align: center;" >
+                
+                    <div class="titolo">Cognome</div><br>
+                    <div class="line" style="margin-left: 15%;"></div>
+                    <div class="valore">Goretti</div>
+                
+            </div>
+            
+            <!-- colonna 2-->
+            <div class="col" style="text-align: center;">
+            
+                <div class="titolo">Email</div><br>
+                <div class="line" style="margin-left: 15%;"></div>
+                <div class="valore">Goretti.1811110@studenti.uniroma1.it</div>
+                
+            </div>
+            </div>
+            
+            
+       
+        <h2 class="tit">Dati universitari</h2>
+        
+        <div class="row" style="padding: 10px; ">
+        <div class="col" style="text-align: center;" >
 
+        <!-- colonna 1-->   
+        <div class="titolo">Matricola</div><br>
+        <div class="line" style="margin-top: -5%;  margin-left: 27%;"></div>
+        <div class="valore">181110</div>
+        <br>
+        <div class="titolo">Anno iscrizione</div><br>
+        <div class="line" style="margin-top: -5%; margin-left: 27%;"  ></div>
+        <div class="valore">III anno </div>
+          
+        
+        </div>
+
+        <div class="col" style="text-align: center;"  >
+        <!-- colonna 3-->
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">Chiudi</a><br>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Interazione uomo macchina</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Organizzazione e gestione aziendale</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Automi calcolabilità e complessità</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">calcolo delle probabilità</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Algebra</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Sistemi operativi</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Reti di elaboratori</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Metodologie di programmazione</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Progettazione di sistemi digitali</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Introduzione agli algoritmi</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Lingua Inglese</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Fondamenti di Programmazione</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Calcolo integrale</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Architettura degli elaboratori</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Metodi matematici per l'informatica</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Calcolo differenziale</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Basi di Dati</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Gamification e Game Design</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Ingegneria del software</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Linguaggi e tecnologie per il web</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Progettazione di algoritmi</div>
+            </div>
+            <div class="riga">
+                <div class="casella"><input type="checkbox" ></div>
+                <div class="nome">Programmazione per il web</div>
+            </div>
+            </div>    
+            <div class="titolo" onclick="openNav()">Corsi che segui</div><br>
+            <div class="line" style="margin-top: -5%; margin-left: 27%;"></div>
+            <div class="valore">Corso1<br>Corso2<br>Corso3</div>
+        
+          </div>
+        </div>
+        </div>
+    </div> 
+        
     </div>
+</div>
+    
     
     
      
