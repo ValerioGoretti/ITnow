@@ -2505,6 +2505,14 @@ fieldset:disabled a.btn {
   border-color: #822433;
   margin-top: 30px;
 }
+.btn-primary2 {
+  color: #822433;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  margin-top: 30px;
+}
+
+
 /*cambio colori per bottone login nella home quando hover*/
 .btn-primary:hover {
   color: #822433;
