@@ -1,0 +1,89 @@
+
+ body{
+    
+ }
+.header{
+    width: 100%;
+    height: 17%;
+    background-color: #fff;
+}
+
+.rightBar{
+    width: 15%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background-color: blueviolet;
+}
+
+.leftBar{
+    width: 15%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background-color: blue;
+}
+
+.logo{
+    width: 20%;
+    height: 100%;
+    float: left;
+    margin-left: 5%;
+    margin-top: 5px;
+    background: url("../LOGHI/logo_con_testo_accanto_bordeaux.png");
+}
+
+.profile{
+    background-color: #822433;
+    color: #fff;
+    width: 6%;
+    height: 70%;
+    margin-top: 1%;
+    margin-right: 3%;
+    font-size: xx-large;
+    float: right;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 75px;
+    transition: .3s linear;
+}
+.profile:hover{
+    border-radius: 30%;
+}
+
+.ricerca{
+    width: 30%;
+    height: 40%;
+    margin-top: 3%;
+    margin-right: 5%;
+    float: right;
+    
+}
+.icona{
+    height: 100%;
+    width: 11%;
+    font-size: x-large;
+    border-radius: 50%;
+    float: right;
+    background-color: #822433;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    transition: .3s linear;
+}
+.icona:hover{
+    border-radius: 30%;
+}
+
+.testo{
+    height: 100%;
+    width: 82%;
+    border-radius: 20px;
+    border-color: #822433;
+}
+.core{
+    width: 70%;
+    margin-left: 15%;
+    height: 100%;
+    background-color: brown;
+}
