@@ -30,9 +30,11 @@ if(isset($_POST["submit"]))
   $mail->addAddress($name_mail);
   if($mail->send())
   {
-    echo "La password è stata inviata a $name_mail.";;
+    
+    readfile("password_dimenticata_invio.html");
+    
   }
-  else{echo "Ci sono stati problemi nell'invio della password, riprova per favore";}
+  else{readfile("password_dimenticata_fallimento.html");}
 }
 
 ?>
