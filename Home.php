@@ -26,8 +26,6 @@
             });
         </script>
     </head>
-
-
     <body>
         <div class="header">
             <div class="logo"><a href="index.html"><img src="/LOGHI/logo_con_testo_accanto_bordeaux.png" style="width: 70%; height: 100%;"></a></div>
@@ -37,7 +35,6 @@
                 <input type="text" class="testo" placeholder="cerca qui" id="r">
             </div>
         </div>
-        
         <div class="leftBar"> <p>ciao </p></div>
         <div class="rightBar"> barra dx</div>
         <div class="core">
@@ -46,7 +43,6 @@
                         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
                         $query = 'SELECT * FROM studente';
                         $result = pg_query($query) or die ('Query failed: '.pg_last_error());
-                        
                                 while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
                                     <div class="post">
                                         <div class="titolo"> <h1><?php echo $line['matricola'];?></h1> </div>
@@ -57,10 +53,8 @@
                                         <div class="data">data e ora </div>
                                     </div>
                                 <?php } 
-                                echo "</table>\n";
                                 pg_free_result($result);
                                 pg_close($dbconn);?>
-                
             </div>
             
         </div>
