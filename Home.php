@@ -27,7 +27,7 @@
         </script>
     </head>
 
-    
+
     <body>
         <div class="header">
             <div class="logo"><a href="index.html"><img src="/LOGHI/logo_con_testo_accanto_bordeaux.png" style="width: 70%; height: 100%;"></a></div>
@@ -37,6 +37,7 @@
                 <input type="text" class="testo" placeholder="cerca qui" id="r">
             </div>
         </div>
+        
         <div class="leftBar"> <p>ciao </p></div>
         <div class="rightBar"> barra dx</div>
         <div class="core">
