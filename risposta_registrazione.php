@@ -29,7 +29,7 @@
                      $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
    
                      $array=array('matricola' => $matricola,'nome'=>$nome,'password'=>$password,'cognome'=>$cognome,'email'=>$email,'anno'=>1998);
-                     $array2=array('matricola' => 11111,'nome'=>'gino','password'=>'gino','cognome'=>'gino','email'=>'gino@ginomail.it','anno'=>1998); 
+                     //$array2=array('matricola' => 11111,'nome'=>'gino','password'=>'gino','cognome'=>'gino','email'=>'gino@ginomail.it','anno'=>1998); 
                      $result = pg_insert($dbconn,'studente',$array) or die ('Query failed: '.pg_last_error());
                     
                     if($result) 
