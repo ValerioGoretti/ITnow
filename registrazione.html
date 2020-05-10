@@ -2,17 +2,65 @@
 <html>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="css/registrazione.css">
         <link href="css/styles.css" rel="stylesheet" />
+        
+        <script type="text/javascript"  language="javascript">
+            
+            function validaRegistrazione()
+            {
+ 
+                
+                return valida();
+            
+                
+            }
+            function valida()
+            {
+                var request = new XMLHttpRequest();
+                request.open("GET", "dati_studenti.json", false);
+                request.send(null)
+                var risultato = JSON.parse(request.responseText);
+                var mail=document.getElementById("emailStudente").value;
+                var matricola=document.getElementById("matricola").value;   
+                var p1=document.getElementById("p1").value;
+                var p2=document.getElementById("p2").value;
+                
+                var isnum = /^\d+$/.test(matricola); 
+          
+                for (i=0;i<risultato.length;i++)
+                {
+                    
+                   
+                   
+                   if(risultato[i]["mail"]==mail) {alert("La mail inserita non è valida o già utilizzata");return false;}  
+                    if((risultato[i]["matricola"]==matricola)||(!isnum)){alert("Matricola non valida o già esistente");return false;}
+                    if(p1!=p2){alert("Le due password inserite sono differenti");return false;}
 
+
+                    
+                }
+                return true;
+
+ 
+            
+                
+            }
+  
+            
+            
+ 
+
+
+        </script>
     </head>
     <body >
         
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light  py-3" id="mainNav" style="background-color: #822433;">
-        <div class="container">
+        <div class="container" >
             <a class="navbar-brand js-scroll-trigger" href="index.html#page-top">ITnow</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive"></div>
                 <ul class="navbar-nav ml-auto my-2 my-lg-0">
@@ -22,59 +70,55 @@
         </div>   
     </nav>
     <!--Contenitore registrazione-->
-        <div class="container2"><br><br>
+        <div class="container2" style="background-color: #822433; height: 1200px;;" ><br><br>
             <div class="container_registrazione">
                 <h1 id="regStudenti" class="t  font-weight-bold" style="color: #822433;">Registrazione Studenti</h1>
                 <br>
                 <br>
                 
-            <div class="row register-form ">
+            <form class="row register-form" name="formStudenti" method="GET" action="risposta_registrazione.php"  onsubmit="return validaRegistrazione();">
                 
                 <div class="col-md-6">
                     <div class="form-group" >
-                        <input type="text" class="form-control-registrazione" placeholder="First Name *" value=""/>
+                        <input name="nome" type="text" class="form-control-registrazione" placeholder="Nome" value="" required/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control-registrazione" placeholder="Last Name *" value="" />
+                        <input name="cognome" type="text" class="form-control-registrazione" placeholder="Cognome" value="" required/>
                     </div>
                     <div class="form-group">
-                        <input type="email" class="form-control-registrazione" placeholder="Email *" value="" />
-                    </div>
-                    <div class="form-group">
-                        <input type="text" maxlength="10" minlength="10" class="form-control-registrazione" placeholder="Phone *" value="" />
-                    </div>
-
-
+                        <input name="email" id="emailStudente" type="email" class="form-control-registrazione" placeholder="Email " required />
+                        
+                    </div>                    
                 </div>
+                
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="password" class="form-control-registrazione" placeholder="Password *" value="" />
+                        <input name="matricola"id="matricola" type="text"  class="form-control-registrazione" placeholder="Matricola"  required/>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control-registrazione" placeholder="Confirm Password *" value="" />
+                        <input name="password" type="password" id="p1" class="form-control-registrazione" placeholder="Password " value="" required/>
                     </div>
                     <div class="form-group">
-                        <select class="form-control-registrazione" >
-                            <option class="hidden"  selected disabled>Domanda di sicurezza</option>
-                            <option>What is your Birthdate?</option>
-                            <option>What is Your old Phone Number</option>
-                            <option>What is your Pet Name?</option>
-                        </select>
+                        <input type="password" id="p2" class="form-control-registrazione" placeholder="Conferma Password " value="" required/>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control-registrazione" placeholder="`Answer *" value="" />
-                    </div class="form-group" >
-                    <input type="submit" class="btnRegister" value="Registrati"/>
+
+  
+                    <div class="form-group" >
+                    <input style="padding: 10px;border-radius: 5px;" type="submit" class="btnRegister" value="Registrazione" name="res"/>
+                    </div>
                 </div>
+            </form>
             </div>
-            </div>
+            
+           
+
             <br>
             
             <div class="container_registrazione ">
                 <h1 class="t font-weight-bold"  style="color: #822433;">Registrazione Docenti</h1>
                 <br>
                 <br>
-                <div id="regDocenti"class="row register-form ">
+                <form name="regDocenti"class="row register-form ">
                     <div class="col-md-6">
                         <div class="form-group" >
                             <input type="text" class="form-control-registrazione" placeholder="First Name *" value=""/>
@@ -83,7 +127,7 @@
                             <input type="text" class="form-control-registrazione" placeholder="Last Name *" value="" />
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control-registrazione" placeholder="Email *" value="" />
+                            <input name="email2" type="email" class="form-control-registrazione" placeholder="Email *" value="" />
                         </div>
                         <div class="form-group">
                             <input type="text" maxlength="10" minlength="10" class="form-control-registrazione" placeholder="Phone *" value="" />
@@ -110,17 +154,16 @@
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control-registrazione" placeholder="`Answer *" value="" />
-                        </div class="form-group" >
-                        <input type="submit" class="btnRegister" value="Registrati"/>
+                        <div class="form-group">
+                        <input type="submit" class="btnRegister" value="Registrati" name="reg"/>
                     </div>
-                </div>
+                </form>
                
             </div>
-            <br>
-            <br>
+
         </div>
         
         
-    
+    </div>
     </body>
 </html>
