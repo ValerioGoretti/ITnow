@@ -16,7 +16,7 @@
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $query ="SELECT *
                  FROM corso JOIN anno_didattico ON corso.nome=anno_didattico.corso
-                 WHERE corso.nome='architetture'";
+                 WHERE corso.nome='automi'";
         
         $result = pg_query($query) or die ('Query failed: '.pg_last_error());
     ?>     
