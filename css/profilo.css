@@ -144,3 +144,33 @@ h2.tit{
     font-size:small;
 }
  
+.datiCorso{
+    width: 70%;
+    height:90%; 
+    margin: 0 auto;
+    color:#822433;  
+    background-color: #ffffff;
+    border-radius: 6px;
+    box-shadow: 0 30px 50px 0 rgba(130,36,51, 0.3), 0 30px 50px 0 rgba(130,36,51, 0.2);
+
+}
+.descrizione{
+    width: 70%;
+    height: 20%;
+    margin: 0 auto;
+}
+.anni{
+    width: 70%;
+    height: 40%;
+    margin: 0 auto;
+    text-align: center;
+}
+.annoDidattico{
+    text-decoration: none;
+    color: #822433;
+
+}
+.annoDidattico:hover{
+    text-decoration: none;
+    color: #822433;
+}
