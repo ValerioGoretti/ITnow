@@ -34,7 +34,7 @@
                 <form action="profiloCorso.php" method="get" name="corsoform">
                 <div class="icona" id="lente"><i class="search-icon fas fa-search" ></i></div>
                 <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
-                <input type="text" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
+                <input type="text" placeholder="cerca un corso" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
                 <datalist id="corso">
                     <?php     
                             $string=file_get_contents('json/corsi.json', 'r');
