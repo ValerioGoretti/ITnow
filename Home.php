@@ -31,8 +31,24 @@
             <div class="logo"><a href="index.html"><img src="/LOGHI/logo_con_testo_accanto_bordeaux.png" style="width: 70%; height: 100%;"></a></div>
             <a href="profilo.html" style="text-decoration: none; color: #fff;"><div class="profile"><i class="fas fa-user" ></i></a></div>
             <div class="ricerca"> 
+                <form action="profiloCorso.php" method="get" name="corsoform">
                 <div class="icona" id="lente"><i class="search-icon fas fa-search" ></i></div>
-                <input type="text" class="testo" placeholder="cerca qui" id="r">
+                <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
+                <input type="text" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
+                <datalist id="corso">
+                    <?php     
+                            $string=file_get_contents('json/corsi.json', 'r');
+                            $corsi=json_decode($string,true);
+                            $no_dup =[];
+                            foreach($corsi as $c){
+                                if(!in_array($c['nomeCorso'],$no_dup))
+                                {?>
+                                    <option value="<?php echo $c['nomeCorso'] ?>" selected><?php echo $c['nomeCorso'] ?></option>
+                                    <?php array_push($no_dup,$c['nomeCorso']);
+                                
+                            }}?>
+                </datalist>
+                </form>
             </div>
         </div>
         <div class="leftBar"> <p>ciao </p></div>

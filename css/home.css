@@ -78,6 +78,13 @@
     border-radius: 20px;
     border-color: #822433;
 }
+/*togliere dalla scelta delle materie il riquadro blu intorno*/
+.testo:focus{
+    outline: none;
+}
+.select-items{
+    color: #822433;
+}
 .core{
     width: 70%;
     margin-left: 15%;
