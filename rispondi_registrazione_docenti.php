@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -17,31 +16,34 @@
                 
                 <?php
                     
-                    include "updateStudentiJson.php";                    
-                    if(isset($_GET['res'])){
-                    $nome=$_GET['nome'];
-                    $cognome=$_GET['cognome'];
-                     $email=$_GET['email'];
-                    $password=$_GET['password']; 
-                    $matricola=(int)$_GET['matricola'];
+                    include "updateDocentiJson.php";                    
+                    if(isset($_GET['doc'])){
+                    $nome=$_GET['nome2'];
+                    $cognome=$_GET['cognome2'];
+                     $email=$_GET['email2'];
+                    $password=$_GET['p12']; 
+                   
      
          
                      $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
    
-                     $array=array('matricola' => $matricola,'nome'=>$nome,'password'=>$password,'cognome'=>$cognome,'email'=>$email,'anno'=>1998);
-                     //$array2=array('matricola' => 11111,'nome'=>'gino','password'=>'gino','cognome'=>'gino','email'=>'gino@ginomail.it','anno'=>1998); 
-                     $result = pg_insert($dbconn,'studente',$array) or die ('Query failed: '.pg_last_error());
+                     $array=array('nome'=>$nome,'password'=>$password,'cognome'=>$cognome,'email'=>$email);
+   
+                     $result = pg_insert($dbconn,'docente',$array) or die ('Query failed: '.pg_last_error());
                     
                     if($result) 
-                        {run2(); 
+                        {run(); 
                             echo('<div class="row" style="width:fit-content; margin:0 auto;">');
-                            echo('<p style="font-size:25px ;padding:10px class="font-weight-bold" >Ciao '.$nome.' ,</p>');   
+                            echo('<p style="font-size:25px ;padding:10px" class="t font-weight-bold" >Ciao '.$nome.' ,</p>');   
                             echo('</div>');
-                            echo('<p style="font-size:20px ;padding:10px" class="font-weight row" >benvenuto in Itnow! Effettua il login per entrare nel portale.</p>');}
+                            echo('<p style="font-size:20px ;padding:10px" class="t font-weight row" >benvenuto in Itnow!La moderazione ha convalidato la tua richiesta di iscrizione.Effettua il login per entrare nel portale.</p>');}
                     else{
                             echo('<p style="font-size:20px ;padding:10px" class="font-weight row" >Registrazione non riuscita , per favore riprovare.</p>');
                     } 
                     pg_close($dbconn);}
+                    else {
+                        echo("nope");
+                    }
                     
                 ?>
                  
