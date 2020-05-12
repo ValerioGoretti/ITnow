@@ -66,17 +66,17 @@
             <div class="container login-container" id="login">
                             <div class="row">
                                 <div class="col-md-6 login-form-1">
-                                    <form name="loginStudente" action="" method="" id="login1">
+                                    <form name="loginStudente" action="login.php" method="GET" id="login1">
                                     <h3 >Login Studente</h3>
                                      
                                         <div class="form-group">
-                                            <input type="text" class="form-control" placeholder="Inserisci la tua email" value="" />
+                                            <input type="text" name="matricola" class="form-control" placeholder="Inserisci la tua email" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control" placeholder="Inserisci la tua Password" value="" />
+                                            <input type="password" name="passwordStudente" class="form-control" placeholder="Inserisci la tua Password" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" class="btnSubmitligth" value="Login" />
+                                            <input type="submit" name="loginS" class="btnSubmitligth" value="Login" />
                                         </div>
                                         <div class="form-group">
                                             <a href="password_dimenticata.html" class="btnForgetPwdligth">Password dimenticata?</a>
@@ -87,16 +87,16 @@
                                     <div class="login-logo">
                                         <img src="LOGHI/cervello128.png"  alt=""/>
                                     </div>
-                                    <form name="loginDocente" action="" method="" id="login2"> 
+                                    <form name="loginDocente"  action="login.php" method="GET"> 
                                     <h3 style="color: #822433;">Login Docente</h3>
                                         <div class="form-group">
-                                            <input id="emailplace" type="text" class="form-sapienza form-control" placeholder="Inserisci la tua email" value="" />
+                                            <input name="email" type="text" class="form-sapienza form-control" placeholder="Inserisci la tua email" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input id="passplace" type="password" class="form-sapienza form-control" placeholder="Inserisci la tua Password" value="" />
+                                            <input name="passwordDocente" type="password" class="form-sapienza form-control" placeholder="Inserisci la tua Password" value="" />
                                         </div>
                                         <div class="form-group">
-                                            <input type="submit" class="btnSubmit" value="Login" />
+                                            <input type="submit" name="loginD" class="btnSubmit" value="Login" />
                                         </div>
                                         <div class="form-group">
         
