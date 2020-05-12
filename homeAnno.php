@@ -20,7 +20,6 @@
         <script>
             $("document").ready(function(){
                 $("#r").hide();
-                $('#documenti').hide();
                 $("#lente").click(function(){
                     $("#r").toggle();
                 });
@@ -38,7 +37,6 @@
                 <input type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
                 <datalist id="corso">
                     <?php   
-                        
                             $string=file_get_contents('json/corsi.json', 'r');
                             $corsi=json_decode($string,true);
                             $no_dup =[];
@@ -56,22 +54,22 @@
         <div class="rightBar"> barra dx</div>
         <div class="core">
             <div class="spazioPost">
-            <?php       include "updatePost.php";
-                        run();
+                <?php 
+                        $corso = $_GET['corso'];
                         $string=file_get_contents('json/post.json', 'r');
                         $post=json_decode($string,true);
-                        foreach ($post as $p){?>
+                        foreach ($post as $p){
+                            if($p['idCorso']==$corso){?>
+                          
                             <div class="post">
                                 <div class="titolo"> <h1><?php echo $p['titolo'];?></h1> </div>
                                 <div class="autore"><h3><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h3> </div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $p['testo'];?> </div>
-                                <div class="doc"> <div class="attache"><i id="att" class="fas fa-paperclip"></i></div>
-                                </div>
-                                
+                                <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
                                 <div class="data"><?php echo $p['timestamp'];?> </div>
                             </div>
-                                <?php } ?>
+                                <?php }} ?>
             </div>
             
         </div>

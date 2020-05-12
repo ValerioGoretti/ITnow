@@ -131,8 +131,28 @@
 }
 
 .doc { grid-area: 8 / 9 / 10 / 11; 
-    background-color: pink;
+    
 }
-.data { grid-area: 9 / 1 / 10 / 3; 
+.data { grid-area: 9 / 1 / 10 / 5; 
     background-color: yellow;
+    
+}
+
+.attache{
+    background-color: #822433;
+    border-radius: 50%;
+    width: 50%;
+    color: #fff;
+    font-size: xx-large;
+    text-align: center;
+    height: 100%;
+    float: right;
+}
+
+.line {
+    border-top: 3px solid orange;
+    border-radius: 50%;
+    margin-bottom: 2%;
+    width: 50%;
+    margin: 0 auto;
 }

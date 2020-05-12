@@ -8,6 +8,8 @@
         <link href="css/profilo.css" rel="stylesheet" />
         <link href="css/profilo.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet"/>
+
+        
     </head>
     <body style="width: 100%; height:100%; background-color: #822433;">
     <?php
@@ -31,14 +33,14 @@
        
             <div class="anni">
                     
-            
+            <form action="homeAnno.php" method="get" name="homeAnno">
     <?php
                 foreach($corsi as $c){
-                    //al posto di automi ci va l'imput del form che arriva da home
                     if($c['nomeCorso']==$corso){?>
-                        <h5><a class="annoDidattico" href=""> <?php echo $c['nomeCorso'].' '.$c['anno'] .'-'. $c['nomeDoc'].' '. $c['cognomeDoc'].'<br>'; ?></a></h5>
+                            <button type="hidden" class="annoDidattico" value="<?php echo $c['idCorso']?>" name="corso"> <h5><?php echo $c['nomeCorso'].' '.$c['anno'] .'-'. $c['nomeDoc'].' '. $c['cognomeDoc']; ?></h5> </button><br>
                     <?php }}
      ?> 
+                </form>
                 </div>
             </div>
     </body>
