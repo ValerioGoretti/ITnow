@@ -27,7 +27,7 @@
          
                      $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
    
-                     $array=array('nome'=>$nome,'password'=>$password,'cognome'=>$cognome,'email'=>$email);
+                     $array=array('nome'=>$nome,'password'=>md5($password),'cognome'=>$cognome,'email'=>$email);
    
                      $result = pg_insert($dbconn,'docente',$array) or die ('Query failed: '.pg_last_error());
                     

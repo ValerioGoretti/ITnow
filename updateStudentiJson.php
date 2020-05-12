@@ -5,14 +5,14 @@ $query= "SELECT * FROM studente";
 $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
 while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
 {
-    $array[]=array('nome'=>$line["nome"],'cognome'=>$line['cognome'],'mail'=>$line['email'],'matricola'=>$line['matricola']);
+    $array[]=array('nome'=>$line["nome"],'password'=>$line['password'],'cognome'=>$line['cognome'],'mail'=>$line['email'],'matricola'=>$line['matricola']);
 }
 return json_encode($array);
 }
 function run2(){
 $file_name='registrazione.json';
 
-file_put_contents("dati_studenti.json",ottieniDati2());
+file_put_contents("json/dati_studenti.json",ottieniDati2());
 
 }
 
