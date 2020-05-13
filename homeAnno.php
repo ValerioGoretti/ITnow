@@ -1,3 +1,7 @@
+<?php
+    include 'updatePost.php';
+    run();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,28 +23,29 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script>
             $("document").ready(function(){
-                $("#r").hide();
+               
                
                 $('.follow').click(function(){
-                    if ($('.follow').text() =='segui') 
-                    {    $('.follow').text('seguito');}
+                    if ($('.follow').text() =='Segui') 
+                    {    $('.follow').text('Non seguire più');}
                     else 
-                    {    $('.follow').text('segui');}
+                    {    $('.follow').text('Segui');}
                 });
             });
         </script>
     </head>
     <body>
-        <div class="header">
-            <div class="logo"><a href="index.html"><img src="/LOGHI/logo_con_testo_accanto_bordeaux.png" style="width: 70%; height: 100%;"></a></div>
-            <a href="profilo.html" style="text-decoration: none; color: #fff;"><div class="profile"><i class="fas fa-user" ></i></a></div>
-            <div class="ricerca"> 
+        <div class="header row">
+            <div class="col-2"  style="text-align:center" ><a href="index.html" ><img style="width:130px;height:130px;" src="/LOGHI/logo_con_testo_accanto_bordeaux.png"></img></a></div>
+            <div class="ricerca col">  
                 <form action="profiloCorso.php" method="get" name="corsoform">
-                <div class="icona" id="lente"><i class="search-icon fas fa-search" ></i></div>
+               
                 <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
-                <input type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
-                <datalist id="corso">
+                <input  type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
+                
+                <datalist id="corso" style="width:100%">
                     <?php   
+                        
                             $string=file_get_contents('json/corsi.json', 'r');
                             $corsi=json_decode($string,true);
                             $no_dup =[];
@@ -53,12 +58,16 @@
                 </datalist>
                 </form>
             </div>
+            
+            <div class="profile " ><a href="profilo.html" style="text-decoration: none; color: #fff;"><i class="fas fa-user" ></i></a></div>
         </div>
-        <div class="leftBar"> <p>ciao </p></div>
-        <div class="rightBar"> <div class="btn-follow follow">segui</div> </div>
-        <div class="core">
+                     
+        
+        <div class="leftBar "> <p>ciao </p></div>
+        <div class="rightBar" style="padding:10px;">  <div class="btn-follow follow">Segui</div></div>
+        <div class="core ">
             <div class="spazioPost">
-                <?php 
+            <?php 
                         $corso = $_GET['corso'];
                         $string=file_get_contents('json/post.json', 'r');
                         $post=json_decode($string,true);
@@ -66,16 +75,16 @@
                             if($p['idCorso']==$corso){?>
                           
                             <div class="post">
-                                <div class="titolo"> <h1><?php echo $p['titolo'];?></h1> </div>
-                                <div class="autore"><h3><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h3> </div>
+                                <div class="titolo"> <h2><?php echo $p['titolo'];?></h2> </div>
+                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $p['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
-                                <div class="data"><div class=timestamp><?php echo $p['timestamp'];?></div> </div>
+                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
                             </div>
                                 <?php }} ?>
             </div>
-            
-        </div>
+        </div>   
+        
     </body>
 </html>

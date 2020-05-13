@@ -19,24 +19,24 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script>
             $("document").ready(function(){
-                $("#r").hide();
+                //$("#r").hide();
                 $('#documenti').hide();
-                $("#lente").click(function(){
-                    $("#r").toggle();
+               // $("#lente").click(function(){
+                   // $("#r").toggle();
                 });
             });
         </script>
     </head>
     <body>
-        <div class="header">
-            <div class="logo"><a href="index.html"><img src="/LOGHI/logo_con_testo_accanto_bordeaux.png" style="width: 70%; height: 100%;"></a></div>
-            <a href="profilo.html" style="text-decoration: none; color: #fff;"><div class="profile"><i class="fas fa-user" ></i></a></div>
-            <div class="ricerca"> 
+        <div class="header row">
+            <div class="col-2"  style="text-align:center" ><a href="index.html" ><img style="width:130px;height:130px;" src="/LOGHI/logo_con_testo_accanto_bordeaux.png"></img></a></div>
+            <div class="ricerca col">  
                 <form action="profiloCorso.php" method="get" name="corsoform">
-                <div class="icona" id="lente"><i class="search-icon fas fa-search" ></i></div>
+               
                 <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
-                <input type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
-                <datalist id="corso">
+                <input  type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
+                
+                <datalist id="corso" style="width:100%">
                     <?php   
                         
                             $string=file_get_contents('json/corsi.json', 'r');
@@ -51,10 +51,13 @@
                 </datalist>
                 </form>
             </div>
+            <div class="profile " ><a href="profilo.html" style="text-decoration: none; color: #fff;"><i class="fas fa-user" ></i></a></div>
         </div>
-        <div class="leftBar"> <p>ciao </p></div>
+                     
+        
+        <div class="leftBar "> <p>ciao </p></div>
         <div class="rightBar"> barra dx</div>
-        <div class="core">
+        <div class="core ">
             <div class="spazioPost">
             <?php       include "updatePost.php";
                         run();
@@ -62,18 +65,18 @@
                         $post=json_decode($string,true);
                         foreach ($post as $p){?>
                             <div class="post">
-                                <div class="titolo"> <h1><?php echo $p['titolo'];?></h1> </div>
-                                <div class="autore"><h3><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h3> </div>
+                                <div class="titolo"> <h3><?php echo $p['titolo'];?></h3> </div>
+                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
-                                <div class="testoPost"><?php echo $p['testo'];?> </div>
+                                <div class="testoPost t font-weight"><?php echo $p['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i id="att" class="fas fa-paperclip"></i></div>
                                 </div>
                                 
-                                <div class="data"><?php echo $p['timestamp'];?> </div>
+                                <div class="data"><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?> </div>
                             </div>
                                 <?php } ?>
             </div>
-            
-        </div>
+        </div>   
+        
     </body>
 </html>
