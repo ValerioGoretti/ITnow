@@ -20,8 +20,12 @@
         <script>
             $("document").ready(function(){
                 $("#r").hide();
-                $("#lente").click(function(){
-                    $("#r").toggle();
+               
+                $('.follow').click(function(){
+                    if ($('.follow').text() =='segui') 
+                    {    $('.follow').text('seguito');}
+                    else 
+                    {    $('.follow').text('segui');}
                 });
             });
         </script>
@@ -51,7 +55,7 @@
             </div>
         </div>
         <div class="leftBar"> <p>ciao </p></div>
-        <div class="rightBar"> barra dx</div>
+        <div class="rightBar"> <div class="btn-follow follow">segui</div> </div>
         <div class="core">
             <div class="spazioPost">
                 <?php 
@@ -67,7 +71,7 @@
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $p['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
-                                <div class="data"><?php echo $p['timestamp'];?> </div>
+                                <div class="data"><div class=timestamp><?php echo $p['timestamp'];?></div> </div>
                             </div>
                                 <?php }} ?>
             </div>

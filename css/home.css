@@ -107,7 +107,7 @@
     margin: 0 auto;
     background-color: #822433;
     grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: repeat(8, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     margin-bottom: 5%;
@@ -130,11 +130,10 @@
     overflow-wrap: break-word;
 }
 
-.doc { grid-area: 8 / 9 / 10 / 11; 
+.doc { grid-area: 8 / 10 / 9 / 11; 
     
 }
-.data { grid-area: 9 / 1 / 10 / 5; 
-    background-color: yellow;
+.data { grid-area: 8 / 1 / 9 / 4; 
     
 }
 
@@ -149,10 +148,31 @@
     float: right;
 }
 
+
 .line {
     border-top: 3px solid orange;
     border-radius: 50%;
     margin-bottom: 2%;
     width: 50%;
     margin: 0 auto;
+}
+
+.timestamp{
+    background-color: aqua;
+
+}
+
+.btn-follow{
+    width: 100%;
+    height: 5%;
+    text-align: center;
+    background-color: #fff;
+    border: #822433;
+    color: #822433;
+    
+}
+
+.follow:hover{
+    background-color:  #822433;
+    color:#fff;
 }
