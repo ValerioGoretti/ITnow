@@ -45,7 +45,6 @@
                 
                 <datalist id="corso" style="width:100%">
                     <?php   
-                        
                             $string=file_get_contents('json/corsi.json', 'r');
                             $corsi=json_decode($string,true);
                             $no_dup =[];

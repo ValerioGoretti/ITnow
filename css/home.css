@@ -79,19 +79,18 @@
 
 .testo{
     width:100%;
- 
     height:35px;
     font-size: large;
     border-radius: 50px;
     padding: 10px;
     border-color: #822433;
 }
+.prova{
+    width: 100%;
+}
 /*togliere dalla scelta delle materie il riquadro blu intorno*/
 .testo:focus{
     outline: none;
-}
-.select-items{
-    color: #822433;
 }
 .core{
     width: 70%;

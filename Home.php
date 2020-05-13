@@ -33,7 +33,6 @@
             <div class="ricerca col">  
                 <form action="profiloCorso.php" method="get" name="corsoform">
                
-                <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
                 <input  type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
                 
                 <datalist id="corso" style="width:100%">
@@ -45,7 +44,7 @@
                             foreach($corsi as $c){
                                 if(!in_array($c['nomeCorso'],$no_dup))
                                 {?>
-                                    <option value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
+                                    <option class="prova" value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
                                     <?php array_push($no_dup,$c['nomeCorso']);
                             }}?>
                 </datalist>
