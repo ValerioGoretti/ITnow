@@ -160,16 +160,21 @@
     margin-top: 0px;
     
 }
+.download{
+    text-decoration: none;
+}
+.download:hover{
+    text-decoration: none;
+}
 
 .attache{
     background-color: #822433;
-    border-radius: 50%;
     width: 50%;
     color: #fff;
-    font-size: xx-large;
-    text-align: center;
-    height: 100%;
-    float: right;
+    font-size: small;
+    text-align: left;
+    margin-top: 3%;
+    height: fit-content;
 }
 
 
