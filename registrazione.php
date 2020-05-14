@@ -29,7 +29,7 @@
             function valida()
             {
                 var request = new XMLHttpRequest();
-                request.open("GET", "dati_studenti.json", false);
+                request.open("GET", "json/dati_studenti.json", false);
                 request.send(null)
                 var risultato = JSON.parse(request.responseText);
                 var mail=document.getElementById("emailStudente").value;
@@ -47,8 +47,6 @@
                    if(risultato[i]["mail"]==mail) {alert("La mail inserita non è valida o già utilizzata");return false;}  
                     if((risultato[i]["matricola"]==matricola)||(!isnum)){alert("Matricola non valida o già esistente");return false;}
                     if(p1!=p2){alert("Le due password inserite sono differenti");return false;}
-
-
                     
                 }
                 return true;
@@ -60,7 +58,7 @@
             function valida2()
             {
                 var request = new XMLHttpRequest();
-                request.open("GET", "dati_docenti.json", false);
+                request.open("GET", "json/dati_docenti.json", false);
                 request.send(null)
                 var risultato = JSON.parse(request.responseText);
                 var mail=document.getElementById("emailStudente2").value;

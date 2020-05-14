@@ -5,7 +5,7 @@ $query= "SELECT * FROM docente";
 $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
 while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
 {
-    $array[]=array('nome'=>$line["nome"],'password'=>$line["password"],'cognome'=>$line['cognome'],'mail'=>$line['email'],'referenze'=>$line['referenze']);
+    $array[]=array('mail'=>$line['email']);
 }
 return json_encode($array);
 }

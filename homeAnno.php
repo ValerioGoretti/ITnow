@@ -1,6 +1,7 @@
 <?php
     include 'updatePost.php';
     run();
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -35,31 +36,8 @@
         </script>
     </head>
     <body>
-        <div class="header row">
-            <div class="col-2"  style="text-align:center" ><a href="index.html" ><img style="width:130px;height:130px;" src="/LOGHI/logo_con_testo_accanto_bordeaux.png"></img></a></div>
-            <div class="ricerca col">  
-                <form action="profiloCorso.php" method="get" name="corsoform">
-               
-                <!--<input type="text" class="testo" placeholder="cerca qui" id="r">-->
-                <input  type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
-                
-                <datalist id="corso" style="width:100%">
-                    <?php   
-                            $string=file_get_contents('json/corsi.json', 'r');
-                            $corsi=json_decode($string,true);
-                            $no_dup =[];
-                            foreach($corsi as $c){
-                                if(!in_array($c['nomeCorso'],$no_dup))
-                                {?>
-                                    <option value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
-                                    <?php array_push($no_dup,$c['nomeCorso']);
-                            }}?>
-                </datalist>
-                </form>
-            </div>
-            
-            <div class="profile " ><a href="profilo.html" style="text-decoration: none; color: #fff;"><i class="fas fa-user" ></i></a></div>
-        </div>
+        <?php include 'header.php'?>;
+        
                      
         
         <div class="leftBar "> <p>ciao </p></div>
@@ -78,20 +56,8 @@
                                 <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $p['testo'];?> </div>
-                                <div class="data">
-                                <?php
-                                        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-                                        $query= "select post.id as postid, file.id,  file.url
-                                        from post join file on post.id=file.post
-                                        where post.id=$1;";
-                                        $result = pg_query_params($dbconn,$query,array($p['idpost'])) or die ('Query failed: '.pg_last_error());
-                                        while ($linefile  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
-                                                <a class="download" href="download/prova.txt" download="prova.txt"><div class="attache"><?php echo $linefile['url'] ?> <i class="fas fa-paperclip"></i></div></a>
-                                      <?php 
-                                        }?>
-                                </div>
-                                
-                                <div class="doc"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
+                                <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
+                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
                             </div>
                                 <?php }} ?>
             </div>

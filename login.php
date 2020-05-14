@@ -16,6 +16,15 @@
     
         }
         else{
+            session_start();
+            
+            //echo("accesso docente riuscito");
+            
+            $_SESSION['email']=$_GET["email"];
+            $_SESSION['logged']=true;
+            header("Location: Home.php");
+            //echo("<br><a href='logout.php'>Effettua il logout</a>");
+
     
         }
     
@@ -32,10 +41,21 @@ if(isset($_GET['loginS']))
 
     }
     else{
+        session_start();
+        $_SESSION["matricola"]=$_GET["matricola"];
+        $_SESSION["logged"]=true;
+        header("Location: Home.php");
+ 
 
     }
 
 }
+
+
+
+
+
+
 function validaDocente($matricola,$password)
 {
 
@@ -44,27 +64,16 @@ function validaDocente($matricola,$password)
     $data=file_get_contents("json/dati_docenti.json");
     $data=json_decode($data,true);
     
-    foreach($data as $riga)
-    {
-
-        
-        if(($riga['mail']==$matricola)&&($riga['password']==md5($password)))
-        {
-            
-            
-            session_start();
-            
-            echo("accesso docente riuscito");
-            
-            
-            echo("<br><a href='logout.php'>Effettua il logout</a>");
-
-            return true;
-        }
-       
-    }
+    $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+    $password2=md5($password);
+    $query= "SELECT *
+            FROM docente 
+            WHERE email='$matricola' and password='$password2'";
+    $result = pg_query_params($dbconn,$query,array()) or die ('Query failed: '.pg_last_error());
+    if(pg_num_rows($result)!=0)return true;
     return false;
     }
+    return false;
 }
 
 function validaStudente($matricola,$password)
@@ -72,28 +81,21 @@ function validaStudente($matricola,$password)
 
     if((!empty($matricola))&&(!empty($password)))
     {
-    $data=file_get_contents("json/dati_studenti.json");
-    $data=json_decode($data,true);
-    
-    foreach($data as $riga)
-    {
-        
-        
-        if(($riga['matricola']==$matricola)&&($riga['password']==md5($password)))
+        if((!empty($matricola))&&(!empty($password)))
         {
-            
-            session_start();
-            $_SESSION["CANE"]="BAUBAU";
-            echo("accesso riuscito");
-            
-            
-            echo("<br><a href='logout.php'>Effettua il logout</a>");
-
-            return true;
+        $data=file_get_contents("json/dati_docenti.json");
+        $data=json_decode($data,true);
+        
+        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+        $password2=md5($password);
+        $query= "SELECT *
+                FROM studente 
+                WHERE matricola='$matricola' and password='$password2'";
+        $result = pg_query_params($dbconn,$query,array()) or die ('Query failed: '.pg_last_error());
+        if(pg_num_rows($result)!=0)return true;
+        return false;
         }
-       
-    }
-    return false;
+        return false;
     }
 }
 ?>

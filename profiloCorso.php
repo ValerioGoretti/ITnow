@@ -8,10 +8,28 @@
         <link href="css/profilo.css" rel="stylesheet" />
         <link href="css/profilo.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link href="css/home.css" rel="stylesheet">
+        <title></title>
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
         
     </head>
-    <body style="width: 100%; height:100%; background-color: #822433;">
+    <body >
+    <?php include 'header.php'?>
+    <div style="width: 100%; height:100%; background-color: #822433; padding:3px" > 
     <?php
                 $corso = $_GET['corso'];
                 $string=file_get_contents('json/corsi.json', 'r');
@@ -43,5 +61,6 @@
                 </form>
                 </div>
             </div>
+    </div>
     </body>
 </html>
