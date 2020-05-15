@@ -1,7 +1,23 @@
 <?php
-    include 'updatePost.php';
-    run();
-    
+                         $corso = $_GET['corso'];
+                        $docenti="";
+                        $anno;
+                        $nome;
+                        $mail="";
+                        $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+                        $query2= 
+                            "SELECT anno_didattico.anno,docente.nome,docente.cognome,docente.email,anno_didattico.corso
+                            from anno_docente join anno_didattico on anno_docente.anno=anno_didattico.id join docente on anno_docente.docente=docente.email
+                            where anno_didattico.id='$corso' 
+                            ";
+                            $result2 = pg_query($dbconn2,$query2) or die ('Query failed: '.pg_last_error());
+                            while ($line  = pg_fetch_array($result2,null,PGSQL_ASSOC)){
+                                    $docenti=$line["nome"]." ".$line['cognome']." ".$docenti;
+                                    $anno=$line["anno"];
+                                    $nome=$line["corso"];
+                                    $mail=$line["email"]." ".$mail;
+
+                            }
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,21 +61,37 @@
         <div class="core ">
             <div class="spazioPost">
             <?php 
-                        $corso = $_GET['corso'];
-                        $string=file_get_contents('json/post.json', 'r');
-                        $post=json_decode($string,true);
-                        foreach ($post as $p){
-                            if($p['idCorso']==$corso){?>
-                          
+                        
+
+                       
+                        $query= 
+                            "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.timestamp, d.nome, d.cognome, d.email
+                            from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email 
+                            where ad.id='$corso' 
+                            order by post.timestamp asc ";
+                            $result = pg_query($dbconn2,$query) or die ('Query failed: '.pg_last_error());
+                            echo "<div class=containerTitolo>";
+                            echo "<h3>Benvenuto nella pagina del corso ".$nome."</h3>";
+                            echo"<p>Anno del corso: ".$anno."</p>";
+                            echo"<p>Docenti del corso: ".$docenti."</p>";
+                            echo"<p>Email dei docenti: ".$mail."</p>";
+
+                            echo "</div>";
+
+                            while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
+                             //$array[]=array('idCorso'=>$line['id'],'corso'=>$line["corso"],'anno'=>$line['anno'],'idpost'=>$line['idpost'],'titolo'=>$line['intestazione'],'testo'=>$line['testo'],'timestamp'=>$line['timestamp'],'nomeDoc'=>$line["nome"],'cognomeDoc'=>$line["cognome"],'emailDoc'=>$line["email"]);
+            
+                            ?>
+                           
                             <div class="post">
-                                <div class="titolo"> <h2><?php echo $p['titolo'];?></h2> </div>
-                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h5> </div>
+                                <div class="titolo"> <h2><?php echo $line['intestazione'];?></h2> </div>
+                                <div class="autore"><h5><?php echo $line['nome'] . ' '.$line['cognome'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
-                                <div class="testoPost"><?php echo $p['testo'];?> </div>
+                                <div class="testoPost"><?php echo $line['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
-                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
+                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$line['timestamp']."</p>";?></div> </div>
                             </div>
-                                <?php }} ?>
+                                <?php } ?>
             </div>
         </div>   
         

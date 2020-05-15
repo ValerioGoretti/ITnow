@@ -1,6 +1,7 @@
 <?php
     session_start();
     $logged=isset($_SESSION['logged']);
+    $matricola=($_SESSION['matricola']);
 ?>
 
 <!DOCTYPE html>
@@ -48,13 +49,13 @@
         <div class="core ">
             <div class="spazioPost">
             <?php       include "updatePost.php";
-                        run();
+                        run($matricola);
                         $string=file_get_contents('json/post.json', 'r');
                         $post=json_decode($string,true);
                         foreach ($post as $p){?>
                             <div class="post">
                                 <div class="titolo"> <h3><?php echo $p['titolo'];?></h3> </div>
-                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'];?></h5> </div>
+                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost t font-weight"><?php echo $p['testo'];?> </div>
                                 
