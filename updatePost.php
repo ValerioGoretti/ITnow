@@ -11,7 +11,9 @@
         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
                 $array[]=array('idCorso'=>$line['id'],'corso'=>$line["corso"],'anno'=>$line['anno'],'idpost'=>$line['idpost'],'titolo'=>$line['intestazione'],'testo'=>$line['testo'],'timestamp'=>$line['timestamp'],'nomeDoc'=>$line["nome"],'cognomeDoc'=>$line["cognome"],'emailDoc'=>$line["email"]);
             }
-        return json_encode($array);
+        if (isset($array)) return json_encode($array);
+        else return false;
+        
     }
  
     function run($matricola){

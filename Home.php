@@ -1,7 +1,7 @@
 <?php
     session_start();
     $logged=isset($_SESSION['logged']);
-    $matricola=($_SESSION['matricola']);
+    
 ?>
 
 <!DOCTYPE html>
@@ -42,16 +42,24 @@
     </head>
     <body>
         <?php include 'header.php'?>
-                     
+               
         
         <div class="leftBar "> <p>ciao </p></div>
         <div class="rightBar"> barra dx</div>
         <div class="core ">
             <div class="spazioPost">
             <?php       include "updatePost.php";
+                         $matricola=($_SESSION['matricola']);
                         run($matricola);
                         $string=file_get_contents('json/post.json', 'r');
+                        if(!$string){
+                            echo '<div class="containerErrore">';
+                            echo'<p style="font-size:20px;" class="font-weight-light">Al momento non ci sono post da mostrare. Per vedere nuovi post, inizia a seguire dei corsi .</p>';
+                            echo '</div>';
+                        }
+                        else{
                         $post=json_decode($string,true);
+                        
                         foreach ($post as $p){?>
                             <div class="post">
                                 <div class="titolo"> <h3><?php echo $p['titolo'];?></h3> </div>
@@ -73,7 +81,7 @@
                                 </div>
                                 <div class="doc"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
                             </div>
-                                <?php } ?>
+                                <?php }} ?>
                                 
             </div>
         </div>   

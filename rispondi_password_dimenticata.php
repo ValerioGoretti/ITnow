@@ -25,8 +25,13 @@ if(isset($_POST["submit"]))
   $mail->Username='itnow_@virgilio.it';
   $mail->Password='271071212.Epa';
   $mail->setFrom('itnow_@virgilio.it','ITnow');
-  $mail->Subject='Scemo chi legge';
-  $mail->Body='Suca';
+  $mail->Subject='Invio password ITnow';
+  $mail->Body='Gentile utente,
+              \n il sistema ha modificato la password dimenticata e ne ha generata una di risserva per accedere al portale 
+              \nPassword: \n
+              Questa mail è stata generata automaticamente , si richiede di non rispodere.
+              \nSaluti dallo staff di ITnow!
+              ';
   $mail->addAddress($name_mail);
   if($mail->send())
   {
@@ -35,6 +40,8 @@ if(isset($_POST["submit"]))
     
   }
   else{readfile("password_dimenticata_fallimento.html");}
+
+
 }
 
 ?>
