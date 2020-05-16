@@ -42,9 +42,9 @@
     </head>
     <body>
         <?php include 'header.php'?>
-               
+        <?php include 'leftBar.php'?>
         
-        <div class="leftBar "> <p>ciao </p></div>
+        
         <div class="rightBar"> barra dx</div>
         <div class="core ">
             <div class="spazioPost">
