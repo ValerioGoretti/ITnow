@@ -9,12 +9,17 @@
         <link href="css/styles.css" rel="stylesheet"/>
         <link href="css/home.css" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         
+</script>
     </head>
     <body>
-    <?php include 'header.php'?>
+    <?php include 'header.php';
+    session_start();
+    $matricola=$_SESSION['matricola'];
+    ?>
 
-    <div style="width: 100%; height: 700px; background-color: #822433;">
+    <div id="app" style="width: 100%; height: 700px; background-color: #822433;">
         <!--immagine profilo-->
         <div class="immagini">
             <div class="leftBar" style="background-color: #ffffff;"> <p>ciao </p></div>
@@ -35,14 +40,14 @@
             
                 <div class="titolo">Nome</div> <br>
                 <div class="line" style="margin-left: 15%;"></div>
-                <div class="valore">Valerio</div>
+                <div class="valore font-weight-normal">{{nome}}</div>
             
         </div>
             <div class="col" style="text-align: center;" >
                 
                     <div class="titolo">Cognome</div><br>
                     <div class="line" style="margin-left: 15%;"></div>
-                    <div class="valore">Goretti</div>
+                    <div class="valore font-weight-normal">{{cognome}}</div>
                 
             </div>
             
@@ -51,7 +56,7 @@
             
                 <div class="titolo">Email</div><br>
                 <div class="line" style="margin-left: 15%;"></div>
-                <div class="valore">Goretti.1811110@studenti.uniroma1.it</div>
+                <div class="valore font-weight-normal">{{email}}</div>
                 
             </div>
             </div>
@@ -66,11 +71,8 @@
         <!-- colonna 1-->   
         <div class="titolo">Matricola</div><br>
         <div class="line" style="margin-top: -5%;  margin-left: 27%;"></div>
-        <div class="valore">181110</div>
-        <br>
-        <div class="titolo">Anno iscrizione</div><br>
-        <div class="line" style="margin-top: -5%; margin-left: 27%;"  ></div>
-        <div class="valore">III anno </div>
+        <div class="valore font-weight-normal">{{matricola}}</div>
+
           
         
         </div>
@@ -91,6 +93,6 @@
     
     
     
-     
+    <?php include 'profilo_studente.php';?>
     </body>
 </html>

@@ -42,12 +42,11 @@
     </head>
     <body>
         <?php include 'header.php'?>
-        <?php include 'leftBar.php'?>
-        
-        
-        <div class="rightBar"> barra dx</div>
+             
+        <div class="rightBar">barra dx</div>
         <div class="core ">
             <div class="spazioPost">
+            
             <?php       include "updatePost.php";
                          $matricola=($_SESSION['matricola']);
                         run($matricola);
