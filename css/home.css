@@ -223,4 +223,34 @@
     
 }
 
+.leftcard{
+    width: 80%;
+    height: fit-content;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    transition: 0.3s;
+    padding: 2%;
+}
+.leftcard:hover{
+    color: #fff;
+    background-color: #822433;
+}
+
+.prof{
+    text-align: right;
+    font-size: small;
+}
+.materia{
+    text-align: left;
+}
+.ciao{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-size: large;
+}
 

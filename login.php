@@ -44,8 +44,21 @@ if(isset($_GET['loginS']))
         session_start();
         $_SESSION["matricola"]=$_GET["matricola"];
         $_SESSION["logged"]=true;
+
+        $mat=$_SESSION["matricola"];
+        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+        $que="select matricola,nome,email 
+              from studente";
+        $res = pg_query($dbconn,$que) or die ('Query failed: '.pg_last_error());
+        while ($line  = pg_fetch_array($res,null,PGSQL_ASSOC)){
+            if($line['matricola']==$mat){
+                $_SESSION["nome"]=$line["nome"];
+                $_SESSION["email"]=$line["email"];
+            }
         header("Location: Home.php");
- 
+    }
+
+   
 
     }
 
