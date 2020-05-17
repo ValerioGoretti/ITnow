@@ -114,7 +114,7 @@
     padding: 20px;
     box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.151), 0 10px 20px 0 rgba(0, 0, 0, 0.151);
     color:white;
-    
+    font-size: medium;
     
 }
 
@@ -174,8 +174,7 @@
     
 }
 
-.doc { grid-area: 8 / 10 / 9 / 11;
-    
+.doc { grid-area: 9 / 9 / 9 / 11;
     margin-top: 0px; 
     
 }

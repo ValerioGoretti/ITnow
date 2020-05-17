@@ -42,7 +42,7 @@
     </head>
     <body>
         <?php include 'header.php'?>
-             
+        <?php include 'leftBar.php' ?>
         <div class="rightBar">barra dx</div>
         <div class="core ">
             <div class="spazioPost">
@@ -78,7 +78,7 @@
                                       <?php 
                                         }?>
                                 </div>
-                                <div class="doc"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$p['timestamp']."</p>";?></div> </div>
+                                <div class="doc"><?php echo $p['data'];?></div>
                             </div>
                                 <?php }} ?>
                                 
