@@ -65,10 +65,10 @@
 
                        
                         $query= 
-                            "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.timestamp, d.nome, d.cognome, d.email
+                            "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
                             from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email 
                             where ad.id='$corso' 
-                            order by post.timestamp asc ";
+                            order by post.id asc ";
                             $result = pg_query($dbconn2,$query) or die ('Query failed: '.pg_last_error());
                             echo "<div class=containerTitolo>";
                             echo "<h3>Benvenuto nella pagina del corso ".$nome."</h3>";
@@ -89,7 +89,7 @@
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $line['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
-                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$line['timestamp']."</p>";?></div> </div>
+                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$line['data']."</p>";?></div> </div>
                             </div>
                                 <?php } ?>
             </div>

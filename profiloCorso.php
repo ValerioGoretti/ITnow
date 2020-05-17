@@ -35,7 +35,7 @@
                 $string=file_get_contents('json/corsi.json', 'r');
                 $corsi=json_decode($string,true);
     ?>
-     <div class="datiCorso" >
+     <div class="datiCorso">
             <h2 class="tit"> <?php echo $corso?> </h2>
             
             <?php

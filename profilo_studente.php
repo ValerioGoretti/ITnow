@@ -25,11 +25,12 @@
         {
             el:'#app',
             data:{
+
+
                     nome:'<?php echo $nome?>',
                     cognome:'<?php echo $cognome?>',
                     email:'<?php echo $email?>',
-                    matricola:'<?php echo $matricola?>'
-                
+                    matricola:'<?php echo $matricola?>'                            
             }
 
         }

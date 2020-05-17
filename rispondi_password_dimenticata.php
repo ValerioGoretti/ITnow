@@ -26,11 +26,17 @@ if(isset($_POST["submit"]))
   $mail->Password='271071212.Epa';
   $mail->setFrom('itnow_@virgilio.it','ITnow');
   $mail->Subject='Invio password ITnow';
-  $mail->Body='Gentile utente,
-              \n il sistema ha modificato la password dimenticata e ne ha generata una di risserva per accedere al portale 
-              \nPassword: \n
-              Questa mail è stata generata automaticamente , si richiede di non rispodere.
-              \nSaluti dallo staff di ITnow!
+  $mail->Body='<html>
+              <body>
+              Gentile utente,
+              <br>il sistema ha modificato la password dimenticata e ne ha generata una di risserva per accedere al portale 
+              <br>Password: \n
+              <br>
+              <br>
+              <br>Questa mail è stata generata automaticamente , si richiede di non rispodere.
+              <br>Saluti dallo staff di ITnow!
+              </body>
+              </html>
               ';
   $mail->addAddress($name_mail);
   if($mail->send())

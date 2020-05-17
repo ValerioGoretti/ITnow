@@ -19,77 +19,79 @@
     $matricola=$_SESSION['matricola'];
     ?>
 
-    <div id="app" style="width: 100%; height: 700px; background-color: #822433;">
+    <div id="app" class="row" style="width: 100%; height: 550px; background-color: #822433;">
         <!--immagine profilo-->
-        <div class="immagini">
-            <div class="leftBar" style="background-color: #ffffff;"> <p>ciao </p></div>
-            <!--
-            <div class="circle ">
-                <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
-            </div>
-            <div class="btn btn-xl btn-primary2 inserimento" >inserisci immagine</div>  
-            -->
-        </div>
+        
             
         <!--riepilogo dati-->
-        <div class="dati" style="background-color: #ffffff;">
-            <h2 class="tit">Dati Personali</h2>
-            <div class="row" style="padding: 10px; ">
+        <div class="dati " style="background-color: #ffffff;">
+            <h2 class="tit font-weight-normal">Dati Studente</h2>
+            <div class="row">
             <div class="col" style="text-align: center;">
             <!-- colonna 1-->
             
-                <div class="titolo">Nome</div> <br>
-                <div class="line" style="margin-left: 15%;"></div>
+                <div class="titolo font-weight-normal">Nome</div>
+                <div class="line" style=""></div>
                 <div class="valore font-weight-normal">{{nome}}</div>
             
-        </div>
+            </div>
             <div class="col" style="text-align: center;" >
                 
-                    <div class="titolo">Cognome</div><br>
-                    <div class="line" style="margin-left: 15%;"></div>
+                    <div class="titolo font-weight-normal">Cognome</div>
+                    <div class="line" ></div>
                     <div class="valore font-weight-normal">{{cognome}}</div>
                 
             </div>
             
             <!-- colonna 2-->
+            </div>
+            <div class="row">
             <div class="col" style="text-align: center;">
             
-                <div class="titolo">Email</div><br>
-                <div class="line" style="margin-left: 15%;"></div>
+                <div class="titolo font-weight-normal">Email</div>
+                <div class="line" ></div>
                 <div class="valore font-weight-normal">{{email}}</div>
+
+
                 
             </div>
+            <div class="col" style="text-align: center;">
+
+                <div class="titolo font-weight-normal">Matricola</div>
+                <div class="line"></div>
+                <div class="valore font-weight-normal">{{matricola}}</div>
+            
             </div>
+            </div>
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <a>
+                        <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua email</div>
+                    </a>
+                </div>
+                <div class="col" style="text-align: center;">
+                    <a>
+                        <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua password</div>
+                    </a>
+                </div>
+            </div>
+            
             
             
        
-        <h2 class="tit">Dati universitari</h2>
         
-        <div class="row" style="padding: 10px; ">
-        <div class="col" style="text-align: center;" >
-
-        <!-- colonna 1-->   
-        <div class="titolo">Matricola</div><br>
-        <div class="line" style="margin-top: -5%;  margin-left: 27%;"></div>
-        <div class="valore font-weight-normal">{{matricola}}</div>
 
           
         
         </div>
 
-        <div class="col" style="text-align: center;"  >
-        <!-- colonna 3-->  
-            <div class="titolo" >Corsi che segui</div><br>
-            <div class="line" style="margin-top: -5%; margin-left: 27%;"></div>
-            <div class="valore">Corso1<br>Corso2<br>Corso3</div>
         
-          </div>
-        </div>
-        </div>
-    </div> 
         
-    </div>
-</div>
+        </div>
+    
+        
+    
+
     
     
     
