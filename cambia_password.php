@@ -17,10 +17,29 @@
     <body>
         
         <?php include 'header.php';?>
-        <div class="row"  style="height:100%;background-color:#822433;">
-            <div class="dati"style="background-color: #ffffff;margin:25px auto">
+        <div class="row"  style="height:100%;background-color:#822433; ">
+            <div class="dati"style="background-color: #ffffff;margin:50px auto">
+            <form method="POST" action="rispondi_cambia_password.php">
+            <h2 class="font-weight-normal" style="color:black;">Cambia password</h3>
+            <p class="font-weight-light"style="color:black;padding:10px">Per favore compila i seguenti campi</p>
+            <div class="col-md-6" style="margin:0 auto">
+                    
+                    <div class="form-group" >
+                        <input required name="up" minlength="6" type="password" class="form-control-registrazione" placeholder="Ultima password" value=""/>
+                    </div>
+                    <div class="form-group">
+                        <input required name="np" minlength="6" type="password" class="form-control-registrazione" placeholder="Nuova password" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input required name="email" minlength="6" id="emailStudente" type="password" class="form-control-registrazione" placeholder="Conferma password" />
+                        
+                    </div>
+                    <div class="form-group" >
+                        <input style="padding: 10px;border-radius: 5px; margin-left:30px;" type="submit" class="btnRegister font-weight-normal" value="Cambia Password" name="submit"/>
+                    </div>                   
+                </div>
+            </form>
             </div>
-    
         </div>
     </body>
 

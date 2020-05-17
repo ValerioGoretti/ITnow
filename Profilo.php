@@ -70,7 +70,7 @@
                     </a>
                 </div>
                 <div class="col" style="text-align: center;">
-                    <a>
+                    <a href='cambia_password.php'>
                         <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua password</div>
                     </a>
                 </div>

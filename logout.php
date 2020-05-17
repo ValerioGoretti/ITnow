@@ -19,8 +19,8 @@
         <div class="row">
             <div class="col-md-6" style="margin: 0 auto;">
                 <div class="container-password" style="height:fit-content;width:500px">
-                  <p1 class="font-weight-bold row" style= ' width:fit-content; margin:0 auto;' >Logout Effettuato.</p1>
-                  <a class="row" style="color:white; width:fit-content; padding: 8px; border-radius: 6px; background-color:#822433; margin:0 auto; margin-top: 50px;"href="index.html#page-top">Torna alla home</a>
+                  <p1 class="font-weight-normal row" style= ' width:fit-content; margin:0 auto;' >Logout Effettuato.</p1>
+                  <a class="row" style="color:white; width:fit-content; padding: 8px; border-radius: 6px; background-color:#822433; margin:0 auto; margin-top: 50px;"href="index.html#page-top">Torna alla welcome page</a>
                     
                 </div>
                   
