@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="css/home.css" rel="stylesheet">
-    </head>
-    <body>
+
         <div class="leftBar" id="leftbar"> 
         <div class="ciao" id="titolo">Ciao,<?php echo $_SESSION['nome'] ?></div>
         <div class="ciao" id="corsi">I tuoi corsi:</div>
@@ -25,5 +18,3 @@
                     </div>                    
             <?php }?>                          
         </div>
-    </body>
-</html>
