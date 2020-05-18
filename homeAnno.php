@@ -1,5 +1,8 @@
 <?php
-                         $corso = $_GET['corso'];
+                        session_start();
+                        $follow;
+                        $corso = $_GET['corso'];
+                        $matricola=$_SESSION['matricola'];
                         $docenti="";
                         $anno;
                         $nome;
@@ -18,6 +21,15 @@
                                     $mail=$line["email"]." ".$mail;
 
                             }
+                        $query3=   
+                        "SELECT *
+                        from studente_corso
+                        where studente='$matricola' and anno='$corso'
+                        ";
+                        $result3 = pg_query($dbconn2,$query3) or die ('Query failed: '.pg_last_error());
+                        if(pg_num_rows($result3)==1){$follow='Non seguire più';}
+                        else{$follow='Segui';}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,14 +51,36 @@
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script>
+            var stato;
             $("document").ready(function(){
-               
+                
                
                 $('.follow').click(function(){
                     if ($('.follow').text() =='Segui') 
-                    {    $('.follow').text('Non seguire più');}
+                    {   
+                             $.ajax({
+                            type: "GET",
+                            url: "follow-unfollow.php",
+                            data: {stato:'follow',id:'<?php echo $corso;?>',studente:'<?php echo $matricola;?>'},
+                            success: function(msg){
+                            location.reload();
+                            console.log(msg);                              
+                            }
+                 });  
+                            }
                     else 
-                    {    $('.follow').text('Segui');}
+                    {    
+                             $.ajax({
+                            type: "GET",
+                            url: "follow-unfollow.php",
+                            data: {stato:'unfollow',id:'<?php echo $corso;?>',studente:'<?php echo $matricola;?>'},
+                            success: function(msg){
+                                
+                                location.reload();
+                                console.log(msg);
+                                }
+                 });
+                    }
                 });
             });
         </script>
@@ -57,7 +91,7 @@
                      
         
         <div class="leftBar "> <p>ciao </p></div>
-        <div class="rightBar" style="padding:10px;">  <div class="btn-follow follow">Segui</div></div>
+        <div class="rightBar" style="padding:10px;"><div class="btn-follow follow"><?php echo $follow?></div></div>
         <div class="core ">
             <div class="spazioPost">
             <?php 
