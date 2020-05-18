@@ -96,6 +96,7 @@
     width: 70%;
     margin-left: 15%;
     height: 100%;
+    background-color: aqua;
     
 }
 
@@ -104,6 +105,7 @@
     width: 70%; 
     height: fit-content; 
     margin:0 auto;
+    background-color: black;
 
 }
 .containerErrore{
@@ -231,10 +233,7 @@
     margin-bottom: 10%;
     transition: 0.3s;
     padding: 2%;
-}
-.leftcard:hover{
-    color: #fff;
-    background-color: #822433;
+    cursor: pointer;
 }
 
 .prof{
@@ -253,3 +252,54 @@
     font-size: large;
 }
 
+.bb{
+    width:99%; 
+    height:100%; 
+    background-color:red;
+}
+.pannelloDoc{
+    background-color: #822433;
+    width: 50%;
+    height: 60%;
+    margin:0 auto;
+}
+.corso{
+    width:100%;
+    height: 25px;
+    margin-top: 10px;
+    font-size: large;
+    text-align: center;
+}
+.creaTitolo{
+    width:100%;
+    margin-top: 30px;
+    height:20px;
+    font-size: large;
+    text-align: center;
+}
+.creaTesto{
+    width: 100%;
+    height: 100%;
+    text-align: unset;
+}
+.file{
+    margin-top: 20px;
+}
+
+
+.parent {
+    display: grid;
+    margin-top: 10%;
+    padding: 10px;
+    background-color: #822433;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    height: fit-content;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 6; }
+    .div2 { grid-area: 2 / 1 / 3 / 6; }
+    .div3 { grid-area: 3 / 1 / 6 / 6; }
+    .div4 { grid-area: 6 / 1 / 7 / 6; }
