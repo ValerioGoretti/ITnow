@@ -3,7 +3,8 @@
     include "updateStudentiJson.php";
     run();
     run2();
-    if (session_status() != PHP_SESSION_NONE) session_destroy();
+    session_start();
+    if (session_status() != PHP_SESSION_NONE) {session_destroy();}
     
     if(isset($_GET['loginD']))
     {
@@ -21,8 +22,20 @@
             
             //echo("accesso docente riuscito");
             
-            $_SESSION['email']=$_GET["email"];
+            $m=$_GET['email'];
             $_SESSION['logged']=true;
+            $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+            $que="select nome,cognome,email 
+                  from docente
+                  where email='$m'
+                  ";
+            $res = pg_query($dbconn,$que) or die ('Query failed: '.pg_last_error());
+            while ($line  = pg_fetch_array($res,null,PGSQL_ASSOC)){
+                
+                    $_SESSION["nome"]=$line["nome"];
+                    $_SESSION["email"]=$line["email"];
+                    $_SESSION['ruolo']='docente';
+                }
             header("Location: Home.php");
             //echo("<br><a href='logout.php'>Effettua il logout</a>");
 
@@ -49,17 +62,20 @@ if(isset($_GET['loginS']))
         $mat=$_SESSION["matricola"];
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $que="select matricola,nome,email 
-              from studente";
+              from studente
+              where matricola='$mat'
+              ";
         $res = pg_query($dbconn,$que) or die ('Query failed: '.pg_last_error());
         while ($line  = pg_fetch_array($res,null,PGSQL_ASSOC)){
-            if($line['matricola']==$mat){
+            
                 $_SESSION["nome"]=$line["nome"];
                 $_SESSION["email"]=$line["email"];
+                $_SESSION["ruolo"]='studente';
             }
             header("Location: Home.php");
             
         
-    }
+    
 
    
 
