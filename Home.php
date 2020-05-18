@@ -50,9 +50,7 @@
             
             <?php       
                         include "updatePost.php";
-                        $matricola=($_SESSION['matricola']);?>
-                        <h1><?php echo $matricola;?></h1>
-                        <?php
+                        $matricola=($_SESSION['matricola']);
                         run($matricola);
                         $string=file_get_contents('json/post.json', 'r');
                         if(!$string){
