@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -11,7 +12,40 @@
         <link href="css/home.css" rel="stylesheet">
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
         <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        
+        <script type="text/javascript"  language="javascript">
+            
 
+            function validaRegistrazione()
+            {
+                
+                
+                return valida();
+            
+                
+            }
+            function valida()
+            {
+
+                
+                
+                if (!($('#p1').val()==$('#p2').val())) {alert('Le due nuove password non corrispondono');return false;}
+               
+               return true;
+
+ 
+            
+                
+            }
+           
+  
+            
+            
+ 
+
+
+        
+        </script>
         
     </head>
     <body>
@@ -19,7 +53,7 @@
         <?php include 'header.php';?>
         <div class="row"  style="height:100%;background-color:#822433; ">
             <div class="dati"style="background-color: #ffffff;margin:50px auto">
-            <form method="POST" action="rispondi_cambia_password.php">
+            <form method="POST" action="rispondi_cambia_password.php"  onsubmit='return validaRegistrazione();'>
             <h2 class="font-weight-normal" style="color:black;">Cambia password</h3>
             <p class="font-weight-light"style="color:black;padding:10px">Per favore compila i seguenti campi</p>
             <div class="col-md-6" style="margin:0 auto">
@@ -28,10 +62,10 @@
                         <input required name="up" minlength="6" type="password" class="form-control-registrazione" placeholder="Ultima password" value=""/>
                     </div>
                     <div class="form-group">
-                        <input required name="np" minlength="6" type="password" class="form-control-registrazione" placeholder="Nuova password" value="" />
+                        <input required  id="p1" name="np" minlength="6" type="password" class="form-control-registrazione" placeholder="Nuova password" value="" />
                     </div>
                     <div class="form-group">
-                        <input required name="email" minlength="6" id="emailStudente" type="password" class="form-control-registrazione" placeholder="Conferma password" />
+                        <input required id="p2" name="email" minlength="6" id="emailStudente" type="password" class="form-control-registrazione" placeholder="Conferma password" />
                         
                     </div>
                     <div class="form-group" >
