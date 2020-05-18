@@ -18,26 +18,76 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-        
+        <script>
+            
+           
+
+            $("document").ready(function(){
+                $('#files').hide();             
+            });
+            
+        </script>
 </head>
 
 <body>
     <div class="core">
-            <div class="spazioPost">
+    <?php
+        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+        $email=$_SESSION['email'];
+        $query="select ad.corso,ad.anno
+                from docente join anno_docente on docente.email=anno_docente.docente join anno_didattico as ad on ad.id=anno_docente.anno join corso on ad.corso=corso.nome
+                where docente.email= '$email'";
+        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+        ?>
+                                        
+                                 
+            <div class="spazioPost" style="background-color:#822433; padding:15px;">
                 <form action="" class="post-form">
-                <select class="selezionaCorso"id="cars" placeholder="corsi">
+                <select class="selezionaCorso" id="cars" name="corso" >
                         <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
+                        <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?><option><?php echo $line['corso'] .' ' . $line['anno'];?></option><?php }?>
                 </select>
-                    <input type="text" class="textb" placeholder="Inserisci il Titolo">
-                    <textarea placeholder="Your Message" name="testoPost"></textarea>
-                    <input type="submit" class="bttn" value='Send'>
+                    <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post">
+                    <textarea placeholder="Inserisci il testo del post" name="testo"></textarea>
+                    <input type="file" id="files" class="file" name="files" multiple>
+                    <div class="col">
+                    <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
+                        <div id="selectedFiles" class="select"> </div>
+                    </div>
+                    
+                    <input type="submit" class="bttn" value='Pubblica'>
                 </form>
+                
+                </div>
             </div>
     </div>  
+
+    <script>
+	var selDiv = "";
+		
+	document.addEventListener("DOMContentLoaded", init, false);
+	
+	function init() {
+		document.querySelector('#files').addEventListener('change', handleFileSelect, false);
+		selDiv = document.querySelector("#selectedFiles");
+	}
+		
+	function handleFileSelect(e) {
+		
+		if(!e.target.files) return;
+		
+		selDiv.innerHTML = "";
+		
+		var files = e.target.files;
+		for(var i=0; i<files.length; i++) {
+			var f = files[i];
+			
+			selDiv.innerHTML += "<i class=\"fas fa-file-alt\"></i>"+ " " + f.name + "<br/>";
+
+		}
+		
+	}
+	</script>
         
     
     
