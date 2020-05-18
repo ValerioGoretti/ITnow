@@ -256,15 +256,16 @@
     background-color:red;
 }
 
-/*
-DARK CODE
-*/
+.creaPost{
+    background-color: #822433;
+}
 .selezionaCorso{
     width: 100%;
     height: 40px;
-    background-color: #222;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     margin-bottom: 3%;
+    outline: none;
 }
 .post-form{
     display: flex;
@@ -277,10 +278,10 @@ DARK CODE
     outline: none ;
     height: 50px;
     padding: 12px;
-    background-color: #222;
+    background-color: #fff;
     border: none;
-    color: #fff;
-    margin-bottom: 20px;
+    color: #000;
+    margin-bottom: 10px;
   }
   
   textarea{
@@ -288,13 +289,13 @@ DARK CODE
     min-height: 200px;
     max-height: 400px;
     padding: 12px;
-    outline: none ;
-    background-color: #222;
+    outline: none;
+    background-color: #fff;
     border: none;
-    color: #fff;
+    color: #000;
     margin-bottom: 20px;
   }
-  textarea[name=testoPost]{
+  textarea[name=testo]{
     resize: none;
   }
   
@@ -302,16 +303,48 @@ DARK CODE
     width: 120px;
     height: 40px;
     margin-left: auto;
-    background-color: #3494db;
+    background-color: #fff;
     border: none;
-    color: #fff;
+    color: #000;
     text-transform: uppercase;
     cursor: pointer;
-    border: 2px solid #3494db;
+    border: 2px solid #822433;
     transition: .3s linear;
+    cursor: pointer;
+    margin-top: 2%;
+    float: right;
+    
   }
   
   .bttn:hover{
     background-color: transparent;
-    color: #3494db;
+    color: #fff;
+  }
+
+  .file{
+      background-color: #822433;
+  }
+  .select{
+      margin-left: -3%;
+      width: fit-content;
+  }
+
+  .bttnn{
+    width: 120px;
+    height: 40px;
+    padding: 5px;
+    margin-left: -13%;
+    background-color: #fff;
+    border: none;
+    color: #000;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #822433;
+    transition: .3s linear;
+    cursor: pointer;  
+    margin-top: 10%;
+  }
+  .bttnn:hover{
+    background-color: transparent;
+    color: #fff;
   }
