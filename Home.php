@@ -43,12 +43,16 @@
     <body>
         <?php include 'header.php'?>
         <?php include 'leftBar.php' ?>
+        
         <div class="rightBar">barra dx</div>
         <div class="core ">
             <div class="spazioPost">
             
-            <?php       include "updatePost.php";
-                         $matricola=($_SESSION['matricola']);
+            <?php       
+                        include "updatePost.php";
+                        $matricola=($_SESSION['matricola']);?>
+                        <h1><?php echo $matricola;?></h1>
+                        <?php
                         run($matricola);
                         $string=file_get_contents('json/post.json', 'r');
                         if(!$string){
