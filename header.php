@@ -20,6 +20,7 @@
                 </datalist>
                 </form>
             </div>
+            <a href="Home.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-home"></i></div></a>
             <a href="Profilo.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-user" ></i></div></a>
             <a href="logout.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-sign-out-alt" ></i></div></a>
         </div>

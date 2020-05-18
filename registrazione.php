@@ -32,6 +32,10 @@
                 request.open("GET", "json/dati_studenti.json", false);
                 request.send(null)
                 var risultato = JSON.parse(request.responseText);
+                var request2 = new XMLHttpRequest();
+                request2.open("GET", "json/dati_docenti.json", false);
+                request2.send(null)
+                var risultato2 = JSON.parse(request.responseText);
                 var mail=document.getElementById("emailStudente").value;
                 var matricola=document.getElementById("matricola").value;   
                 var p1=document.getElementById("p1").value;
@@ -44,7 +48,7 @@
                     
                    
                    
-                   if(risultato[i]["mail"]==mail) {alert("La mail inserita non è valida o già utilizzata");return false;}  
+                   if((risultato[i]["mail"]==mail)||(risultato2[i]["mail"]==mail)) {alert("La mail inserita non è valida o già utilizzata");return false;}  
                     if((risultato[i]["matricola"]==matricola)||(!isnum)){alert("Matricola non valida o già esistente");return false;}
                     if(p1!=p2){alert("Le due password inserite sono differenti");return false;}
                     
@@ -65,7 +69,10 @@
                   
                 var p1=document.getElementById("p12").value;
                 var p2=document.getElementById("p22").value;
-                
+                var request2 = new XMLHttpRequest();
+                request2.open("GET", "json/dati_docenti.json", false);
+                request2.send(null)
+                var risultato2 = JSON.parse(request.responseText);
                 
           
                 for (i=0;i<risultato.length;i++)
@@ -73,7 +80,7 @@
                     
                    
                    
-                   if(risultato[i]["mail"]==mail) {alert("La mail inserita non è valida o già utilizzata");return false;}  
+                   if((risultato[i]["mail"]==mail)||(risultato2[i]["mail"]==mail)) {alert("La mail inserita non è valida o già utilizzata");return false;}  
                    
                     if(p1!=p2){alert("Le due password inserite sono differenti");return false;}
 

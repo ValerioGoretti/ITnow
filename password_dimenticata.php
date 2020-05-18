@@ -25,15 +25,17 @@
                 
                 for (i=0;i<risultato.length;i++)
                     {
-                       if(risultato[i]["mail"]==mail) {return true;}                          
+                       if(risultato[i]["mail"]==mail) {$('#valerio').val("false");return true;}
+
                     }
                 for(i=0;i<risultato2.length;i++)
                 {
-                    if(risultato2[i]["mail"]==mail){return true;}
+                    if(risultato2[i]["mail"]==mail){$('#valerio').val("true");return true;}
+
                 }   
                     alert('La mail inserita non è valida.')
                     return false;
-    
+                
             }
         </script>
 
@@ -49,9 +51,11 @@
                     
                     <div class="col-md-6" style="margin: 0 auto;">
                         <div class="form-group" style="margin-top: 50px;">
-                            <input id="email" type="text" class="form-control-registrazione" placeholder="Email" value="" name="username"/>
+                            <input id="email" type="text" class="form-control-registrazione" placeholder="Email" value="" name="email"/>
                         </div>
+                        <input type="hidden" id="valerio" name="valerio">
                         <input type="submit" class="btnRegister" style="margin-left: 40px; padding: 7px;border-radius: 10px;" value="Recupera password" name="submit"/>
+                        
 
     
                     </div>

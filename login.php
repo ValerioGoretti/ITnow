@@ -3,7 +3,8 @@
     include "updateStudentiJson.php";
     run();
     run2();
-    if (isset($_SESSION)) session_destroy();
+    if (session_status() != PHP_SESSION_NONE) session_destroy();
+    
     if(isset($_GET['loginD']))
     {
         if(!validaDocente($_GET["email"],$_GET['passwordDocente']))
@@ -55,14 +56,21 @@ if(isset($_GET['loginS']))
                 $_SESSION["nome"]=$line["nome"];
                 $_SESSION["email"]=$line["email"];
             }
-        header("Location: Home.php");
+            header("Location: Home.php");
+            
+        
     }
 
    
 
     }
-
+    
+    
 }
+
+
+
+
 
 
 
