@@ -24,25 +24,18 @@
 <body>
     <div class="core">
             <div class="spazioPost">
-            
-            <div class="parent">
-                <!--scegli il corso-->
-                <div class="div1">
-                <input  type="text" placeholder="Scegli il corso dove inserire il post" autocomplete="off" list="corso" name="corso" class="corso" id="r" onchange="document.corsoform.submit();"/>
-                <datalist id="corso" style="width:100%">
-                    <option>prima opzione</option>
-                    <option>seconda opzione</option>
-                    <option>terza opzione</option>
-                    <option>quarta opzione</option>
-                </datalist>
-                </div>
-                <!--inserisci il titolo-->
-                <div class="div2"><input type="text" class="creaTitolo" placeholder="Inserisci qui il titolo"></div>
-                <!--scrivi il testo del post-->
-                <div class="div3"><input type="text" class="creaTesto" placeholder="inserisci il testo"></div>
-                <!--inserisci file-->
-                <div class="div4"><input type="file" name="file" class="file" multiple></div>
-            </div>
+                <form action="" class="post-form">
+                <select class="selezionaCorso"id="cars" placeholder="corsi">
+                        <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
+                        <option value="volvo">Volvo</option>
+                        <option value="saab">Saab</option>
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                </select>
+                    <input type="text" class="textb" placeholder="Inserisci il Titolo">
+                    <textarea placeholder="Your Message" name="testoPost"></textarea>
+                    <input type="submit" class="bttn" value='Send'>
+                </form>
             </div>
     </div>  
         
