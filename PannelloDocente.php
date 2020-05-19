@@ -8,7 +8,7 @@
         ?>
                                         
                                  
-            <div class="spazioPost" style="background-color:#822433; padding:15px;">
+            <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:15px;">
                 <form action="" class="post-form">
                 <select class="selezionaCorso" id="cars" name="corso" >
                         <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>

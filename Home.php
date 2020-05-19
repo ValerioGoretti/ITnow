@@ -42,15 +42,18 @@
     </head>
     <body>
         <?php include 'header.php'?>
-        <?php include 'leftBar.php' ?>
+        
         
         <div class="rightBar">barra dx</div>
         <div class="core">
             <?php 
                 if($_SESSION['ruolo']=='docente')
-                    include 'pannelloDocente.php'; 
+                    {
+                    include 'pannelloDocente.php'; }
                 if($_SESSION['ruolo']=='studente')
-                    include 'pannelloStudente.php';
+                   { echo 'studente';    
+                include 'pannelloStudente.php';
+                }
                 
             ?>
         </div>

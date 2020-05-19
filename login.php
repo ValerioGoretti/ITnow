@@ -34,8 +34,9 @@
                 
                     $_SESSION["nome"]=$line["nome"];
                     $_SESSION["email"]=$line["email"];
-                    $_SESSION['ruolo']='docente';
+                   
                 }
+            $_SESSION['ruolo']='docente';
             header("Location: Home.php");
             //echo("<br><a href='logout.php'>Effettua il logout</a>");
 
@@ -43,7 +44,8 @@
         }
     
     }
-if(isset($_GET['loginS']))
+
+else
 {
     if(!validaStudente($_GET["matricola"],$_GET['passwordStudente']))
     { 
@@ -70,8 +72,9 @@ if(isset($_GET['loginS']))
             
                 $_SESSION["nome"]=$line["nome"];
                 $_SESSION["email"]=$line["email"];
-                $_SESSION["ruolo"]='studente';
+                
             }
+            $_SESSION["ruolo"]='studente';
             header("Location: Home.php");
             
         
