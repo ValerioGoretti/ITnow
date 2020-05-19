@@ -169,3 +169,19 @@ h2.tit{
 .annoDidattico:hover{
     outline: none;
 }
+.dati2{
+    margin-top: 90px;
+    height: 400px;
+    width:450px;
+    
+    color:#822433;  
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 30px 50px 0 rgba(130,36,51, 0.3), 0 30px 50px 0 rgba(130,36,51, 0.2);
+    
+
+    
+    margin-left: auto;
+    margin-right: auto;
+
+}

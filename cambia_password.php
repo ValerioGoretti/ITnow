@@ -52,7 +52,7 @@
         
         <?php include 'header.php';?>
         <div class="row"  style="height:100%;background-color:#822433; ">
-            <div class="dati"style="background-color: #ffffff;margin:50px auto">
+            <div class="dati2"style="background-color: #ffffff;margin:50px auto">
             <form method="POST" action="rispondi_cambia_password.php"  onsubmit='return validaRegistrazione();'>
             <h2 class="font-weight-normal" style="color:black;">Cambia password</h3>
             <p class="font-weight-light"style="color:black;padding:10px">Per favore compila i seguenti campi</p>

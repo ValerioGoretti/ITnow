@@ -29,10 +29,10 @@
     $matricola=$_SESSION['matricola'];
     ?>
 
-    <div style="background-color:#822433; width:100%; height:100%; padding:3%">
+    <div id="app" style="background-color:#822433; width:100%; height:100%; padding:3%">
         <!--immagine profilo-->
         
-        <div class="barrasinistra" style="width: 20%; float:left;">
+        <div class="barrasinistra" style="background-color:white; width: 20%; float:left;">
             <?php include 'leftBar.php'?>
         </div>   
         <!--riepilogo dati-->
@@ -55,14 +55,14 @@
                         
                             <div class="titolo font-weight-normal">Nome</div>
                             <div class="line" style=""></div>
-                            <div class="valore font-weight-normal">{{nome}}</div>
+                            <div class="valore font-weight-light">{{nome}}</div>
                         
                         </div>
                     <div class="col" style="text-align: center;" >
                             
                                 <div class="titolo font-weight-normal">Cognome</div>
                                 <div class="line" ></div>
-                                <div class="valore font-weight-normal">{{cognome}}</div>
+                                <div class="valore font-weight-light">{{cognome}}</div>
                             
                         </div>
                         
@@ -73,7 +73,7 @@
                         
                             <div class="titolo font-weight-normal">Email</div>
                             <div class="line" ></div>
-                            <div class="valore font-weight-normal">{{email}}</div>
+                            <div class="valore font-weight-light">{{email}}</div>
 
 
                             
@@ -82,13 +82,13 @@
 
                             <div class="titolo font-weight-normal">Matricola</div>
                             <div class="line"></div>
-                            <div class="valore font-weight-normal">{{matricola}}</div>
+                            <div class="valore font-weight-light">{{matricola}}</div>
                         
                         </div>
                         </div>
                         <div class="row">
                             <div class="col" style="text-align: center;">
-                                <a style="text-decoration:none;">
+                                <a href="cambia_mail.php" style="text-decoration:none;">
                                     <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px;">Cambia la tua email</div>
                                 </a>
                             </div>
