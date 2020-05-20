@@ -10,12 +10,14 @@
                                  
             <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:15px;">
                 <form action="" class="post-form">
-                <select class="selezionaCorso" id="cars" name="corso" >
+                <select class="selezionaCorso" id="cars" name="corso" required>
                         <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
-                        <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?><option><?php echo $line['corso'] .' ' . $line['anno'];?></option><?php }?>
+                        <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
+                            <option><?php echo $line['corso'] .' ' . $line['anno'];?></option>
+                        <?php }?>
                 </select>
-                    <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post">
-                    <textarea placeholder="Inserisci il testo del post" name="testo"></textarea>
+                    <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post" required>
+                    <textarea placeholder="Inserisci il testo del post" name="testo" required></textarea>
                     <input type="file" id="files" class="file" name="files" multiple>
                     <div class="col">
                     <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
