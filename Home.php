@@ -35,24 +35,23 @@
             }
 
             $("document").ready(function(){
-                $('#documenti').hide();             
+                $('#files').hide();        
             });
             
         </script>
     </head>
     <body>
         <?php include 'header.php'?>
-        
+        <?php include 'leftBar.php'?>
         
         <div class="rightBar">barra dx</div>
         <div class="core">
             <?php 
-                if($_SESSION['ruolo']=='docente')
-                    {
-                    include 'pannelloDocente.php'; }
-                if($_SESSION['ruolo']=='studente')
-                   { echo 'studente';    
-                include 'pannelloStudente.php';
+                if($_SESSION['ruolo']=='docente'){
+                    include 'pannelloDocente.php'; 
+                }
+                if($_SESSION['ruolo']=='studente'){     
+                    include 'pannelloStudente.php';
                 }
                 
             ?>
