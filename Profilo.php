@@ -14,7 +14,7 @@
         <script>
 
             $("document").ready(function(){
-                $('#leftbar').css({"background-color": "#fff", "color": "#822433"});  
+                $('#leftbar').css({"background-color": "#FFFFF0", "color": "#822433"});  
                 $('#titolo').css({"color": "#822433"});
                 $('#corsi').css({"color": "#822433"});
                 $('.leftcard').css({"background-color": "#822433", "color": "#fff"});

@@ -1,4 +1,4 @@
-<div class="spazioPost">
+<div class="spazioPost2">
             <?php       
                         include "updatePost.php";
                         $matricola=($_SESSION['matricola']);

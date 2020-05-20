@@ -25,42 +25,100 @@
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
 
+        <script>
+
+            $("document").ready(function(){
+                $('#leftbar').css({"background-color": "#fff", "color": "#822433"});  
+                $('#titolo').css({"color": "#822433"});
+                $('#corsi').css({"color": "#822433"});
+                $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
+                $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
+            });
+            
+        </script>
         
     </head>
     <body >
-    <?php include 'header.php'?>
-    <div style="width: 100%; height:100%; background-color: #822433; padding:3px" > 
-    <?php
+
+    <?php include 'header.php';
+    session_start();
+    
                 $corso = $_GET['corso'];
                 $string=file_get_contents('json/corsi.json', 'r');
                 $corsi=json_decode($string,true);
+    
+    
     ?>
-     <div class="datiCorso">
-            <h2 class="tit"> <?php echo $corso?> </h2>
-            
-            <?php
-                foreach($corsi as $c){
-                    //al posto di automi ci va l'imput del form che arriva da home
-                    if($c['nomeCorso']==$corso){?>
-                       <div class="descrizione"> <?php echo $c['descrizioneCorso']?></div>
-                       
-                    <?php break;}}
-     ?> 
-            <h2 class="tit">Anni didattici del corso</h2>
-            
+
+    <div class='row' id="app" style="background-color:#822433; width:100%; height:700px; padding:3%">
+        <!--immagine profilo-->
+        
+        
+            <div class="barrasinistra " style="background-color:white; width:fit-content; float:left;">
+              <?php include 'leftBar.php'?>
+          </div>
+        
+        <!--riepilogo dati-->
+
+
        
-            <div class="anni">
+       <form class="col containerCorso"action="homeAnno.php" method="get" name="homeAnno" id="container">
+            <div style="margin-left:20px;font-size:50px;">
+            <p class="font-weight-light"><?php echo $corso?></p></div>
+            <div class='row rigaCorso' id="riga">
+           
+            
+               
+                <?php
+                     foreach($corsi as $c){
+                        if($c['nomeCorso']==$corso){?>
+                            
+                            
+                         
+                                    
+                <div class="card cartaCorso grow" style="color:white;background-color:#822433;margin-bottom:20px;">
                     
-            <form action="homeAnno.php" method="get" name="homeAnno">
-    <?php
-                foreach($corsi as $c){
-                    if($c['nomeCorso']==$corso){?>
-                            <button type="hidden" class="annoDidattico" value="<?php echo $c['idCorso']?>" name="corso"> <h5><?php echo $c['nomeCorso'].' '.$c['anno'] .'-'. $c['nomeDoc'].' '. $c['cognomeDoc']; ?></h5> </button><br>
-                    <?php }}
-     ?> 
-                </form>
+                    <div class="card-body">
+                    <h5 class="card-title"><?php echo $c['nomeDoc'].' '.$c['cognomeDoc']?></h5>
+                    <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:In corso</p>
+                   
+                    
+                    <button href="#" class="btn btn-primary2" value="<?php echo $c['idCorso']?>"name="corso">Vai all'anno didattico</a>
+                    </div>
                 </div>
-            </div>
-    </div>
+                <?php }}?> 
+
+               
+                
+               
+                
+            </div>    
+            
+           
+        </form>
+        
+    </div>   
+        
+    
+
+    
+    
+<script>
+                        
+    function getCount(parent, getChildrensChildren){
+    var relevantChildren = 0;
+    var children = parent.childNodes.length;
+    for(var i=0; i < children; i++){
+        if(parent.childNodes[i].nodeType != 3){
+            
+            relevantChildren++;
+        }
+    }
+    return relevantChildren;
+}
+var element = document.getElementById("riga");
+
+$('.rigaCorso').css('height','250px');             
+</script>   
     </body>
 </html>

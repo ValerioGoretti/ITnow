@@ -1,6 +1,6 @@
 
 
-        <div class="leftBar" id="leftbar"> 
+        <div class="leftBar font-weight-light" id="leftbar"> 
         <div class="ciao" id="titolo">Ciao,<?php echo $_SESSION['nome'] ?></div>
         <div class="ciao" id="corsi">I tuoi corsi:</div>
         <?php     
@@ -27,7 +27,7 @@
            
             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
-                    <div class="leftcard" id="leftcard"> 
+                    <div class="leftcard grow" id="leftcard"> 
                         <div class=materia><?php echo $line['corso'].' '.$line['anno']?></div>
                         <div class="prof"><?php echo $line['nome'].' '.$line['cognome'] ?></div>
                     </div>                    

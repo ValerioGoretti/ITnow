@@ -21,7 +21,7 @@
 
 .leftBar{
     width: 15%;
-    height: 100%;
+    height:100%;
     position: absolute;
     left: 0;
     border-radius: 10px;
@@ -98,7 +98,15 @@
     height: 100%;
     
 }
+.spazioPost2{
+    width: 70%; 
+    height: fit-content; 
+    margin:0 auto;
+    border-radius: 7px;
+   
 
+
+}
 /* grid per post*/
 .spazioPost{
     width: 70%; 
@@ -226,15 +234,16 @@
 }
 
 .leftcard{
-    width: 80%;
+    width: 90%;
     height: fit-content;
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
     margin: 0 auto;
-    margin-bottom: 10%;
+    margin-bottom: 3%;
     transition: 0.3s;
     padding: 2%;
     cursor: pointer;
+
 }
 
 .prof{
@@ -243,6 +252,7 @@
 }
 .materia{
     text-align: left;
+    font-size: small;
 }
 .ciao{
     width: 100%;
@@ -352,3 +362,5 @@
     background-color: transparent;
     color: #fff;
   }
+  .grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }

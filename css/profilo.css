@@ -185,3 +185,19 @@ h2.tit{
     margin-right: auto;
 
 }
+.containerCorso
+{
+    padding:30px;width: 80%;margin-left:30%; margin-right:-2%; float: right;
+    color:black;background-color:white;height:fit-content;border-radius:10px;
+}
+.rigaCorso
+{
+    overflow:scroll;background-color:white; height:470px;margin-top:50px;
+}
+.cartaCorso
+{
+    color:white;
+    background-color:#822433;
+    margin-bottom:20px;
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.151), 0 10px 20px 0 rgba(0, 0, 0, 0.151);
+}
