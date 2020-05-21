@@ -44,7 +44,7 @@
         <?php include 'header.php'?>
         <?php include 'leftBar.php'?>
         
-        <div class="rightBar">barra dx</div>
+        <?php include 'rightBar.php'?>
         <div class="core">
             <?php 
                 if($_SESSION['ruolo']=='docente'){
