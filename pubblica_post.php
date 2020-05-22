@@ -16,14 +16,31 @@
                         $corso=$_POST['corso'];
                         $titolo=$_POST['titolo'];
                         $testo=$_POST['testo'];
-                        $email=$_SESSION['email'];
-                        echo $corso;
+                        //$email= $_SESSION["email"];
+                        $email='valerio.wp9@gmail.com';
+
+                        /*
+                            Prendi id dell'anno didattico per utilizzarlo nell'insert del post
+                        */
                         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-                        
-                        $array=array('corso'=>$corso,'titolo'=>$titolo,'testo'=>$testo,'file'=>$file);
+                        $query_anno="SELECT ad.anno, corso, id, inizio, docente
+                                    FROM public.anno_didattico as ad join anno_docente as adoc on ad.id=adoc.anno 
+                                    where docente='$email'";
+                        $result_anno = pg_query($dbconn,$query_anno) or die ('Query failed: '.pg_last_error());
+                        while ($line  = pg_fetch_array($result_anno,null,PGSQL_ASSOC))
+                        {
+                          if($corso==$line['corso'] .' ' . $line['anno']){
+                              $id_corso=$line['id'];
+                          }
+                        }
+
+                        /*
+                            Inserisci Post e prendi id  per utilizzarlo nell'insert del file
+                        */
+
                         $query= "INSERT INTO public.post(
                             intestazione, testo, anno, docente)
-                            VALUES ($titolo, $testo, $corso, $email )
+                            VALUES ('$titolo', '$testo', $id_corso, '$email' )
                             RETURNING id;";
                         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
@@ -32,10 +49,12 @@
                         }
 
 
-                        echo $id_post;
+                        echo 'id post'.$id_post;
 
 
-
+                        /*
+                            Scarica foto e inserisci nella tablla file
+                        */
 
 
 
@@ -54,13 +73,31 @@
                         }
                         
                         $files = rearrange($_FILES);
-
+                        
                         foreach ($files as $file) {
                             if (UPLOAD_ERR_OK === $file['error']) {
                                 $fileName = basename($file['name']);
-                                echo $fileName;
-                                move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$fileName);
+                                
+                                
+                                $query3="INSERT INTO file(
+                                    post, name)
+                                   VALUES ( $id_post, '$fileName')
+                                   RETURNING id;";
+                                $result3 = pg_query($dbconn,$query3) or die ('Query failed: '.pg_last_error());
+                                while ($line  = pg_fetch_array($result3,null,PGSQL_ASSOC))
+                                {
+                                    $id_file=$line['id'];                
+                                }
+                                echo $id_file;
+                                move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$id_file);
+
+                                $array=array('url'=> "$uploadDir/$id_file");
+                                $condition=array('id'=>$id_file);
+                                $res=pg_update($dbconn,'file',$array,$condition)or die ('Query failed: '.pg_last_error());
+                                if ($res) echo'file caricato';
+                                else echo 'Non è stato possibile caricare il file, riprovare per favore';
                             }
+
                         }
 
                         
@@ -74,3 +111,4 @@
     
     </body>
 </html>
+

@@ -15,7 +15,7 @@
                 <select class="selezionaCorso" id="corso" name="corso" required>
                         <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
                         <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
-                            <option name="<?php $line['id'] ?>"><?php echo $line['corso'] .' ' . $line['anno'];?></option>
+                            <option ><?php echo $line['corso'] .' ' . $line['anno'];?></option>
                         <?php }?>
                 </select>
                     <div class="line"style="width:550px"></div>
