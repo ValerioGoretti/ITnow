@@ -1,5 +1,8 @@
 
-
+<?php
+    include 'updateDocentiJson.php';
+    run();
+?>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -37,8 +40,41 @@
 
                     
             });
+            $('#crea').click(function(){
+                if(verificaEmail(listaCrea)&& (!listaCrea.includes('<?php echo $_SESSION['email']?>'))){
+                $.ajax({
+                            type: "GET",
+                            url: "crea-anno.php",
+                            data: {corso:$('#cars').val(),data:$('#data').val(),docente:'<?php echo $_SESSION['email'];?>',col: listaCrea},
+                            success: function(msg){
+                            
+                            console.log(msg);                              
+                            }
+                 });}
+                 else{alert("Email collaboratori inserite non valide");}  
+
+                    
+            });
             
             });
+            function verificaEmail(array)
+        {
+           
+            var request2 = new XMLHttpRequest();
+                request2.open("GET", "json/dati_docenti.json", false);
+                request2.send(null);
+                var risultato2 = JSON.parse(request2.responseText);
+                for (i=0;i<array.length;i++)
+                {   
+                    var presente=false;
+                    for(n=0;n<risultato2.length;n++)
+                    {
+                        if((risultato2[n]['mail'])==array[i]) {presente=true;}
+                  }
+                    if (!presente) return false;
+                }
+                return true;
+        }    
     </script>
          
 
@@ -67,7 +103,7 @@
                 
                 <div class="line" style="margin-top:20px"></div>
                 <p style="margin:10px auto;color:black;">Data di inizio</p>
-                <input type="date" name="data" id="data" style="width:100%;" placeholder="inserisci la data in formato gg/mm/aaaa">
+                <input type="date" name="data" min='<?php echo date("Y-m-d")?>' id="data" style="width:100%;" placeholder="inserisci la data in formato gg-mm-aaaa">
     
   
               
@@ -82,6 +118,6 @@
             <input type="email" id="collaboratore" style="margin-left:15px; width:190px;"placeholder="Email docente">
             <a id="add" ><i style="font-size:25px;margin-left:20px;" class="fas fa-user-plus" ></i></a>
         </div>
-        <button href="#" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
+        <button href="#" id="crea"style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
         </form>
     </div>
