@@ -9,10 +9,10 @@
                                         
                                  
             <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px;">
-                <form action="" class="post-form">
+                <form action="pubblica_post.php" method="get" class="post-form">
                 <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                 
-                <select class="selezionaCorso" id="cars" name="corso" required>
+                <select class="selezionaCorso" id="corso" name="corso" required>
                         <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
                         <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
                             <option><?php echo $line['corso'] .' ' . $line['anno'];?></option>
@@ -29,7 +29,7 @@
                         <div id="selectedFiles" class="select"> </div>
                     </div>
                     
-                    <input type="submit" class="bttn" value='Pubblica'>
+                    <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
                 </form>
                 
                 
