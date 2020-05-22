@@ -36,7 +36,9 @@
                     }
 
                     
-            });});
+            });
+            
+            });
     </script>
          
 
@@ -45,19 +47,27 @@
     <div class="rightBar font-weight-light" style="width:250px;padding:5px;color:white;">
         <h5>Crea anno didattico</h5>
         <form action="">
-        <div style="background-color:white;whidth:100px;height:150px;border-radius:6px;padding:5px;">
+        <div style="margin:0 auto;background-color:white;whidth:70%;height:fit-content;border-radius:6px;padding:5px;">
         
-                <select class="selezionaCorso" id="cars" name="corso" style="width:150px;margin:0 auto;height:30px;" required>
+                <select class="selezionaCorso" id="cars" name="corso" style="width:100%;height:30px;" required>
                         <option disabled selected>Corso</option>
-                        <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
-                            <option><?php echo $line['corso'] .' ' . $line['anno'];?></option>
-                        <?php }?>
+                        <?php   
+                        
+                        $string=file_get_contents('json/corsi.json', 'r');
+                        $corsi=json_decode($string,true);
+                        $no_dup =[];
+                        foreach($corsi as $c){
+                            if(!in_array($c['nomeCorso'],$no_dup))
+                            {?>
+                                <option class="prova" value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
+                                <?php array_push($no_dup,$c['nomeCorso']);
+                        }}?>
                         
                 </select>
                 
                 <div class="line" style="margin-top:20px"></div>
                 <p style="margin:10px auto;color:black;">Data di inizio</p>
-                <input type="date" style="margin:0px auto;" placeholder="inserisci la data in formato gg/mm/aaaa">
+                <input type="date" name="data" id="data" style="width:100%;" placeholder="inserisci la data in formato gg/mm/aaaa">
     
   
               
@@ -72,5 +82,6 @@
             <input type="email" id="collaboratore" style="margin-left:15px; width:190px;"placeholder="Email docente">
             <a id="add" ><i style="font-size:25px;margin-left:20px;" class="fas fa-user-plus" ></i></a>
         </div>
+        <button href="#" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
         </form>
     </div>
