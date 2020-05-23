@@ -1,0 +1,38 @@
+ <?php
+
+        $array = ProductManagement::get_product_for_search($database, "", "", "", "", "");
+
+        for ($i = 0; $i < sizeof($array); $i++) {
+            echo <<<EOF
+            <div class="risposta">
+                <div class="nomeprod"><h3>{$array[$i]["product_name"]}</h3></div>
+                <div class="compatibilita"><h3></h3></div>
+                <div class="prezzo"><h3>{$array[$i]['iva_price']}</h3></div>
+                <div class="carrello"><h3><i class="fas fa-cart-plus"></i></h3></div>
+            </div>
+EOF;
+        }
+        ?>
+
+
+
+
+<?php
+    include_once "../Project/MyDatabase.php";
+    include_once "../Project/Products/ProductManagement.php";
+
+    $database = new MyDatabase();
+?>
+
+
+
+
+
+
+
+
+
+
+
+            $_SESSION["nome"]=$line["nome"];
+            $_SESSION["email"]=$line["email"];

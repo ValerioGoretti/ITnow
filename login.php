@@ -1,7 +1,7 @@
 <?php
     include "updateDocentiJson.php";
     include "updateStudentiJson.php";
-    run();
+    runDoc();
     run2();
     session_start();
     if (session_status() != PHP_SESSION_NONE) {session_destroy();}
