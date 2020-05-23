@@ -49,7 +49,7 @@
                         }
 
 
-                        echo 'id post'.$id_post;
+                        
 
 
                         /*
@@ -88,7 +88,6 @@
                                 {
                                     $id_file=$line['id'];                
                                 }
-                                echo $id_file;
                                 move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$id_file);
 
                                 $array=array('url'=> "$uploadDir/$id_file");
