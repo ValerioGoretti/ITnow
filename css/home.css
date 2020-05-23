@@ -187,10 +187,13 @@
 
 .doc { grid-area: 9 / 9 / 9 / 11;
     margin-top: 0px; 
+
     
 }
 .data { grid-area: 8 / 1 / 9 / 4; 
     margin-top: 0px;
+    width: 120%;
+    
     
 }
 .download{
@@ -201,8 +204,7 @@
 }
 
 .attache{
-    background-color: #822433;
-    width: 50%;
+    width: fit-content;
     color: #fff;
     font-size: small;
     text-align: left;

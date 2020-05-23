@@ -77,7 +77,7 @@
                         foreach ($files as $file) {
                             if (UPLOAD_ERR_OK === $file['error']) {
                                 $fileName = basename($file['name']);
-                                
+                                $ext = pathinfo($fileName, PATHINFO_EXTENSION);
                                 
                                 $query3="INSERT INTO file(
                                     post, name)
@@ -88,7 +88,7 @@
                                 {
                                     $id_file=$line['id'];                
                                 }
-                                move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$id_file);
+                                move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$id_file.'.'.$ext);
 
                                 $array=array('url'=> "$uploadDir/$id_file");
                                 $condition=array('id'=>$id_file);

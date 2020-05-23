@@ -41,6 +41,8 @@
     <body >
 
     <?php include 'header.php';
+        include 'updateCorsi.php';
+        run();
     session_start();
     
                 $corso = $_GET['corso'];
@@ -117,7 +119,7 @@
     return relevantChildren;
 }
 var element = document.getElementById("riga");
-
+if(getCount(element,false)=2)
 $('.rigaCorso').css('height','250px');             
 </script>   
     </body>

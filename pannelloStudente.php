@@ -22,12 +22,12 @@
                                 <div class="data">
                                 <?php
                                         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-                                        $query= "select post.id as postid, file.id,  file.url
+                                        $query= "select post.id as postid, file.id,  file.url, file.name
                                         from post join file on post.id=file.post
                                         where post.id=$1;";
                                         $result = pg_query_params($dbconn,$query,array($p['idpost'])) or die ('Query failed: '.pg_last_error());
                                         while ($linefile  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
-                                                <a href="download/prova.txt" download="prova.txt"><div class="attache"><?php echo $linefile['url'] ?> <i class="fas fa-paperclip"></i></div></a>
+                                                <a href="<?php echo $linefile['url'];?>" download="<?php echo $linefile['name']; ?>" style="text-decoration:none"><div class="attache"><?php echo $linefile['name']; ?> <i class="fas fa-paperclip"></i></div></a>
                                       <?php 
                                         }?>
                                 </div>
