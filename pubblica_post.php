@@ -96,10 +96,10 @@
                                 if ($res) echo'file caricato';
                                 else echo 'Non è stato possibile caricare il file, riprovare per favore';
                             }
-
+ 
                         }
 
-                        
+                        header("Location: Home.php?messaggio=post inviato correttamente");
                         
                     }
                         

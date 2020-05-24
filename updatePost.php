@@ -5,7 +5,7 @@
         "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email, post.data
         from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email join studente_corso as st on post.anno=st.anno
         where st.studente=$matricola
-        order by post.id asc
+        order by post.id desc
         ";
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){

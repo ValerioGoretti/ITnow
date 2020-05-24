@@ -1,4 +1,5 @@
     <?php
+        
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $email=$_SESSION['email'];
         $query="select ad.corso,ad.anno
@@ -13,7 +14,7 @@
                 <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                 
                 <select class="selezionaCorso" id="corso" name="corso" required>
-                        <option disabled selected>inserisci il corso dove vuoi pubblicare il post</option>
+                        <option disabled default>inserisci il corso dove vuoi pubblicare il post</option>
                         <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
                             <option ><?php echo $line['corso'] .' ' . $line['anno'];?></option>
                         <?php }?>
@@ -62,5 +63,10 @@
 		}
 		
 	}
+
+    <?php if(isset($_GET['messaggio'])){
+            $mess=$_GET['messaggio'];
+               echo "alert('$mess');";
+         } ?>
 	</script>
         
