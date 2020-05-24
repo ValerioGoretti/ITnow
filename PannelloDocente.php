@@ -11,25 +11,25 @@
                                  
             <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px;">
                 <form action="pubblica_post.php" method="post" enctype="multipart/form-data" class="post-form">
-                <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
-                
-                <select class="selezionaCorso" id="corso" name="corso" required>
-                        <option disabled default>inserisci il corso dove vuoi pubblicare il post</option>
-                        <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
-                            <option ><?php echo $line['corso'] .' ' . $line['anno'];?></option>
-                        <?php }?>
-                </select>
-                    <div class="line"style="width:550px"></div>
-                    <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post" required>
-                    <div class="line"style="margin:10px auto; width:550px"></div>
-                    <textarea class="textc" placeholder="Inserisci il testo del post" name="testo" required></textarea>
-                    </div>
-                    <input type="file" id="files" class="file" name="files[]" multiple>
-                    <div class="col">
-                    <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
-                        <div id="selectedFiles" class="select"> </div>
-                    </div>
+                    <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                     
+                    <select class="selezionaCorso" id="corso" name="corso" required>
+                            <option disabled default>inserisci il corso dove vuoi pubblicare il post</option>
+                            <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
+                                <option ><?php echo $line['corso'] . ' ' . $line['anno'];?></option>
+                            <?php }?>
+                    </select>
+                        <div class="line"style="width:550px"></div>
+                        <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post" required>
+                        <div class="line"style="margin:10px auto; width:550px"></div>
+                        <textarea class="textc" placeholder="Inserisci il testo del post" name="testo" required></textarea>
+                        </div>
+                        <input type="file" id="files" class="file" name="files[]" multiple>
+                        <div class="col">
+                        <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
+                            <div id="selectedFiles" class="select"> </div>
+                        </div>
+                        
                     <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
                 </form>
                 
