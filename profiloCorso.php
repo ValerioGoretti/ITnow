@@ -82,7 +82,7 @@
                     
                     <div class="card-body">
                     <h5 class="card-title"><?php echo $c['nomeDoc'].' '.$c['cognomeDoc']?></h5>
-                    <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:In corso</p>
+                    <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:<?php echo $c['stato']?></p>
                    
                     
                     <button href="#" class="btn btn-primary2" value="<?php echo $c['idCorso']?>"name="corso">Vai all'anno didattico</a>

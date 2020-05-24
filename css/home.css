@@ -150,14 +150,14 @@
     }
 .containerTitolo
 {
-    width:100% ;
+    width:650px;
     height:fit-content ;
     background-color:#822433;
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 50px;
     color: #fff;
-
+    margin-left: 150px;
     
 }
     
