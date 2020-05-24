@@ -18,7 +18,7 @@
                                 <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h5> </div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost t font-weight"><?php echo $p['testo'];?> </div>
-                                
+                                <div class="del"></div>
                                 <div class="data">
                                 <?php
                                         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
