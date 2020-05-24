@@ -18,6 +18,8 @@
                         $testo=$_POST['testo'];
                         //$email= $_SESSION["email"];
                         $email='valerio.wp9@gmail.com';
+                        $controllo=0;
+                        
 
                         /*
                             Prendi id dell'anno didattico per utilizzarlo nell'insert del post
@@ -33,7 +35,10 @@
                               $id_corso=$line['id'];
                           }
                         }
-
+                        if($result_anno)
+                            $controllo=1;
+                        else
+                            $msg="problema ricerca corso";
                         /*
                             Inserisci Post e prendi id  per utilizzarlo nell'insert del file
                         */
@@ -47,7 +52,12 @@
                         {
                           $id_post=$line['id'];
                         }
-
+                        if($result){
+                            if($controllo=1)
+                                $controllo=2;
+                            else
+                                $msg= $msg .", problema caricamento post";
+                        }
 
                         
 
@@ -93,13 +103,20 @@
                                 $array=array('url'=> "$uploadDir/$id_file.$ext");
                                 $condition=array('id'=>$id_file);
                                 $res=pg_update($dbconn,'file',$array,$condition)or die ('Query failed: '.pg_last_error());
-                                if ($res) echo'file caricato';
-                                else echo 'Non è stato possibile caricare il file, riprovare per favore';
+                                if ($res){
+                                    if($controllo=2)
+                                        $controllo=3;
+                                    else
+                                        $msg= $msg . ", problema caricamento file";
+                                }
                             }
  
                         }
 
-                        header("Location: Home.php?messaggio=post inviato correttamente");
+                        if($controllo=3)
+                            $msg="post inviato correttamente";
+                        header("Location: Home.php?messaggio=  $msg");
+
                         
                     }
                         
