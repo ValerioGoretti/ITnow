@@ -43,7 +43,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-      
+        <script>
+             $("document").ready(function(){
+                $('#files').hide();        
+            });
+        </script>
     </head>
     <body>
         <?php include 'header.php'?>
@@ -75,7 +79,7 @@
                         
                        
                         $query= 
-                            "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
+                            "SELECT ad.id as annod_id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
                             from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email  
                             where ad.id='$corso' 
                             order by post.id asc ";
@@ -90,11 +94,35 @@
                             <div class="post">
                                 <div class="titolo"> <h2><?php echo $line['intestazione'];?></h2> </div>
                                 <div class="autore"><h5><?php echo $line['nome'] . ' '.$line['cognome'];?></h5> </div>
-                                <div class="del"></div>
+
+                                <?php if($_SESSION['ruolo']=='docente' ){
+                                        if($_SESSION['email']==$line['email']){?>
+                                            <div class="del"> <a href="cancellaPost.php?post=<?php echo $line['idpost'] ?>&annod_id=<?php echo $line['annod_id']?>"><i class="fas fa-trash-alt" style="margin-right:10%"></i></a></div>
+                                        <?php if($_SESSION['email'] != $line['email']){?>
+                                            <div class="del"></div>
+                                        
+                                <?php }}}
+                                    else{?>
+                                        <div class="del"></div>
+                                    <?php }?>
+
+
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $line['testo'];?> </div>
-                                <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
-                                <div class="data"><div ><?php echo '<p style="background-color:#822433; color:white;">'.$line['data']."</p>";?></div> </div>
+
+                                <div class="data">
+                                <?php
+                                        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+                                        $query= "select post.id as postid, file.id,  file.url, file.name
+                                        from post join file on post.id=file.post
+                                        where post.id=$1;";
+                                        $result = pg_query_params($dbconn,$query,array($line['idpost'])) or die ('Query failed: '.pg_last_error());
+                                        while ($linefile  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
+                                                <a href="<?php echo $linefile['url'];?>" download="<?php echo $linefile['name']; ?>" style="text-decoration:none"><div class="attache"><?php echo $linefile['name']; ?> <i class="fas fa-paperclip"></i></div></a>
+                                      <?php 
+                                        }?>
+                                </div>
+                                <div class="doc"><?php echo $line['data'];?></div>
                             </div>
                                 <?php } ?>
             </div>

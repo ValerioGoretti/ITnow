@@ -27,7 +27,7 @@
            
             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
-                    <a href="homeAnno.php?idAnno=<?php echo $line['id']; ?>"><div class="leftcard grow" id="leftcard"> 
+                    <a href="homeAnno.php?corso=<?php echo $line['id']; ?>"><div class="leftcard grow" id="leftcard"> 
                         <div class=materia><?php echo $line['corso'].' '.$line['anno']?></div>
                         <div class="prof"><?php echo $line['nome'].' '.$line['cognome'] ?></div>
                     </div> </a>                   

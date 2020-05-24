@@ -1,5 +1,6 @@
 <?php
     $idPost=$_GET['post'];
+    $id_anno=$_GET['annod_id'];
     $query1="DELETE FROM public.file
              WHERE post=$idPost;";
     
@@ -12,5 +13,5 @@
     $result2 = pg_query($dbconn,$query2) or die ('Query failed: '.pg_last_error());
 
     //RIVEDERE LA REDIREZIONE
-    header("Location: Home.php");
+    header("Location: HomeAnno.php?corso=$id_anno");
 ?>
