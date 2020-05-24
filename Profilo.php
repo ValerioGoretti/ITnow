@@ -23,90 +23,171 @@
         </script>
 </script>
     </head>
-    <body style="width:100%; height:110%;">
+<body style="width:100%; height:110%;">
     <?php include 'header.php';
-    session_start();
-    $matricola=$_SESSION['matricola'];
-    ?>
-
-    <div id="app" style="background-color:#822433; width:100%; height:100%; padding:3%">
-        <!--immagine profilo-->
+        session_start();
         
-        <div class="barrasinistra" style="background-color:white; width: 20%; float:left;">
-            <?php include 'leftBar.php'?>
-        </div>   
-        <!--riepilogo dati-->
+    
+    if($_SESSION['ruolo']=='studente'){
+        $matricola=$_SESSION['matricola'];?>
+        <div id="app" style="background-color:#822433; width:100%; height:100%; padding:3%">
+            <!--immagine profilo-->
+            
+            <div class="barrasinistra" style="background-color:white; width: 20%; float:left;">
+                <?php include 'leftBar.php'?>
+            </div>   
+            <!--riepilogo dati-->
 
-       <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
-        <div class="immagini">
-                <div class="circle ">
-                    <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
+        <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
+            <div class="immagini">
+                    <div class="circle ">
+                        <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
+                    </div>
+                    <div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div>  
                 </div>
-                <div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div>  
-            </div>
-       </div>
-       
-       <div class="datii" style="width: 50%; margin-right:-2%; float:right; ">
-            <div class="dati" style="background-color: #ffffff;">
-                        <h2 class="tit font-weight-normal">Dati Studente</h2>
-                        <div class="row">
-                <div class="col" style="text-align: center;">
-                        <!-- colonna 1-->
-                        
-                            <div class="titolo font-weight-normal">Nome</div>
-                            <div class="line" style=""></div>
-                            <div class="valore font-weight-light">{{nome}}</div>
-                        
-                        </div>
-                    <div class="col" style="text-align: center;" >
+        </div>
+        
+        <div class="datii" style="width: 50%; margin-right:-2%; float:right; ">
+                <div class="dati" style="background-color: #ffffff;">
+                            <h2 class="tit font-weight-normal">Dati Studente</h2>
+                            <div class="row">
+                    <div class="col" style="text-align: center;">
+                            <!-- colonna 1-->
                             
-                                <div class="titolo font-weight-normal">Cognome</div>
-                                <div class="line" ></div>
-                                <div class="valore font-weight-light">{{cognome}}</div>
+                                <div class="titolo font-weight-normal">Nome</div>
+                                <div class="line" style=""></div>
+                                <div class="valore font-weight-light">{{nome}}</div>
                             
-                        </div>
-                        
-                        <!-- colonna 2-->
-                        </div>
-                        <div class="row">
-                        <div class="col" style="text-align: center;">
-                        
-                            <div class="titolo font-weight-normal">Email</div>
-                            <div class="line" ></div>
-                            <div class="valore font-weight-light">{{email}}</div>
-
-
+                            </div>
+                        <div class="col" style="text-align: center;" >
+                                
+                                    <div class="titolo font-weight-normal">Cognome</div>
+                                    <div class="line" ></div>
+                                    <div class="valore font-weight-light">{{cognome}}</div>
+                                
+                            </div>
                             
-                        </div>
-                        <div class="col" style="text-align: center;">
-
-                            <div class="titolo font-weight-normal">Matricola</div>
-                            <div class="line"></div>
-                            <div class="valore font-weight-light">{{matricola}}</div>
-                        
-                        </div>
-                        </div>
-                        <div class="row">
+                            <!-- colonna 2-->
+                            </div>
+                            <div class="row">
                             <div class="col" style="text-align: center;">
-                                <a href="cambia_mail.php" style="text-decoration:none;">
-                                    <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px;">Cambia la tua email</div>
-                                </a>
+                            
+                                <div class="titolo font-weight-normal">Email</div>
+                                <div class="line" ></div>
+                                <div class="valore font-weight-light">{{email}}</div>
+
+
+                                
                             </div>
                             <div class="col" style="text-align: center;">
-                                <a href='cambia_password.php' style="text-decoration:none;">
-                                    <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua password</div>
-                                </a>
+
+                                <div class="titolo font-weight-normal">Matricola</div>
+                                <div class="line"></div>
+                                <div class="valore font-weight-light">{{matricola}}</div>
+                            
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col" style="text-align: center;">
+                                    <a href="cambia_mail.php" style="text-decoration:none;">
+                                        <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px;">Cambia la tua email</div>
+                                    </a>
+                                </div>
+                                <div class="col" style="text-align: center;">
+                                    <a href='cambia_password.php' style="text-decoration:none;">
+                                        <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua password</div>
+                                    </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        
-    </div>   
-        
+            
+        </div>   
+        <?php include 'profilo_studente.php'; 
+    } ?>  
+    
     
 
-    
-    
-    
-    <?php include 'profilo_studente.php';?>
+
+
+
+        <!-- PROFILO DOCENTE -->
+
+    <?php if($_SESSION['ruolo']=='docente'){
+        $email=$_SESSION['email']; ?>
+        <div id="ap" style="background-color:#822433; width:100%; height:100%; padding:3%">
+                    <!--immagine profilo-->
+                    
+                    <div class="barrasinistra" style="background-color:white; width: 20%; float:left;">
+                        <?php include 'leftBar.php'?>
+                    </div>   
+                    <!--riepilogo dati-->
+
+                <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
+                    <div class="immagini">
+                            <div class="circle ">
+                                <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
+                            </div>
+                            <div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div>  
+                        </div>
+                </div>
+                
+                <div class="datii" style="width: 50%; margin-right:-2%; float:right; ">
+                        <div class="dati" style="background-color: #ffffff;">
+                                    <h2 class="tit font-weight-normal">Dati Docente</h2>
+                            <div class="row">
+                                <div class="col" style="text-align: center;">
+                                        <!-- colonna 1-->
+                                        
+                                            <div class="titolo font-weight-normal">Nome</div>
+                                            <div class="line" style=""></div>
+                                            <div class="valore font-weight-light">{{nome}}</div>
+                                        
+                                        </div>
+                                    <div class="col" style="text-align: center;" >
+                                            
+                                                <div class="titolo font-weight-normal">Cognome</div>
+                                                <div class="line" ></div>
+                                                <div class="valore font-weight-light">{{cognome}}</div>
+                                            
+                                        </div>
+                            </div>
+                                    <!-- colonna 2-->
+                                    
+                                    <div class="row">
+                                        <div class="col" style="text-align: center;">
+                                        
+                                            <div class="titolo font-weight-normal">Email</div>
+                                            <div class="line" ></div>
+                                            <div class="valore font-weight-light">{{email}}</div>
+                                        </div>
+
+                                        <div class="col" style="text-align: center;">
+                                        
+                                            <div class="titolo font-weight-normal">data nascita</div>
+                                            <div class="line" ></div>
+                                            <div class="valore font-weight-light">{{data_nascita}}</div>
+                                        </div>
+
+                                        
+                                    </div>
+
+                                    <!-- col 4-->
+                                    <div class="row">
+                                        <div class="col" style="text-align: center;">
+                                            <a href='cambia_password.php' style="text-decoration:none;">
+                                                <div class="btnRegister font-weight-light" style="margin:50px auto;border-radius:6px;padding:5px">Cambia la tua password</div>
+                                            </a>
+                                    </div>
+                    </div>
+            </div>
+    </div>
+        <?php 
+        include 'profilo_docente.php';
+    } ?>   
+        
+        
+        
+        
+        
     </body>
 </html>

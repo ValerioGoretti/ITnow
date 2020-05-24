@@ -7,7 +7,7 @@
             if($_SESSION['ruolo']=='studente')
             {
                 $mat=($_SESSION['matricola']);
-                $query= "select matricola, corso, anno_didattico.anno, docente.nome, docente.cognome
+                $query= "select matricola, corso, anno_didattico.anno , docente.nome, docente.cognome
                 from studente join studente_corso on studente.matricola=studente_corso.studente 
                 join anno_didattico on studente_corso.anno=anno_didattico.id
                 join anno_docente on anno_didattico.id=anno_docente.anno join docente on docente.email=anno_docente.docente
