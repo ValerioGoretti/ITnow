@@ -7,7 +7,7 @@
             if($_SESSION['ruolo']=='studente')
             {
                 $mat=($_SESSION['matricola']);
-                $query= "select matricola, corso, anno_didattico.anno , docente.nome, docente.cognome
+                $query= "select matricola, corso, anno_didattico.anno , docente.nome, docente.cognome, anno_didattico.id
                 from studente join studente_corso on studente.matricola=studente_corso.studente 
                 join anno_didattico on studente_corso.anno=anno_didattico.id
                 join anno_docente on anno_didattico.id=anno_docente.anno join docente on docente.email=anno_docente.docente
@@ -16,7 +16,7 @@
             if($_SESSION['ruolo']=='docente')
             { 
                 $email=($_SESSION['email']);
-                $query= "select  *
+                $query= "select  anno_didattico.anno, anno_didattico.corso, docente.nome, docente.cognome, anno_didattico.id
                         from  anno_didattico join anno_docente on anno_didattico.id=anno_docente.anno join docente on docente.email=anno_docente.docente
                         where email= '$email'";
                 
@@ -27,9 +27,9 @@
            
             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
-                    <div class="leftcard grow" id="leftcard"> 
+                    <a href="homeAnno.php?idAnno=<?php echo $line['id']; ?>"><div class="leftcard grow" id="leftcard"> 
                         <div class=materia><?php echo $line['corso'].' '.$line['anno']?></div>
                         <div class="prof"><?php echo $line['nome'].' '.$line['cognome'] ?></div>
-                    </div>                    
+                    </div> </a>                   
             <?php }?>                          
         </div>

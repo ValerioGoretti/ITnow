@@ -120,6 +120,7 @@
                             <div class="post">
                                 <div class="titolo"> <h2><?php echo $line['intestazione'];?></h2> </div>
                                 <div class="autore"><h5><?php echo $line['nome'] . ' '.$line['cognome'];?></h5> </div>
+                                <div class="del"></div>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $line['testo'];?> </div>
                                 <div class="doc"> <div class="attache"><i class="fas fa-paperclip"></i></div></div>
