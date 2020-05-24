@@ -47,8 +47,8 @@
                             url: "crea-anno.php",
                             data: {corso:$('#cars').val(),data:$('#data').val(),docente:'<?php echo $_SESSION['email'];?>',col: listaCrea},
                             success: function(msg){
-                            
-                            console.log(msg);                              
+                            window.location.reload();
+                            alert(msg);                              
                             }
                  });}
                  else{alert("Email collaboratori inserite non valide");}  

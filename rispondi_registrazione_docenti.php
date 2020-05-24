@@ -29,10 +29,10 @@
    
                      $array=array('nome'=>$nome,'password'=>md5($password),'cognome'=>$cognome,'email'=>$email);
    
-                     $result = pg_insert($dbconn,'docente',$array) or die ('Query failed: '.pg_last_error());
-                    
+                     $result = pg_insert($dbconn,'docente',$array);
+                     
                     if($result) 
-                        {run(); 
+                        {runDoc(); 
                             echo('<div class="row" style="width:fit-content; margin:0 auto;">');
                             echo('<p style="font-size:25px ;padding:10px" class="t font-weight-light" >Ciao '.$nome.' ,</p>');   
                             echo('</div>');

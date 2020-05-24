@@ -19,17 +19,23 @@
             $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
            
             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
-            if(pg_num_rows($result)>0){echo 'docente gia ha un anno per il corso';}
+
+            if(pg_num_rows($result)>0){echo 'docente gia ha un anno didattico per il corso';}
             else{
-                    $array=array('anno'=>$anno2,'corso'=>$corso);
+                    
                     $query2="INSERT into anno_didattico(anno,corso,inizio) values('$anno2','$corso','$data')RETURNING id;";
                     $resulta=pg_query($dbconn,$query2) or die ('Query failed: '.pg_last_error());
                     $id;
+                    if($resulta){
                     while ($line  = pg_fetch_array($resulta,null,PGSQL_ASSOC)){
-                    $id=$line['id'];}
+                    $id=$line['id'];break;}
                     $array2=array('anno'=>$id,'docente'=>$docente);
                     $result2=pg_insert($dbconn,'anno_docente',$array2) or die ('Query failed: '.pg_last_error());
-                    
+                    }
+                    else
+                    {
+                        echo 'non è stato possibile creare il corso';
+                    }
             }
             pg_close($dbconn);
 

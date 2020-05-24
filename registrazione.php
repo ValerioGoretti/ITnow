@@ -1,7 +1,7 @@
 <?php
     include "updateDocentiJson.php";
     include "updateStudentiJson.php";
-    run();
+    runDoc();
     run2();
                     
 ?>

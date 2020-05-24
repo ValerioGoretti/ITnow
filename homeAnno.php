@@ -1,16 +1,18 @@
-<?php
-                        session_start();
-                        $follow;
-                        $corso = $_GET['corso'];
-                        $matricola=$_SESSION['matricola'];
-                        $docenti="";
+<?php session_start(); 
+    $corso = $_GET['corso'];
+    $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+    $docenti="";
+                        
+
+                        $matricola;
                         $anno;
+                        $stato;
                         $nome;
                         $mail="";
                         $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
                         $query2= 
-                            "SELECT anno_didattico.anno,docente.nome,docente.cognome,docente.email,anno_didattico.corso
-                            from anno_docente join anno_didattico on anno_docente.anno=anno_didattico.id join docente on anno_docente.docente=docente.email
+                            "SELECT anno_didattico.anno,anno_didattico.stato,docente.nome,docente.cognome,docente.email,anno_didattico.corso
+                            from anno_docente join anno_didattico on anno_docente.anno=anno_didattico.id join docente on anno_docente.docente=docente.email 
                             where anno_didattico.id='$corso' 
                             ";
                             $result2 = pg_query($dbconn2,$query2) or die ('Query failed: '.pg_last_error());
@@ -19,17 +21,8 @@
                                     $anno=$line["anno"];
                                     $nome=$line["corso"];
                                     $mail=$line["email"]." ".$mail;
-
+                                    $stato=$line['stato'];
                             }
-                        $query3=   
-                        "SELECT *
-                        from studente_corso
-                        where studente='$matricola' and anno='$corso'
-                        ";
-                        $result3 = pg_query($dbconn2,$query3) or die ('Query failed: '.pg_last_error());
-                        if(pg_num_rows($result3)==1){$follow='Non seguire più';}
-                        else{$follow='Segui';}
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -50,57 +43,20 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-        <script>
-            var stato;
-            $("document").ready(function(){
-                
-               
-                $('.follow').click(function(){
-                    if ($('.follow').text() =='Segui') 
-                    {   
-                             $.ajax({
-                            type: "GET",
-                            url: "follow-unfollow.php",
-                            data: {stato:'follow',id:'<?php echo $corso;?>',studente:'<?php echo $matricola;?>'},
-                            success: function(msg){
-                            location.reload();
-                            console.log(msg);                              
-                            }
-                 });  
-                            }
-                    else 
-                    {    
-                             $.ajax({
-                            type: "GET",
-                            url: "follow-unfollow.php",
-                            data: {stato:'unfollow',id:'<?php echo $corso;?>',studente:'<?php echo $matricola;?>'},
-                            success: function(msg){
-                                
-                                location.reload();
-                                console.log(msg);
-                                }
-                 });
-                    }
-                });
-            });
-        </script>
+      
     </head>
     <body>
-        <?php include 'header.php'?>;
+        <?php include 'header.php'?>
         
                      
-        
-        <div class="leftBar "> <p>ciao </p></div>
-        <div class="rightBar" style="padding:10px;"><div class="btn-follow follow"><?php echo $follow?></div></div>
-        <div class="core ">
-            <div class="spazioPost">
-            <?php 
-                        
-
-                       
-                        $query= 
+        <?php include 'leftBar.php'?>
+      
+        <?php if($_SESSION['ruolo']=='studente') include 'rightbar_follow_unfollow.php'?>
+        <?php if($_SESSION['ruolo']=='docente') include 'rightbar_docente_anno.php'?>
+        <div class="core" style="width:1000px">
+       <?php $query= 
                             "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
-                            from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email 
+                            from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email  
                             where ad.id='$corso' 
                             order by post.id asc ";
                             $result = pg_query($dbconn2,$query) or die ('Query failed: '.pg_last_error());
@@ -109,14 +65,28 @@
                             echo"<p>Anno del corso: ".$anno."</p>";
                             echo"<p>Docenti del corso: ".$docenti."</p>";
                             echo"<p>Email dei docenti: ".$mail."</p>";
+                            echo"<p>Stato del corso: ".$stato."</p>";
 
                             echo "</div>";
+            if($_SESSION['ruolo']=='docente') include 'PannelloDocente.php';?>
+            <div class="spazioPost">
+            <?php 
+                         
+                        
+                       
+                        $query= 
+                            "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
+                            from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email  
+                            where ad.id='$corso' 
+                            order by post.id asc ";
+                            $result = pg_query($dbconn2,$query) or die ('Query failed: '.pg_last_error());
 
+                            
                             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
                              //$array[]=array('idCorso'=>$line['id'],'corso'=>$line["corso"],'anno'=>$line['anno'],'idpost'=>$line['idpost'],'titolo'=>$line['intestazione'],'testo'=>$line['testo'],'timestamp'=>$line['timestamp'],'nomeDoc'=>$line["nome"],'cognomeDoc'=>$line["cognome"],'emailDoc'=>$line["email"]);
             
                             ?>
-                           
+
                             <div class="post">
                                 <div class="titolo"> <h2><?php echo $line['intestazione'];?></h2> </div>
                                 <div class="autore"><h5><?php echo $line['nome'] . ' '.$line['cognome'];?></h5> </div>
@@ -128,7 +98,9 @@
                             </div>
                                 <?php } ?>
             </div>
-        </div>   
+           
+        </div>
+       
         
     </body>
 </html>
