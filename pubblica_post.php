@@ -90,7 +90,7 @@
                                 }
                                 move_uploaded_file($file['tmp_name'], $uploadDir.DIRECTORY_SEPARATOR.$id_file.'.'.$ext);
 
-                                $array=array('url'=> "$uploadDir/$id_file");
+                                $array=array('url'=> "$uploadDir/$id_file.$ext");
                                 $condition=array('id'=>$id_file);
                                 $res=pg_update($dbconn,'file',$array,$condition)or die ('Query failed: '.pg_last_error());
                                 if ($res) echo'file caricato';
