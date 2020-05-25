@@ -45,7 +45,7 @@
 
                         $query= "INSERT INTO public.post(
                             intestazione, testo, anno, docente)
-                            VALUES ('$titolo', '$testo', $id_corso, '$email' )
+                            VALUES ('$titolo', '$testo', '$id_corso', '$email' )
                             RETURNING id;";
                         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))

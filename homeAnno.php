@@ -27,9 +27,9 @@
     <body>
         <?php include 'header.php'?>                     
         <?php include 'leftBar.php'?>
-      
-        <?php if($_SESSION['ruolo']=='studente') include 'rightbar_follow_unfollow.php'?>
-        <?php if($_SESSION['ruolo']=='docente') include  'rightbar_docente_anno.php'    ?>
+        <?php include 'right-bar-control2.php';?>
+        
+        
         
         <div class="core" style="width:1000px">
                 <div class="spazioPost">

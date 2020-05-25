@@ -1,6 +1,7 @@
 <?php
                         
                        
+                        
                         $follow;
                         $corso = $_GET['corso'];
                         $matricola=$_SESSION['matricola'];
@@ -64,5 +65,6 @@ $("document").ready(function(){
                     }
                 });
             });
- <script>           
-<div class="rightBar" style="padding:10px;"><div class="btn-follow follow"><?php echo $follow?></div></div>
+ </script>
+        
+<div class="rightBar" style="padding:10px; height:fit-content;"><div class="btn-follow follow"><?php echo $follow?></div></div></body>
