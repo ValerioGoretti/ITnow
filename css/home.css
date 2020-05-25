@@ -259,10 +259,12 @@
 .prof{
     text-align: right;
     font-size: small;
+    text-decoration: none;
 }
 .materia{
     text-align: left;
     font-size: small;
+    text-decoration: none; 
 }
 .ciao{
     width: 100%;
