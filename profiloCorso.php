@@ -40,10 +40,10 @@
     </head>
     <body >
 
-    <?php include 'header.php';
+    <?php session_start(); include 'header.php';
         include 'updateCorsi.php';
         run();
-    session_start();
+    
     
                 $corso = $_GET['corso'];
                 $string=file_get_contents('json/corsi.json', 'r');

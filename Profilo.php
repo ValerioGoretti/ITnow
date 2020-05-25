@@ -19,13 +19,24 @@
                 $('#corsi').css({"color": "#822433"});
                 $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
             });
+            function PopupCentrata()
+                {
+                var w = screen.width
+                var h = 1000;
+                var l = Math.floor((screen.width-w)/2);
+                var t = Math.floor((screen.height-h)/2);
+                window.open("carica-immagine.php","","width=" + w + ",height=" + 493 + ",top=" + t + ",left=" + l);
+                }
+               
+</script>           
             
         </script>
 </script>
     </head>
 <body style="width:100%; height:110%;">
-    <?php include 'header.php';
-        session_start();
+    
+    <?php  session_start(); include 'header.php';
+       
         
     
     if($_SESSION['ruolo']=='studente'){
@@ -41,9 +52,10 @@
         <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
             <div class="immagini">
                     <div class="circle ">
-                        <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
+                        <?php if(!file_exists("img_docente/".$matricola.".png")) echo '<img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
+                        <?php if(file_exists("img_docente/".$matricola.".png"))   echo "<img src='img_docente/$matricola.png' style='width: 90%; margin-top: 13px; margin-left: 13px;'>"?>
                     </div>
-                    <div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div>  
+                    <a href="javascript:PopupCentrata()"><div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div></a>  
                 </div>
         </div>
         
@@ -125,9 +137,11 @@
                 <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
                     <div class="immagini">
                             <div class="circle ">
-                                <img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">
+                                <?php if(!file_exists("img_docente/".$email.".png")) echo '<img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
+                                <?php if(file_exists("img_docente/".$email.".png"))   echo "<img src='img_docente/$email.png' style='width: 90%; margin-top: 13px; margin-left: 13px;'>"?>
+                                
                             </div>
-                            <div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div>  
+                            <a href="javascript:PopupCentrata()"><div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div></a> 
                         </div>
                 </div>
                 
@@ -190,4 +204,16 @@
         
         
     </body>
+    <script type="text/javascript">
+
+function PopupCentrata()
+{
+var w = 400;
+var h = 250;
+var l = Math.floor((screen.width-w)/2);
+var t = Math.floor((screen.height-h)/2);
+window.open("carica-immagine.php","","width=" + w + ",height=" + h + ",top=" + t + ",left=" + l);
+}
+//-->
+</script>
 </html>

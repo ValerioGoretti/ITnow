@@ -34,9 +34,11 @@
                 
                     $_SESSION["nome"]=$line["nome"];
                     $_SESSION["email"]=$line["email"];
+
                    
                 }
             $_SESSION['ruolo']='docente';
+            $_SESSION['img']=$_SESSION["email"];
             header("Location: Home.php");
             //echo("<br><a href='logout.php'>Effettua il logout</a>");
 
@@ -75,6 +77,7 @@ else
                 
             }
             $_SESSION["ruolo"]='studente';
+            $_SESSION['img']=$_SESSION["matricola"];
             header("Location: Home.php");
             
         
