@@ -74,7 +74,7 @@
                                             echo "</div>"; ?>
                 </div>
             
-           <?php if($_SESSION['ruolo']=='docente') include 'PannelloDocente.php';?>
+           <?php if($_SESSION['ruolo']=='docente') include 'PannelloDocenteCorso.php';?>
 
 
 
