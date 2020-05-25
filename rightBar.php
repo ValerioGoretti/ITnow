@@ -41,17 +41,23 @@
                     
             });
             $('#crea').click(function(){
-                if(verificaEmail(listaCrea)&& (!listaCrea.includes('<?php echo $_SESSION['email']?>'))){
+                
+                var d1=new Date($('#data').val());
+                var d2=new Date();
+                console.log(d1);
+                console.log(d2);
+
+                if(verificaEmail(listaCrea)&& (!listaCrea.includes('<?php echo $_SESSION['email']?>'))&&(d1>=d2)){
                 $.ajax({
                             type: "GET",
                             url: "crea-anno.php",
-                            data: {corso:$('#cars').val(),data:$('#data').val(),docente:'<?php echo $_SESSION['email'];?>',col: listaCrea},
+                            data: {corso:$('#cars').val(),data:$('#data').val(),docente:'<?php echo $_SESSION['email'];?>',col: listaCrea.join(";")},
                             success: function(msg){
                             window.location.reload();
                             alert(msg);                              
                             }
                  });}
-                 else{alert("Email collaboratori inserite non valide");}  
+                 else{alert("Dati inseriti non validi");}  
 
                     
             });
