@@ -9,7 +9,7 @@
         ?>
                                         
                                  
-            <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px;">
+            <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px; margin-bottom:5%">
                 <form action="pubblica_post.php" method="post" enctype="multipart/form-data" class="post-form">
                     <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                     
