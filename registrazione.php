@@ -130,8 +130,11 @@
                     </div>
                     <div class="form-group">
                         <input required name="email" id="emailStudente" type="email" class="form-control-registrazione" placeholder="Email " required />
-                        
-                    </div>                    
+                    </div>     
+
+                    <div class="form-group" >
+                                <input type="date" name="data" id="data" class="form-control registrazione" style="box-shadow:none;" placeholder="inserisci la data in formato gg-mm-aaaa">
+                    </div>               
                 </div>
                 
                 <div class="col-md-6">
@@ -185,10 +188,14 @@
                             <input required minlength="6" name="p22" id="p22" type="password" class="form-control-registrazione" placeholder="Conferma Password " value="" />
                         </div>
                         
+                        <div class="form-group" >
+                                <input type="date" name="data" id="data" class="form-control registrazione" style="box-shadow:none;" placeholder="inserisci la data in formato gg-mm-aaaa">
+                        </div>
 
                         <div class="form-group">
                         <input  type="submit" style="padding: 10px;border-radius: 5px;" class="btnRegister" value="Registrazione" name="doc"/>
                         </div>
+
                     </div>
                 </form>
                

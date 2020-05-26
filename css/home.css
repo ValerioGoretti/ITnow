@@ -377,3 +377,31 @@
   }
   .grow { transition: all .2s ease-in-out; }
 .grow:hover { transform: scale(1.1); }
+
+.insertCollab{
+    margin-top: 5%;
+    width: 100%;
+    border-radius: 10px;
+    border:none;
+    height: 5%;
+    outline: none;
+    padding: 10px;
+    font-size: medium;
+    
+}
+.insertCollab::-webkit-input-placeholder { /* WebKit browsers */
+    font-size: x-small; 
+    text-align: center;
+}
+
+.addColl{
+    text-align: center;
+    color: white;
+    margin-top: 15%;
+}
+
+.aggiungi{
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+}

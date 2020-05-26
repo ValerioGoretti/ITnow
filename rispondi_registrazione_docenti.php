@@ -22,12 +22,13 @@
                     $cognome=$_GET['cognome2'];
                      $email=$_GET['email2'];
                     $password=$_GET['p12']; 
+                    $data=$_GET['data'];
                    
      
          
                      $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
    
-                     $array=array('nome'=>$nome,'password'=>md5($password),'cognome'=>$cognome,'email'=>$email);
+                     $array=array('nome'=>$nome,'password'=>md5($password),'cognome'=>$cognome,'email'=>$email,'data_nascita'=>$data);
    
                      $result = pg_insert($dbconn,'docente',$array);
                      

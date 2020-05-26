@@ -19,7 +19,6 @@
                         if ($follow=='In corso')$follow='Termina corso';
                         if ($follow=='Terminato')$follow='Riapri il corso';
                         
-                        
 
 ?>
 <script>
@@ -56,4 +55,13 @@ $("document").ready(function(){
             });
  </script>
 
-<div class="rightBar" style="padding:10px;"><div class="btn-follow follow"><?php if(!($follow=="")) echo $follow?></div></div>
+<div class="rightBar" style="padding:10px;">
+    <div class="btn-follow follow"><?php if(!($follow=="")) echo $follow?></div>
+    
+    <div class="addColl"><h7>Aggiungi un collaboratore</h6></div>
+    <form action="aggiungiCollaboratore.php" method="get">
+        <input type="text" name="collaboratore" class="insertCollab" placeholder="Inserisci email collaboratore" required>
+        <input type="hidden" name="corso" value="<?php echo $corso; ?>">
+        <input type="submit" class="aggiungi" value="Aggiungi" style="margin-top:5%; width:50%; float:right">
+    </form>
+</div>

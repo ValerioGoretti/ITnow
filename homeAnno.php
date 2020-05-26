@@ -1,4 +1,9 @@
-<?php session_start();  ?>
+<?php session_start();  
+      
+      function eliminaVirgola($stringa){
+        return substr($stringa, 0, strlen($stringa)-2);
+        }
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -68,6 +73,19 @@
                                             echo "<h3>Benvenuto nella pagina del corso ".$nome."</h3>";
                                             echo"<p>Anno del corso: ".$anno."</p>";
                                             echo"<p>Docenti del corso: ".$docenti."</p>";
+                                            ?>
+                                            
+                                            <?php
+                                            $query6="SELECT docente.email,nome,cognome, anno_didattico
+                                                     FROM collaboratori join docente on collaboratori.email=docente.email
+                                                     where anno_didattico=$corso;";
+                                            $collaboratori="";
+                                             $result6 = pg_query($dbconn2,$query6) or die ('Query failed: '.pg_last_error());
+                                             while ($coll  = pg_fetch_array($result6,null,PGSQL_ASSOC)){
+                                                     $collaboratori=$collaboratori.$coll['nome'].' '.$coll['cognome'].', ';
+                                              }
+                                            $collaboratori=eliminaVirgola($collaboratori);
+                                            echo"<p>Collaboratori del corso: ".$collaboratori."</p>"; 
                                             echo"<p>Email dei docenti: ".$mail."</p>";
                                             echo"<p>Stato del corso: ".$stato."</p>";
 

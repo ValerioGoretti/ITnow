@@ -88,17 +88,35 @@
                                 <div class="line" ></div>
                                 <div class="valore font-weight-light">{{email}}</div>
 
-
+                                
                                 
                             </div>
                             <div class="col" style="text-align: center;">
 
-                                <div class="titolo font-weight-normal">Matricola</div>
-                                <div class="line"></div>
-                                <div class="valore font-weight-light">{{matricola}}</div>
+                                
+                            <div class="titolo font-weight-normal">Data Nascita</div>
+                                    <div class="line"  ></div>
+                                    <div class="valore font-weight-light">{{data_nascita}}</div>
                             
                             </div>
+
                             </div>
+                            <div class="row">
+                                <div class="col" style="text-align:center">
+                                <div class="titolo font-weight-normal">Matricola</div>
+                                <div class="line" style="width:50%"></div>
+                                <div class="valore font-weight-light">{{matricola}}</div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
                             <div class="row">
                                 <div class="col" style="text-align: center;">
                                     <a href="cambia_mail.php" style="text-decoration:none;">
