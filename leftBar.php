@@ -18,7 +18,7 @@
                 $email=($_SESSION['email']);
                 $query= "select  anno_didattico.anno, anno_didattico.corso, docente.nome, docente.cognome, anno_didattico.id
                         from  anno_didattico join anno_docente on anno_didattico.id=anno_docente.anno join docente on docente.email=anno_docente.docente
-                        where email= '$email'";
+                        where email= '$email' and stato='In corso'";
                 
             }
         
