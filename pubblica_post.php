@@ -10,14 +10,13 @@
 </head>
 <body >
                 <?php
-                    
+                    session_start();
                     //include "updateDocentiJson.php";             
                     if(isset($_POST['pubblica'])){   
                         $corso=$_POST['corso'];
                         $titolo=$_POST['titolo'];
                         $testo=$_POST['testo'];
-                        //$email= $_SESSION["email"];
-                        $email='valerio.wp9@gmail.com';
+                        $email= $_SESSION["email"];
                         $controllo=0;
                         
 
@@ -31,7 +30,7 @@
                         $result_anno = pg_query($dbconn,$query_anno) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result_anno,null,PGSQL_ASSOC))
                         {
-                          if($corso==$line['corso'] .' ' . $line['anno']){
+                          if($corso==$line['corso'] .' '. $line['anno']){
                               $id_corso=$line['id'];
                           }
                         }
@@ -115,7 +114,7 @@
 
                         if($controllo=3)
                             $msg="post inviato correttamente";
-                        header("Location: Home.php?messaggio=  $msg");
+                        header("Location: Home.php?messaggio= $msg");
 
                         
                     }
