@@ -8,7 +8,7 @@
 	         WHERE email='$doc'";
     $result4=pg_query($dbconn,$query4) or die ('Query failed: '.pg_last_error());
     
-    header("Location: HomeAnno.php?corso=$corso&messaggio=Collaboratore eliminato correttamente");
+   
     
 
 ?>

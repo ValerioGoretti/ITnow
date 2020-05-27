@@ -6,7 +6,7 @@
     $array4=array('anno_didattico'=>$corso,'email'=>$doc);
     $result4=pg_insert($dbconn,'collaboratori',$array4) or die ('Query failed: '.pg_last_error());
     
-    header("Location: HomeAnno.php?corso=$corso&messaggio=Collaboratore inserito correttamente");
+    
     
 
 ?>

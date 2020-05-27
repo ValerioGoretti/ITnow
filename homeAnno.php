@@ -126,7 +126,7 @@
 
                 <div class='row'>                            
                 <p class="font-weight-light" style="margin-left:140px;font-size:40px;">Post del corso</p>
-                <div class="line2" style="width:550px"></div>
+                <div class="line2" style="width:500px"></div>
                 </div>
             <div class="spazioPost" >
             <?php 
