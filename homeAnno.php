@@ -92,7 +92,25 @@
                                             echo "</div>"; ?>
                 </div>
             
-           <?php if($_SESSION['ruolo']=='docente') include 'PannelloDocenteCorso.php';?>
+
+
+           <?php if($_SESSION['ruolo']=='docente'){ 
+                 $query8="SELECT docente.email, collaboratori.anno_didattico as anno
+                        FROM collaboratori join docente on collaboratori.email=docente.email
+                        where collaboratori.anno_didattico=$corso
+                                             Union
+                        SELECT docente.email, anno_docente.anno
+                        From docente join anno_docente on anno_docente.docente=docente.email join anno_didattico on anno_docente.anno=anno_didattico.id
+                        where  anno_docente.anno=$corso  ";
+
+                $result8= pg_query($dbconn2,$query8) or die ('Query failed: '.pg_last_error());
+                while ($lin  = pg_fetch_array($result8,null,PGSQL_ASSOC)){
+                     if($lin['email']==$_SESSION['email'] and $stato=='In corso'){
+                        include 'PannelloDocenteCorso.php';
+                     }
+                }
+               
+               }?>
 
 
 
