@@ -64,5 +64,24 @@ $("document").ready(function(){
         <input type="text" name="collaboratore" class="insertCollab" placeholder="Inserisci email collaboratore" required>
         <input type="hidden" name="corso" value="<?php echo $corso; ?>">
         <input type="submit" class="aggiungi" value="Aggiungi" style="margin-top:5%; width:50%; float:right">
+    </form><br>
+
+   <?php
+        $query10="SELECT docente.email, collaboratori.anno_didattico as anno
+                FROM collaboratori join docente on collaboratori.email=docente.email
+                where collaboratori.anno_didattico=$corso";
+        $result10 = pg_query($dbconn,$query10) or die ('Query failed: '.pg_last_error());
+        
+   ?>
+
+    <div class="addColl"><h7>Elimina un collaboratore</h6></div>
+    <form action="EliminaCollaboratore.php" method="get">
+        <select style="width:100%; border-radius:10px; padding 10px;outline:none" id="collaboratore" name="collaboratore" required>
+        <?php while ($line  = pg_fetch_array($result10,null,PGSQL_ASSOC)){?>
+            <option> <?php echo $line['email'];?> </option>
+            <?php }?>
+        </select>
+        <input type="hidden" name="corso" value="<?php echo $corso; ?>">
+        <input type="submit" class="aggiungi" value="Rimuovi" style="margin-top:5%; width:50%; float:right">
     </form>
 </div>
