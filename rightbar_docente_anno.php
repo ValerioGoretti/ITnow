@@ -26,14 +26,18 @@
 $("document").ready(function(){
                 
                 $('#aggiungi').click(function(){
+                    
                     $.ajax({
+                            
                             type: "GET",
                             url: "aggiungiCollaboratore.php",
                             data: {corso:'<?php echo $corso;?>',collaboratore:$('#collaboratore').val()},
                             success: function(msg){
+                            alert(msg);
                             location.reload();
-                            console.log(msg);                              
+                                                       
                             }
+                            
                  });
                 });
                 $('#rimuovi').click(function(){
@@ -81,12 +85,15 @@ $("document").ready(function(){
 <div class="rightBar" style="padding:10px;">
     <div class="btn-follow follow"><?php if(!($follow=="")) echo $follow?></div>
     
-    <div class="addColl"><h7>Aggiungi un collaboratore</h6></div>
+    <div class="addColl">
+        <p style="font-size:15px;">Aggiungi collaboratore</p>
+    
     
         <input type="text" id="collaboratore"name="collaboratore" class="insertCollab" placeholder="Inserisci email collaboratore" required>
         
-        <button id="aggiungi"class="aggiungi" value="Aggiungi" style="margin-top:5%; width:50%; float:right"></button>
-    <br>
+        <input type="submit" id="aggiungi"class="btn btn-primary3" value="Aggiungi" style="margin-top:5%; width:50%;float:right;">
+    
+    </div>
 
    <?php
         $query10="SELECT docente.email, collaboratori.anno_didattico as anno
@@ -95,15 +102,18 @@ $("document").ready(function(){
         $result10 = pg_query($dbconn,$query10) or die ('Query failed: '.pg_last_error());
         
    ?>
-
-    <div class="addColl"><h7>Elimina un collaboratore</h6></div>
+    <br>
+    <div style="margin-top:40px;">
+        <p style="font-size:15px;color:white;">Elimina collaboratore</p>
     
-        <select style="width:100%; border-radius:10px; padding 10px;outline:none" id="collaboratore2" name="collaboratore" required>
+        <select style="width:100%;border-radius:3px;padding 10px;outline:none;"class="btn btn-primary3" id="collaboratore2" name="collaboratore" required>
         <?php while ($line  = pg_fetch_array($result10,null,PGSQL_ASSOC)){?>
             <option> <?php echo $line['email'];?> </option>
             <?php }?>
         </select>
         
-        <input type="submit" id="rimuovi" class="aggiungi" value="Rimuovi" style="margin-top:5%; width:50%; float:right">
+        <input type="submit" id="rimuovi" class="aggiungi btn btn-primary3" value="Rimuovi" style=" width:50%; float:right">
+    </div>
+
     
 </div>
