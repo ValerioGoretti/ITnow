@@ -7,9 +7,11 @@ $val=$_SESSION['img'];
             <div class="ricerca col">  
                 <form action="profiloCorso.php" method="get" name="corsoform">
                
-                <input  type="text" placeholder="cerca un corso" autocomplete="off" list="corso" name="corso" class="testo" id="r" onchange="document.corsoform.submit();"/>
                 
-                <datalist id="corso" style="width:100%">
+                
+                
+                <select id="corso" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
+                    <option class="prova" value="" selected disabled>Seleziona un corso</option>
                     <?php   
                         
                             $string=file_get_contents('json/corsi.json', 'r');
@@ -18,10 +20,11 @@ $val=$_SESSION['img'];
                             foreach($corsi as $c){
                                 if(!in_array($c['nomeCorso'],$no_dup))
                                 {?>
-                                    <option class="prova" value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
+                                    <option class="prova" value="<?php echo $c['idCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
                                     <?php array_push($no_dup,$c['nomeCorso']);
                             }}?>
-                </datalist>
+                </select>
+                
                 </form>
             </div>
             <a href="Home.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-home"></i></div></a>
@@ -29,3 +32,19 @@ $val=$_SESSION['img'];
                                 <?php if(file_exists("img_docente/".$val.".png"))   echo "<img src='img_docente/$val.png' style='width: 80%;'>"?></div></a>
             <a href="logout.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-sign-out-alt" ></i></div></a>
         </div>
+
+
+
+<script>
+		$(document).ready(function(){
+			$(".default_option").click(function(){
+			  $(this).parent().toggleClass("active");
+			})
+
+			$(".select_ul li").click(function(){
+			  var currentele = $(this).html();
+			  $(".default_option li").html(currentele);
+			  $(this).parents(".select_wrap").removeClass("active");
+			})
+		});
+	</script>
