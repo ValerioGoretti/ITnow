@@ -1,3 +1,7 @@
+<div class='row'>                            
+<p class="font-weight-light" style="margin-left:110px;font-size:40px;">Pubblicazione veloce</p>
+<div class="line2" style="width:320px;"></div>
+</div> 
 <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px; margin-bottom:5%">
     <?php
         

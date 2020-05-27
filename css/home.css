@@ -1,4 +1,4 @@
-
+*{ font-weight: 300 !important;}
 .header{
     
     width: 100%;
@@ -7,6 +7,7 @@
    
     
 }
+
 
 .rightBar{
     width: 15%;
@@ -195,7 +196,8 @@
 }
 
 .doc { grid-area: 9 / 9 / 9 / 11;
-    margin-top: 0px; 
+    margin-top: 0px;
+    color:white; 
 
     
 }
@@ -228,6 +230,15 @@
     margin-bottom: 2%;
     width: 80%;
     margin: 0 auto;
+}
+.line2{
+    border-top: 1px solid #822433;
+    border-radius: 5%;
+    margin-bottom: 2%;
+    width:490px;
+    margin-top:40px;
+    margin-left: 10px;
+    
 }
 
 

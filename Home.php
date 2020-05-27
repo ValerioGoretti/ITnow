@@ -45,7 +45,7 @@
         <?php include 'leftBar.php'?>
         
         <?php include 'rightBar-control.php'?>
-        <div class="core">
+        <div class="core" style="width:1000px">
             <?php 
                 if($_SESSION['ruolo']=='docente'){
                     include 'pannelloDocente.php'; 

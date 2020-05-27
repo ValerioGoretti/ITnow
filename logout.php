@@ -15,8 +15,8 @@
 
     </head>
     <body >
-        <div style="background-color: #822433; width: 100%; height: 700px;">
-        <div class="row">
+        <div style="background-color: #822433; width: 99%; height:100%">
+        <div class="row" style="width:100%">
             <div class="col-md-6" style="margin: 0 auto;">
                 <div class="container-password" style="height:fit-content;width:500px">
                   <p1 class="font-weight-normal row" style= ' width:fit-content; margin:0 auto;' >Logout Effettuato.</p1>

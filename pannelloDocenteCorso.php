@@ -11,8 +11,10 @@
                 ";
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
         ?>
-                                        
-                                 
+            <div class='row'>                            
+            <p class="font-weight-light" style="margin-left:110px;font-size:40px;">Pubblica un post</p>
+            <div class="line2"></div>
+            </div>                    
             <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px; margin-bottom:5%">
                 <form action="pubblica_post.php" method="post" enctype="multipart/form-data" class="post-form">
                     <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">

@@ -1,4 +1,8 @@
-<div class="spazioPost2">
+<div class='row'>                            
+<p class="font-weight-light" style="margin-left:140px;font-size:40px;">Post più recenti</p>
+<div class="line2" style="width:450px"></div>
+</div>  
+<div class="spazioPost">
             <?php       
                         include "updatePost.php";
                         $matricola=($_SESSION['matricola']);
@@ -13,6 +17,7 @@
                         $post=json_decode($string,true);
                         
                         foreach ($post as $p){?>
+                                                          
                             <div class="post">
                                 <div class="titolo"> <h3><?php echo $p['titolo'];?></h3> </div>
                                 <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h5> </div>
