@@ -14,4 +14,6 @@
 
     //RIVEDERE LA REDIREZIONE
     header("Location: HomeAnno.php?corso=$id_anno");
+    
+    pg_close($dbconn);
 ?>

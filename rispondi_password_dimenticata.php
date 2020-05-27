@@ -87,4 +87,6 @@ function generateRandomString($length = 10) {
   return $randomString;
 }
 
+pg_close($dbconn);
+
 ?>

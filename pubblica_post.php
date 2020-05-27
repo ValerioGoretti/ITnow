@@ -120,6 +120,7 @@
                     }
                         
                        
+                pg_close($dbconn);
                 
                 ?>
                 

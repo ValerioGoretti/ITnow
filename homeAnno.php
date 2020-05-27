@@ -174,7 +174,9 @@
 
 
                             </div>
-                                <?php } ?>
+                                <?php } 
+                                    pg_close($dbconn2);
+                                ?>
             </div>
            
         </div>

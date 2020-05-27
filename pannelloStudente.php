@@ -33,7 +33,8 @@
                                 </div>
                                 <div class="doc"><?php echo $p['data'];?></div>
                             </div>
-                                <?php }} ?>
+                                <?php }} 
+                                $pg_close($dbconn);?>
                                 
             </div>
         </div>   

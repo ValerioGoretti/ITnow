@@ -37,7 +37,7 @@
                 
             </div>
      
-
+            <?php pg_close($dbconn);?>
     <script>
 	var selDiv = "";
 		

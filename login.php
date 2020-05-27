@@ -141,4 +141,5 @@ function validaStudente($matricola,$password)
         return false;
     }
 }
+    pg_close($dbconn);
 ?>

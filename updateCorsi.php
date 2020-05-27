@@ -14,5 +14,7 @@
     function run(){
         file_put_contents("json/corsi.json",ottieniDati());
     }
+    pg_close($dbconn);
+
 
 ?>
