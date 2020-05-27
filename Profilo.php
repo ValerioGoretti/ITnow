@@ -235,3 +235,7 @@ window.open("carica-immagine.php","","width=" + w + ",height=" + h + ",top=" + t
 //-->
 </script>
 </html>
+
+
+   
+<?php   pg_close($dbconn);?>

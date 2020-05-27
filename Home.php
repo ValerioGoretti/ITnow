@@ -54,6 +54,8 @@
                     include 'pannelloStudente.php';
                 }
                 
+        pg_close($dbconn);
+            
             ?>
         </div>
         

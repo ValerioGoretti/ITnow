@@ -10,6 +10,5 @@
         if ($res) echo'Email cambiata con successo';
         else echo 'Non è stato possibile cambiare la mail, riprovare per favore';
     }
-    pg_close($dbconn);
 
 ?>

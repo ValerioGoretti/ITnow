@@ -14,7 +14,6 @@ $file_name='registrazione.json';
 
 file_put_contents("json/dati_docenti.json",ottieniDatiDoc());
 }
-pg_close($dbconn);
 
 
 ?>

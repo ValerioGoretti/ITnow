@@ -13,7 +13,6 @@
         $data_nascita=$line['data_nascita'];
     }
     
-    pg_close($dbconn);
 ?>
 
 <script>

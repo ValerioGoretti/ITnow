@@ -8,7 +8,6 @@ while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
     $array[]=array('mail'=>$line['email'],'matricola'=>$line['matricola']);
 }
 
-pg_close($dbconn);
 return json_encode($array);
 }
 function run2(){

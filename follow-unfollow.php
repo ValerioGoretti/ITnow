@@ -14,5 +14,4 @@
 
     }
     
-    pg_close($dbconn);
 ?>

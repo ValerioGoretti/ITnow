@@ -62,6 +62,6 @@
         }
     }}
     else{header('Location: cambia_password.php');}
+   
     pg_close($dbconn);
-
 ?>

@@ -42,7 +42,7 @@
                 </form>
                 
     <?php }
-    pg_close($dbconn);?>            
+    ?>            
                 
             </div>
      

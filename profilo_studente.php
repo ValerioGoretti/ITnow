@@ -16,7 +16,6 @@
         $email=$line['email'];
         $data=$line['data_nascita'];
     }
-    pg_close($dbconn);
 
 ?>
 

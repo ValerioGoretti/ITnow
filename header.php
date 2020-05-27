@@ -1,5 +1,4 @@
 <?php
-
 $val=$_SESSION['img'];
 
 ?>

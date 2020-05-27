@@ -32,7 +32,6 @@
                         if(pg_num_rows($result3)==1){$follow='Non seguire più';}
                         else{$follow='Segui';}
 
-            pg_close($dbconn2);
                         
 ?>
 <script>
