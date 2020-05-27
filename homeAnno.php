@@ -32,22 +32,32 @@
     <body>
         <?php include 'header.php'?>                     
         <?php include 'leftBar.php'?>
-        <?php include 'right-bar-control2.php';?>
+        <?php 
+            $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+            $em=$_SESSION['email'];
+            $corso = $_GET['corso'];
+            $query10="SELECT docente.email, anno_docente.anno
+            From docente join anno_docente on anno_docente.docente=docente.email join anno_didattico on anno_docente.anno=anno_didattico.id
+            where  anno_docente.anno='$corso' and email='$em' ";
+            $result10 = pg_query($dbconn2,$query10) or die ('Query failed: '.pg_last_error());
+            while ($lines  = pg_fetch_array($result10,null,PGSQL_ASSOC)){
+                    if($em==$lines['email']){
+                    include 'right-bar-control2.php';
+                    }
+            }?>
         
         
         
         <div class="core" style="width:1000px">
                 <div class="spazioPost">
                 <?php 
-                        $corso = $_GET['corso'];
-                        $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
                         $docenti="";
                         $matricola;
                         $anno;
                         $stato;
                         $nome;
                         $mail="";
-                        $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+                        
                         $query2= 
                             "SELECT anno_didattico.anno,anno_didattico.stato,docente.nome,docente.cognome,docente.email,anno_didattico.corso
                             from anno_docente join anno_didattico on anno_docente.anno=anno_didattico.id join docente on anno_docente.docente=docente.email 
