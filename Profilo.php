@@ -18,7 +18,9 @@
                 $('#titolo').css({"color": "#822433"});
                 $('#corsi').css({"color": "#822433"});
                 $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
+                $('#colla').css({"color": "#822433"});
             });
+
             function PopupCentrata()
                 {
                 var w = screen.width

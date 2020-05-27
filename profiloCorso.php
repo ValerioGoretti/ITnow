@@ -61,31 +61,32 @@
           </div>
         
         <!--riepilogo dati-->
-
-
+        <?php
+        $query="select corso from anno_didattico
+                where id=$corso;";
+        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+        while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
+                $nomeCorso=$line['corso'];
+        }
+        ?>
        
        <form class="col containerCorso"action="homeAnno.php" method="get" name="homeAnno" id="container">
             <div style="margin-left:20px;font-size:50px;">
-            <p class="font-weight-light"><?php echo $corso?></p></div>
+            <p class="font-weight-light"><?php echo $nomeCorso;?></p></div>
             <div class='row rigaCorso' id="riga">
            
             
                
                 <?php
                      foreach($corsi as $c){
-                        if($c['nomeCorso']==$corso){?>
-                            
-                            
-                         
-                                    
-                <div class="card cartaCorso grow" style="color:white;background-color:#822433;margin-bottom:20px;">
+                        if($c['nomeCorso']==$nomeCorso){?>
+                        
+                        <div class="card cartaCorso grow" style="color:white;background-color:#822433;margin-bottom:20px;">
                     
-                    <div class="card-body">
-                    <h5 class="card-title"><?php echo $c['nomeDoc'].' '.$c['cognomeDoc']?></h5>
-                    <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:<?php echo $c['stato']?></p>
-                   
-                    
-                    <button href="#" class="btn btn-primary2" value="<?php echo $c['idCorso']?>"name="corso">Vai all'anno didattico</a>
+                            <div class="card-body">
+                            <h5 class="card-title"><?php echo $c['nomeDoc'].' '.$c['cognomeDoc']?></h5>
+                            <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:<?php echo $c['stato']?></p>
+                            <button href="#" class="btn btn-primary2" value="<?php echo $c['idCorso']?>" name="corso">Vai all'anno didattico</a>
                     </div>
                 </div>
                 <?php }}?> 
