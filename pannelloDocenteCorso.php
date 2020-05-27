@@ -3,9 +3,12 @@
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $email=$_SESSION['email'];
         
-        $query="select ad.corso,ad.anno
-                from docente join anno_docente on docente.email=anno_docente.docente join anno_didattico as ad on ad.id=anno_docente.anno join corso on ad.corso=corso.nome
-                where docente.email= '$email' and ad.id=$corso";
+        $query="SELECT ad.corso,ad.anno
+                from docente join anno_docente on docente.email=anno_docente.docente join anno_didattico as ad on ad.id=anno_docente.anno join corso on ad.corso=corso.nome                                                  
+                where docente.email= '$email' and ad.id=$corso
+                                                             
+                
+                ";
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
         ?>
                                         
@@ -15,9 +18,9 @@
                     <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                     
                     <select class="selezionaCorso" id="corso" name="corso" required>
-                            <?php while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){?>
-                                <option selected><?php echo $line['corso'] . ' ' . $line['anno'];?></option>
-                            <?php }?>
+                            
+                                <option selected><?php echo $nome . ' ' . $anno;?></option>
+                            
                     </select>
                         <div class="line"style="width:550px"></div>
                         <input type="text" class="textb" name="titolo" placeholder="Inserisci il titolo del post" required>
