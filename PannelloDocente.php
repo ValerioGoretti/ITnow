@@ -1,15 +1,23 @@
+<div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px; margin-bottom:5%">
     <?php
         
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $email=$_SESSION['email'];
         $query="select ad.corso,ad.anno
                 from docente join anno_docente on docente.email=anno_docente.docente join anno_didattico as ad on ad.id=anno_docente.anno join corso on ad.corso=corso.nome
-                where docente.email= '$email'";
+                where docente.email= '$email' and stato='In corso'";
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+        if(pg_num_rows ( $result )==0){
+                echo "<div class=containerTitolo>";
+                echo "<h3>Non hai corsi attivi dove inserire post</h3>";
+                echo "<div style=\"margin-top:5%\"><h6>Puoi creare un corso o attivarne uno dei tuoi già terminati</h6></div>";
+                echo "</div>";
+        }
+        else{
         ?>
                                         
                                  
-            <div class="spazioPost" style="background-color:#822433;border-radius:6px ;padding:5px; margin-bottom:5%">
+               
                 <form action="pubblica_post.php" method="post" enctype="multipart/form-data" class="post-form">
                     <div class="spazioPost" style="width:100%;height:100%;background-color:white;padding:5px;">
                     
@@ -33,7 +41,7 @@
                     <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
                 </form>
                 
-                
+    <?php }?>            
                 
             </div>
      
