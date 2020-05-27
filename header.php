@@ -9,7 +9,7 @@ $val=$_SESSION['img'];
                
                 
                 
-                <select id="corso" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
+                <select id="corsoheader" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
                     <option class="prova" value="" selected disabled>Seleziona un corso</option>
                     <?php   
                         
