@@ -9,8 +9,7 @@ $val=$_SESSION['img'];
                
                 
                 
-                
-                <select id="corso" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
+                <select id="corsoheader" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
                     <option class="prova" value="" selected disabled>Seleziona un corso</option>
                     <?php   
                         
@@ -24,7 +23,6 @@ $val=$_SESSION['img'];
                                     <?php array_push($no_dup,$c['nomeCorso']);
                             }}?>
                 </select>
-                
                 </form>
             </div>
             <a href="Home.php" style="text-decoration: none; color: #fff;"><div class="profile" ><i class="fas fa-home"></i></div></a>

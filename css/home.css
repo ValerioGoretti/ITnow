@@ -86,9 +86,7 @@
     padding: 10px;
     border-color: #822433;
 }
-.prova{
-    width: 100%;
-}
+
 /*togliere dalla scelta delle materie il riquadro blu intorno*/
 .testo:focus{
     outline: none;
@@ -418,3 +416,16 @@
     border-radius: 10px;
     border: none;
 }
+
+
+#corsoheader{
+    border: 2px solid #822433;
+    border-radius: 15px ;
+    height: 50px;
+
+}
+
+option{
+    color:#822433;
+}
+
