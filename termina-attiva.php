@@ -16,4 +16,6 @@
                      $result = pg_update($dbconn2,'anno_didattico',$array2,$array) or die ('Query failed: '.pg_last_error());
 
     }
+    pg_close($dbconn2);
+
 ?>

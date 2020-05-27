@@ -31,5 +31,6 @@
                         <div class=materia ><?php echo $line['corso'].' '.$line['anno']?></div>
                         <div class="prof"  ><?php echo $line['nome'].' '.$line['cognome'] ?></div>
                     </div> </a>                   
-            <?php }?>                          
+            <?php }
+            pg_close($dbconn);?>                          
     </div>

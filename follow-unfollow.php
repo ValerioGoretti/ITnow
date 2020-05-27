@@ -13,4 +13,6 @@
                     $result=pg_delete ($dbconn,'studente_corso',$array) or die ('Query failed: '.pg_last_error());
 
     }
+    
+    pg_close($dbconn);
 ?>

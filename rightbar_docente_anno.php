@@ -20,6 +20,8 @@
                         if ($follow=='Terminato')$follow='Riapri il corso';
                         
 
+    pg_close($dbconn);
+
 ?>
 <script>
 $("document").ready(function(){

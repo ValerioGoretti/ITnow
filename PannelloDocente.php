@@ -41,7 +41,8 @@
                     <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
                 </form>
                 
-    <?php }?>            
+    <?php }
+    pg_close($dbconn);?>            
                 
             </div>
      
