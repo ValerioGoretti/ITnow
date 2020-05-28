@@ -12,7 +12,7 @@
         { 
             readfile("index.html");
             echo '<script language="javascript">';
-            echo 'alert("Matricola o password errate, riprovare per favore.")';
+            echo 'alert("Email o password errate, riprovare per favore.")';
             echo '</script>';
             
     

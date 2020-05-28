@@ -28,6 +28,25 @@
                 $('#files').hide();        
             });
         </script>
+
+        <!--Code-->
+                <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+                    <script src="/codemirror/lib/codemirror.js"></script>
+                    <link href="/codemirror/lib/codemirror.css" rel="stylesheet">
+                    <script src="/codemirror/mode/xml/xml.js"></script>
+                    <script src="/codemirror/mode/python/python.js"></script>
+                    <script src="/codemirror/mode/css/css.js"></script>
+                    <script src="/codemirror/mode/javascript/javascript.js"></script>
+                    <script src="/codemirror/mode/php/php.js"></script>
+                    <script src="/codemirror/mode/sql/sql.js"></script>
+                    <script src="/codemirror/mode/vue/vue.js"></script>
+                    <script src="/codemirror/addon/edit/closebrackets.js"></script>
+                    <script src="/codemirror/addon/edit/closetag.js"></script>
+                    <link href="/codemirror/theme/dracula.css"  rel="stylesheet">
+                    <title>ProvaCodeMirror</title>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    
+                    
     </head>
     <body>
         <?php include 'header.php'?>                     

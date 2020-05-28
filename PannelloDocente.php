@@ -41,8 +41,8 @@
                         <label for="files" class="segna font-weight-light" ><div class="btn btn-primary3" style="height:35px; " for="files"><label for="files"class="segna">Allega file</div></label>
                             <div id="selectedFiles" style="color:white;margin-left:5px;"class="select"> </div>
                         </div>
-                        <input type="hidden" name="page" value="h">
-                    <input type="submit" class="btn btn-primary3" style="height:35px;" name="pubblica" value='Pubblica'>
+                        
+                    <input type="submit" class="btn btn-primary3" style="height:35px; margin-right:13px;" name="pubblica" value='Pubblica'>
                 </form>
                 
     <?php }

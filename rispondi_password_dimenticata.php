@@ -16,7 +16,6 @@ if(isset($_POST["submit"]))
 
   
   $name_mail=$_POST['email'];
-  echo($docente);
   if($docente=='false'){
   
       $array=array('password'=>md5($nuova));
