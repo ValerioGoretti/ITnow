@@ -1,8 +1,8 @@
 
 
     <div class="leftBar font-weight-light" id="leftbar"> 
-        <div class="ciao" id="titolo">Ciao,<?php echo $_SESSION['nome'] ?></div>
-        <div class="ciao" id="corsi">I tuoi corsi:</div>
+        <div class="ciao" id="titolo"><b>Ciao,<?php echo $_SESSION['nome'] ?></b></div>
+        <div class="ciao" id="corsi"><b>I tuoi corsi:</b></div>
         <?php     
             if($_SESSION['ruolo']=='studente')
             {
@@ -44,7 +44,7 @@
                     if(pg_num_rows($result2)>0){
             ?>
             
-            <div class="ciao" id="colla">Collabori in:</div>
+            <div class="ciao" id="colla"><b>Collabori in:</b></div>
             <?php
             while ($line2  = pg_fetch_array($result2,null,PGSQL_ASSOC)){ ?>
                     <a href="homeAnno.php?corso=<?php echo $line2['anno_didattico']; ?>">
