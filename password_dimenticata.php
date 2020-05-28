@@ -11,6 +11,7 @@
         <script>
             function validaMail()
             {
+                var tipo='<?php echo $_GET['tipo'];?>';
                 var mail=$("#email").val();
                 console.log(mail);
                 var request = new XMLHttpRequest();
@@ -22,17 +23,22 @@
                 request2.send(null);
                 var risultato2 = JSON.parse(request2.responseText);
                 
-                
-                for (i=0;i<risultato.length;i++)
+                if(tipo=='s')
+                {
+                    for (i=0;i<risultato.length;i++)
                     {
                        if(risultato[i]["mail"]==mail) {$('#valerio').val("false");return true;}
 
                     }
-                for(i=0;i<risultato2.length;i++)
+                }
+                if(tipo=='d')
                 {
-                    if(risultato2[i]["mail"]==mail){$('#valerio').val("true");return true;}
-
-                }   
+                    for(i=0;i<risultato2.length;i++)
+                    {
+                        if(risultato2[i]["mail"]==mail){$('#valerio').val("true");return true;}
+                    }  
+                }
+                
                     alert('La mail inserita non è valida.')
                     return false;
                 
