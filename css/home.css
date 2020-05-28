@@ -428,4 +428,17 @@
 option{
     color:#822433;
 }
+.bottone{
+        width: 10%;
+        height: 5% ;
+        text-align: center;
+        background-color: #822433;
+        color: white;
+        float:left;
+        margin-right: 10px;
+        }
+.bottone:hover{
+        background-color: #fff;
+        color: #822433;
+        }
 
