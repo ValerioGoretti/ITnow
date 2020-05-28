@@ -42,7 +42,7 @@
                             <div id="selectedFiles" style="color:white;margin-left:5px;"class="select"> </div>
                         </div>
                         
-                    <input type="submit" class="btn btn-primary3" style="height:35px;" name="pubblica" value='Pubblica'>
+                    <input type="submit" class="btn btn-primary3" style="height:35px; margin-right:13px;" name="pubblica" value='Pubblica'>
                 </form>
                 
     <?php }
