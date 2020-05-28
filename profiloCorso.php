@@ -33,6 +33,7 @@
                 $('#corsi').css({"color": "#822433"});
                 $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
                 $('.leftcard').css({"background-color": "#822433", "color": "#fff"});
+                $('#colla').css({"color": "#822433"});
             });
             
         </script>

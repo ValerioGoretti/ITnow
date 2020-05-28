@@ -36,7 +36,7 @@
                                 success: function(msg){
                                 
                                 console.log(msg);
-                                $('#titolo').text('Password cambiata con successo');
+                                $('#titolo').text('Email cambiata con successo');
                                 $('#sottotitolo').hide();
                                 $('#p1').hide();
                                 $('#cambia').attr('value','Torna alla home');
