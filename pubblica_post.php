@@ -113,9 +113,12 @@
                         }
 
                         if($controllo=3)
-                            $msg="post inviato correttamente";
-                        header("Location: Home.php?messaggio= $msg");
+                            $msg="Post inviato correttamente";
+                            if($_POST['page']=='h'){
+                            header("Location: Home.php?messaggio=$msg");}
 
+                            if($_POST['page']=='a'){
+                                header("Location: homeAnno.php?messaggio=$msg&corso=$id_corso");}
                         
                     }
                         

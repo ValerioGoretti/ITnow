@@ -6,7 +6,7 @@
         
         $docente=$_GET['docente'];
         $data=$_GET['data'];
-        echo $data;
+        
         $anno=substr($data,0,4);
         $anno2=(int) $anno;
         $corso=$_GET['corso'];
@@ -22,7 +22,7 @@
            
             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
 
-            if(pg_num_rows($result)>0){echo 'docente gia ha un anno didattico per il corso';}
+            if(pg_num_rows($result)>0){echo 'Hai gia ha un anno didattico per il corso selezionato!';}
             else{
                     
                     $query2="INSERT into anno_didattico(anno,corso,inizio) values('$anno2','$corso','$data')RETURNING id;";
@@ -40,10 +40,11 @@
                             $result4=pg_insert($dbconn,'collaboratori',$array4) or die ('Query failed: '.pg_last_error());
                         }
                     }
+                    echo 'Anno didattico creato correttamente!';
                     }
                     else
                     {
-                        echo 'non è stato possibile creare il corso';
+                        echo 'Non è stato possibile creare il corso';
                     }
             }
             pg_close($dbconn);

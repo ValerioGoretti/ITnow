@@ -34,7 +34,7 @@
                         <label for="files" class="segna"><div class="btn btn-primary3" style="height:35px;" for="files"><label for="files" class="segna">Allega file</div></label>
                             <div style="color:white;" id="selectedFiles" class="select"> </div>
                         </div>
-                        
+                        <input type="hidden" name="page" value="a">
                     <input type="submit" class="btn btn-primary3" style="height:35px;" name="pubblica" value='Pubblica'>
                 </form>
                 

@@ -19,10 +19,10 @@
                         foreach ($post as $p){?>
                                                           
                             <div class="post">
-                                <div class="titolo"> <h3><?php echo $p['titolo'];?></h3> </div>
-                                <div class="autore"><h5><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h5> </div>
+                                <div class="titolo"> <h1><?php echo $p['titolo'];?></h1> </div>
+                                <div class="autore"><h3><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h3> </div>
                                 <div class="linea"><div class="line"></div></div>
-                                <div class="testoPost t font-weight"><?php echo $p['testo'];?> </div>
+                                <div class="testoPost t font-weight-light"><?php echo $p['testo'];?> </div>
                                 <div class="del"></div>
                                 <div class="data">
                                 <?php
@@ -32,11 +32,11 @@
                                         where post.id=$1;";
                                         $result = pg_query_params($dbconn,$query,array($p['idpost'])) or die ('Query failed: '.pg_last_error());
                                         while ($linefile  = pg_fetch_array($result,null,PGSQL_ASSOC)){ ?>
-                                                <a href="<?php echo $linefile['url'];?>" download="<?php echo $linefile['name']; ?>" style="text-decoration:none"><div class="attache"><?php echo $linefile['name']; ?> <i class="fas fa-paperclip"></i></div></a>
+                                                <a href="<?php echo $linefile['url'];?>" download="<?php echo $linefile['name']; ?>" style="text-decoration:none"><div class="attache "><?php echo $linefile['name']; ?> <i class="fas fa-paperclip"></i></div></a>
                                       <?php 
                                         }?>
                                 </div>
-                                <div class="doc"><?php echo $p['data'];?></div>
+                                <div class="doc font-weight-normal"><?php echo $p['data'];?></div>
                             </div>
                                 <?php }} ?>
                                 

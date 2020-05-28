@@ -4,8 +4,15 @@
     $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
     if($_GET['stato']=='follow')
     {
-                     $array=array('studente'=>$_GET['studente'],'anno'=>$_GET['id']);   
+                     $array=array('studente'=>$_GET['studente'],'anno'=>$_GET['id']);
+                     $anno=$_GET['id'];
+                     $studente=$_GET['studente'];
+                     $risultatoConto=pg_query($dbconn, "select *  from post where anno='$anno';");
+                     
+                     $visti=pg_num_rows($risultatoConto);
+                     $resultNotifica=pg_query($dbconn, "INSERT INTO notifiche(studente,anno,visti) values($studente,$anno,$visti)");
                      $result = pg_insert($dbconn,'studente_corso',$array) or die ('Query failed: '.pg_last_error());
+                     echo $resultNotifica;
     }
     if($_GET['stato']=="unfollow")
     {
