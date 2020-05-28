@@ -33,8 +33,8 @@ $("document").ready(function(){
                             url: "aggiungiCollaboratore.php",
                             data: {corso:'<?php echo $corso;?>',collaboratore:$('#collaboratore').val()},
                             success: function(msg){
-                            alert(msg);
-                            location.reload();
+                                alert(msg);
+                                location.reload();
                                                        
                             }
                             
@@ -86,7 +86,7 @@ $("document").ready(function(){
     <div class="btn-follow follow"><?php if(!($follow=="")) echo $follow?></div>
     
     <div class="addColl">
-        <p style="font-size:15px;">Aggiungi collaboratore</p>
+        <p style="font-size:13px;">Aggiungi collaboratore</p>
     
     
         <input type="text" id="collaboratore"name="collaboratore" class="insertCollab" placeholder="Inserisci email collaboratore" required>

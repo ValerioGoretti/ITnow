@@ -13,7 +13,7 @@
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
         if(pg_num_rows ( $result )==0){
                 echo "<div class=containerTitolo>";
-                echo "<h3>Non hai corsi attivi dove inserire post</h3>";
+                echo "<h3>Non hai corsi attivi in cui inserire post</h3>";
                 echo "<div style=\"margin-top:5%\"><h6>Puoi creare un corso o attivarne uno dei tuoi già terminati</h6></div>";
                 echo "</div>";
         }
@@ -38,11 +38,11 @@
                         </div>
                         <input type="file" id="files" class="file" name="files[]" multiple>
                         <div class="col">
-                        <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
-                            <div id="selectedFiles" class="select"> </div>
+                        <label for="files" class="segna font-weight-light" ><div class="btn btn-primary3" style="height:35px; " for="files"><label for="files"class="segna">Allega file</div></label>
+                            <div id="selectedFiles" style="color:white;margin-left:5px;"class="select"> </div>
                         </div>
                         
-                    <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
+                    <input type="submit" class="btn btn-primary3" style="height:fit-content;" name="pubblica" value='Pubblica'>
                 </form>
                 
     <?php }
