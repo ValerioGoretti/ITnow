@@ -46,7 +46,7 @@
                     $array=array('password'=>$np2);
                     $condition=array('email'=>$matricola);
                     $res=pg_update($dbconn,'docente',$array,$condition)or die ('Query failed: '.pg_last_error());
-                    if ($res) header('Location: cambia_password_successo.php');
+                    if ($res) {header('Location: cambia_password_successo.php');}
                     else echo 'query fallita';
                 }
                 else{ 
