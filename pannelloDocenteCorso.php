@@ -31,11 +31,11 @@
                         </div>
                         <input type="file" id="files" class="file" name="files[]" multiple>
                         <div class="col">
-                        <label for="files" class="segna"><div class="bttnn" for="files"><label for="files" class="segna">Allega file</div></label>
-                            <div id="selectedFiles" class="select"> </div>
+                        <label for="files" class="segna"><div class="btn btn-primary3" style="height:35px;" for="files"><label for="files" class="segna">Allega file</div></label>
+                            <div style="color:white;" id="selectedFiles" class="select"> </div>
                         </div>
                         
-                    <input type="submit" class="bttn" name="pubblica" value='Pubblica'>
+                    <input type="submit" class="btn btn-primary3" style="height:35px;" name="pubblica" value='Pubblica'>
                 </form>
                 
                 
