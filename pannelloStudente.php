@@ -22,7 +22,12 @@
                                 <div class="titolo"> <h1><?php echo $p['titolo'];?></h1> </div>
                                 <div class="autore"><h3><?php echo $p['nomeDoc'] . ' '.$p['cognomeDoc'].'<br>'.$p['corso'].' '.$p['anno'];?></h3> </div>
                                 <div class="linea"><div class="line"></div></div>
-                                <div class="testoPost t font-weight-light"><?php echo $p['testo'];?> </div>
+                                <div class="testoPost t font-weight-light"><?php echo $p['testo'];?> <br><br>
+                                    <?php if($p['codice']!= null and $p['linguaggio']!=null){?>
+                                        <div id="iconaCode"><i  class="fa fa-code" aria-hidden="true" ></i></div>
+                                        <div id="textCode"><p id="ling" ><?php echo $p['linguaggio']; ?></p> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $p['codice'] ?></textarea></div>
+                                    <?php  } ?>
+                                </div>
                                 <div class="del"></div>
                                 <div class="data">
                                 <?php
@@ -42,3 +47,19 @@
                                 
             </div>
         </div>   
+        
+<script>
+    window.onload = function () {
+        var lingu = document.getElementById("ling").innerText;
+        console.log(lingu);
+        console.log("ciao");
+        var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode: lingu,
+            theme: "dracula",
+            lineNumbers: true,
+            readOnly: true
+        }); 
+        readOnlyCodeMirror.setSize("100%","250");
+        readOnlyCodeMirror.refresh();
+    }
+</script>
