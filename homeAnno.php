@@ -25,7 +25,11 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script>
              $("document").ready(function(){
-                $('#files').hide();        
+                $('#files').hide();
+                $('#textCode').hide();
+                $('#iconaCode').click(function(){
+                    $('#textCode').toggle();
+                });        
             });
         </script>
 
@@ -45,7 +49,23 @@
                     <link href="/codemirror/theme/dracula.css"  rel="stylesheet">
                     <title>ProvaCodeMirror</title>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                    
+                    <script>
+                         $('#editor').each(function() {
+                                var $this = $(this),
+                                $code = $this.html();
+
+                            $this.empty();
+
+                            var myCodeMirror = CodeMirror(this, {
+                                value: $code,
+                                mode: 'python',
+                                theme: 'dracula',
+                                lineNumbers: !$this.is('.inline'),
+                                readOnly: true
+                            });
+
+                            });
+                    </script>
                     
     </head>
     <body>
@@ -139,7 +159,7 @@
             <?php 
                         
                         $query= 
-                            "SELECT ad.id as annod_id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
+                            "SELECT ad.id as annod_id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, post.codice, post.linguaggio, d.nome, d.cognome, d.email
                             from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email  
                             where ad.id='$corso' 
                             order by post.id desc ";
@@ -163,7 +183,12 @@
                                             <div class="del"></div>
                                         <?php }?>
                                 <div class="linea"><div class="line"></div></div>
-                                <div class="testoPost"><?php echo $line['testo'];?> </div>
+                                <div class="testoPost"><?php echo $line['testo'];?> <br><br>
+                                <?php if($line['codice']!= null and $line['linguaggio']!=null){?>
+                                    <div id="iconaCode"><i  class="fa fa-code" aria-hidden="true" ></i></div>
+                                    <div id="textCode"><p><?php echo $line['linguaggio']; ?></p> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
+                                <?php  } ?>
+                                </div>
                                 
                               
                                 

@@ -18,6 +18,8 @@
                         $testo=$_POST['testo'];
                         $email= $_SESSION["email"];
                         $controllo=0;
+                        $codice=$_POST['code'];
+                        $lang=$_POST['linguaggio'];
                         
 
                         /*
@@ -43,9 +45,10 @@
                         */
 
                         $query= "INSERT INTO public.post(
-                            intestazione, testo, anno, docente)
-                            VALUES ('$titolo', '$testo', '$id_corso', '$email' )
+                            intestazione, testo, anno, docente, codice, linguaggio)
+                           VALUES ( '$titolo', '$testo', '$id_corso', '$email', '$codice', '$lang')
                             RETURNING id;";
+                            
                         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
                         {
@@ -62,7 +65,7 @@
 
 
                         /*
-                            Scarica foto e inserisci nella tablla file
+                            Scarica file e inserisci nella tablla file
                         */
 
 
