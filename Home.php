@@ -56,7 +56,11 @@
             }
 
             $("document").ready(function(){
-                $('#files').hide();        
+                $('#files').hide();    
+                $('#textCode').hide();
+                $('#iconaCode').click(function(){
+                    $('#textCode').toggle();
+                });            
             });
 
         </script>
