@@ -50,21 +50,15 @@
                     <title>ProvaCodeMirror</title>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                     <script>
-                         $('#editor').each(function() {
-                                var $this = $(this),
-                                $code = $this.html();
-
-                            $this.empty();
-
-                            var myCodeMirror = CodeMirror(this, {
-                                value: $code,
-                                mode: 'python',
-                                theme: 'dracula',
-                                lineNumbers: !$this.is('.inline'),
-                                readOnly: true
-                            });
-
-                            });
+                         var editor= CodeMirror.fromTextArea(document.getElementById('editor'), {
+                            mode: "python",
+                            theme: "dracula",
+                            lineNumbers: true,
+                            autoCloseTags: true,
+                            autoCloseBrackets: true               
+                        });
+                        editor.setSize("600","200");
+                        }
                     </script>
                     
     </head>
