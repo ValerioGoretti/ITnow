@@ -26,9 +26,13 @@
                             Prendi id dell'anno didattico per utilizzarlo nell'insert del post
                         */
                         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-                        $query_anno="SELECT ad.anno, corso, id, inizio, docente
-                                    FROM public.anno_didattico as ad join anno_docente as adoc on ad.id=adoc.anno 
-                                    where docente='$email'";
+                        $query_anno="SELECT id, corso, anno_didattico.anno
+                                    FROM  anno_didattico join anno_docente  on anno_docente.anno=anno_didattico.id
+                                    where docente='$email'
+                                            UNION 
+                                    select id, corso, anno_didattico.anno
+                                    From collaboratori join anno_didattico on anno_didattico.id=collaboratori.anno_didattico
+                                    where email='$email';";
                         $result_anno = pg_query($dbconn,$query_anno) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result_anno,null,PGSQL_ASSOC))
                         {
