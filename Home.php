@@ -55,13 +55,7 @@
 
             }
 
-            $("document").ready(function(){
-                $('#files').hide();    
-                $('#textCode').hide();
-                $('#iconaCode').click(function(){
-                    $('#textCode').toggle();
-                });            
-            });
+           
 
         </script>
     </head>

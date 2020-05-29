@@ -175,8 +175,8 @@
                                 <div class="testoPost"><?php echo $line['testo'];?> <br><br>
                                     
                                     <?php if($line['codice']!= null and $line['linguaggio']!=null){?>
-                                        <div id="iconaCode"><i  class="fa fa-code" aria-hidden="true" ></i></div>
-                                        <div id="textCode"><p id="ling" ><?php echo $linguaggio; ?></p> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
+                                        <div id="iconaCode" style="font-size:20px; cursor:pointer"> <b>Codice Allegato</b>  <i  class="fa fa-code" aria-hidden="true" ></i></div>
+                                        <div id="textCode"><div style="background-color:#282a36; color:#fff; width:100px; text-align:center" id="ling" ><?php echo $line['linguaggio']; ?></div> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
                                     <?php  } ?>
                                 </div>
                                 
