@@ -26,9 +26,14 @@
         <script>
              $("document").ready(function(){
                 $('#files').hide();
-                $('#textCode').hide();
+                
+                
                 $('#iconaCode').click(function(){
                     $('#textCode').toggle();
+                    setTimeout(function(){
+                    readOnlyCodeMirror.refresh();},2);
+                    
+                 
                 });        
             });
         </script>
@@ -220,8 +225,7 @@
 <script>
     window.onload = function () {
         var lingu = document.getElementById("ling").innerText;
-        console.log(lingu);
-        console.log("ciao");
+        var that=this;
         var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('editor'), {
             mode: lingu,
             theme: "dracula",
@@ -229,6 +233,8 @@
             readOnly: true
         }); 
         readOnlyCodeMirror.setSize("100%","250");
-        readOnlyCodeMirror.refresh();
+
+        $('#textCode').hide();
     }
+
 </script>
