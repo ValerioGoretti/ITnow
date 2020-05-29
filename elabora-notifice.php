@@ -25,7 +25,7 @@ if(isset($_POST['studente']))
         
         $output.="
                 <li>
-                <a class='dropdown-item' style='height:70px;' href='redirezione-notifiche.php?id=$id&studente=$studente&incremento=$count'><p><strong>$nuovi nuovi post in:</strong></p><p style='float:right;'>$corso $a<br> $nome $cognome</p></a>
+                <a class='dropdown-item' style='height:70px;' href='redirezione-notifiche.php?id=$id&studente=$studente&incremento=$nuovi'><p><strong>$nuovi nuovi post in:</strong></p><p style='float:right;'>$corso $a<br> $nome $cognome</p></a>
                 <div class='line' style='margin-top:5px;width:100%;'></div>
                 </li>
                 ";
@@ -37,7 +37,7 @@ if(isset($_POST['studente']))
     if($contatore==0) {$output="
     
     <a class='dropdown-item' style='height:70px;' href='#'><p><strong>Nessun nuovo post</strong></p></a>
-    <div class='line' style='margin-top:5px;width:100%;'></div>
+    <div class='line' style='margin-top:5px;width:100%;margin-bottom:5px;'></div>
     
     ";}
     $data=array('notifiche'=>$output,

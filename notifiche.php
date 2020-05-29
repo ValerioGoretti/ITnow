@@ -1,7 +1,7 @@
 <!doctype html>
 <?php
-    include 'updateDocentiJson.php';
-    runDoc();
+    //include 'updateDocentiJson.php';
+    //runDoc();
 ?>
     <head>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">    
@@ -21,12 +21,20 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script>
+        caricaNotifiche();
+       
          $("document").ready(function(){
                 
-               
+                
                 $('#clicca').click(function(){
                             
-                            <?php $matricola=$_SESSION['matricola'];?>
+                            caricaNotifiche();
+                    
+                 
+                });
+            });
+    function caricaNotifiche(){
+        <?php $matricola=$_SESSION['matricola'];?>
                             $.ajax({
                             type: "POST",
                             url: "elabora-notifice.php",
@@ -38,14 +46,14 @@
                                 console.log(msg);
                                 
                                 $('.dropdown-menu').html(msg.notifiche);
+                                if(msg.contatore!=0){$('#n').text(msg.contatore);$('#n').show();$('#dropdownMenuButton').addClass("blob");}
+                                else{$('#n').hide();$('#dropdownMenuButton').removeClass("blob");}
                                 
                             }
                             
                             });  
-                    
-                 
-                });
-            });
+
+    }        
  </script>
         
             
@@ -55,12 +63,17 @@
 
     </head>
     <body>
-    <div class="rightBar font-weight-light" style="width:200px;padding:5px;color:white;">
+    <div class="rightBar font-weight-light"  style="width:180px;border-radius:8px;">
+    <h4 style="margin-left:10%;color:white;">Sezione Notifiche</h4>
     <div class="dropdown  font-weight-light" id="clicca">
-    <button class="btn btn-secondary dropdown-toggle" style="background-color:white;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fas fa-bell" id="clicca" style="font-size:50px;color:#822433;"></i>
-    </button>
-  <div class="dropdown-menu animate slideIn" aria-labelledby="dropdownMenuButton " style="width:100%;padding:5px">
+    
+    <button class="btn btn-secondary2" style="border-radius:10px;background-color:white;border:none;outline:none;width:120px;margin-left:15%;margin-top:10px;margin-bottom:15%;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+            <i class="fas fa-bell" id="clicca" style="font-size:60px;color:#822433;"></i>
+            <div id="n" style="width:30px;height:30px;border-radius:50%;background-color:#822433;font-size:15px;text-align:center;padding:3px;color:white;float:right;display:none">0</div>
+        </button>
+    
+  <div class="dropdown-menu animate slideIn" aria-labelledby="dropdownMenuButton " style="width:100%;padding:5px;">
     
     
   </div>

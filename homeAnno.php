@@ -49,6 +49,8 @@
                     <link href="/codemirror/theme/dracula.css"  rel="stylesheet">
                     <title>ProvaCodeMirror</title>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                   
+
                     <script>
                          $('#editor').each(function() {
                                 var $this = $(this),
@@ -71,7 +73,12 @@
     <body>
         <?php include 'header.php'?>                     
         <?php include 'leftBar.php'?>
+        
         <?php include 'right-bar-control2.php';?>
+        
+
+                        
+
         
         
         
@@ -152,7 +159,7 @@
 
 
                 <div class='row'>                            
-                <p class="font-weight-light" style="margin-left:140px;font-size:40px;">Post del corso</p>
+                <p class="font-weight-light" style="margin-left:160px;font-size:40px;">Post del corso</p>
                 <div class="line2" style="width:500px"></div>
                 </div>
             <div class="spazioPost" >
