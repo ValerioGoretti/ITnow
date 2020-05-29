@@ -47,38 +47,14 @@
                     <script src="/codemirror/addon/edit/closebrackets.js"></script>
                     <script src="/codemirror/addon/edit/closetag.js"></script>
                     <link href="/codemirror/theme/dracula.css"  rel="stylesheet">
-                    <title>ProvaCodeMirror</title>
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
                    
-
-                    <script>
-                         $('#editor').each(function() {
-                                var $this = $(this),
-                                $code = $this.html();
-
-                            $this.empty();
-
-                            var myCodeMirror = CodeMirror(this, {
-                                value: $code,
-                                mode: 'python',
-                                theme: 'dracula',
-                                lineNumbers: !$this.is('.inline'),
-                                readOnly: true
-                            });
-
-                            });
-                    </script>
                     
     </head>
     <body>
         <?php include 'header.php'?>                     
         <?php include 'leftBar.php'?>
-        
         <?php include 'right-bar-control2.php';?>
-        
-
-                        
-
         
         
         
@@ -159,7 +135,7 @@
 
 
                 <div class='row'>                            
-                <p class="font-weight-light" style="margin-left:160px;font-size:40px;">Post del corso</p>
+                <p class="font-weight-light" style="margin-left:140px;font-size:40px;">Post del corso</p>
                 <div class="line2" style="width:500px"></div>
                 </div>
             <div class="spazioPost" >
@@ -175,6 +151,7 @@
                             
                             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
                                 $idpost=$line['idpost'];
+                                $linguaggio=$line['linguaggio'];
 
                             ?>
 
@@ -191,10 +168,11 @@
                                         <?php }?>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $line['testo'];?> <br><br>
-                                <?php if($line['codice']!= null and $line['linguaggio']!=null){?>
-                                    <div id="iconaCode"><i  class="fa fa-code" aria-hidden="true" ></i></div>
-                                    <div id="textCode"><p><?php echo $line['linguaggio']; ?></p> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
-                                <?php  } ?>
+                                    
+                                    <?php if($line['codice']!= null and $line['linguaggio']!=null){?>
+                                        <div id="iconaCode"><i  class="fa fa-code" aria-hidden="true" ></i></div>
+                                        <div id="textCode"><p id="ling" ><?php echo $linguaggio; ?></p> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
+                                    <?php  } ?>
                                 </div>
                                 
                               
@@ -238,3 +216,19 @@
         
     </body>
 </html>
+
+<script>
+    window.onload = function () {
+        var lingu = document.getElementById("ling").innerText;
+        console.log(lingu);
+        console.log("ciao");
+        var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('editor'), {
+            mode: lingu,
+            theme: "dracula",
+            lineNumbers: true,
+            readOnly: true
+        }); 
+        readOnlyCodeMirror.setSize("100%","250");
+        readOnlyCodeMirror.refresh();
+    }
+</script>
