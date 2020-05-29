@@ -68,4 +68,8 @@ $("document").ready(function(){
             });
  </script>
         
-<div class="rightBar" style="padding:10px; height:fit-content;"><div class="btn-follow follow"><?php echo $follow?></div></div></body>
+<div class="rightBar" style="padding:10px; height:fit-content;"><div class="btn-follow follow"><?php echo $follow?></div>
+
+
+
+</div>

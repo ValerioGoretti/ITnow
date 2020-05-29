@@ -18,7 +18,12 @@
     {
                     $array=array('studente'=>$_GET['studente'],'anno'=>$_GET['id']);
                     $result=pg_delete ($dbconn,'studente_corso',$array) or die ('Query failed: '.pg_last_error());
+                    $anno=$_GET['id'];
+                    $studente=$_GET['studente'];
+                    $resultNotifica=pg_query($dbconn, "DELETE FROM notifiche WHERE studente='$studente' and anno='$anno'");
+                    echo $resultNotifica;
 
     }
+    pg_close($dbconn);
     
 ?>
