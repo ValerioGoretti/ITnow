@@ -37,6 +37,18 @@
                 });        
             });
         </script>
+        <script>function creaCodeMirror(ling,id)
+    {
+        var lingu = document.getElementById(ling).innerText;
+        var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById(id), {
+            mode: lingu,
+            theme: "dracula",
+            lineNumbers: true,
+            readOnly: true
+        }); 
+        readOnlyCodeMirror.setSize("100%","250");
+    }
+</script>
 
         <!--Code-->
                 <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
@@ -173,10 +185,17 @@
                                         <?php }?>
                                 <div class="linea"><div class="line"></div></div>
                                 <div class="testoPost"><?php echo $line['testo'];?> <br><br>
-                                    
-                                    <?php if($line['codice']!= null and $line['linguaggio']!=null){?>
-                                        <div id="iconaCode" style="font-size:20px; cursor:pointer"> <b>Codice Allegato</b>  <i  class="fa fa-code" aria-hidden="true" ></i></div>
-                                        <div id="textCode"><div style="background-color:#282a36; color:#fff; width:100px; text-align:center" id="ling" ><?php echo $line['linguaggio']; ?></div> <textarea name="editor" id="editor" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
+                                <?php $i=$line['idpost'];if($line['codice']!= null and $line['linguaggio']!=null){?>
+                                        
+                                        <div id="iconaCode<?php echo $i?>"style="font-size:20px; width:fit-content;cursor:pointer"> <b>Codice Allegato</b>  <i  class="fa fa-code" aria-hidden="true" ></i></div>
+                                        <div id="textCode<?php echo $i?>"class="animate slideIn"><div style="background-color:#282a36; color:#fff; width:100px; text-align:center" id="ling<?php echo $i?>" ><?php echo $line['linguaggio']; ?></div> <textarea name="editor" id="editor<?php echo $i?>" style="resize: none" readonly> <?php echo $line['codice'] ?></textarea></div>
+                                        
+                                        <script> creaCodeMirror("ling<?php echo $i?>","editor<?php echo $i?>");
+                                                 $('#iconaCode<?php echo $i?>').click(function(){
+                                                         $('#textCode<?php echo $i?>').toggle();
+                                                  });
+                                                 $('#textCode<?php echo $i?>').hide(); 
+                                    </script>
                                     <?php  } ?>
                                 </div>
                                 
@@ -223,18 +242,8 @@
 </html>
 
 <script>
-    window.onload = function () {
-        var lingu = document.getElementById("ling").innerText;
-        var that=this;
-        var readOnlyCodeMirror = CodeMirror.fromTextArea(document.getElementById('editor'), {
-            mode: lingu,
-            theme: "dracula",
-            lineNumbers: true,
-            readOnly: true
-        }); 
-        readOnlyCodeMirror.setSize("100%","250");
+    
 
-        $('#textCode').hide();
-    }
+    
 
 </script>
