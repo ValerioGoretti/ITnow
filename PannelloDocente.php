@@ -45,15 +45,18 @@
                                         <!--CODICEEEEEEEEEEEEE-->
                                     <div id="moderno">
                                                 <div id="bottoni">
+                                                    <div class="font-weight-light">Scegli uno dei seguenti linguaggi</div> 
                                                     <div class="btn btn-primary" style="margin-top:0%" id="python" name="python" onclick="setlang('python')">python</div>
                                                     <div class="btn btn-primary" style="margin-top:0%" id="css"    name="css"    onclick="setlang('css')">css</div>
                                                     <div class="btn btn-primary" style="margin-top:0%" id="js"     name="js"     onclick="setlang('javascript')">js</div>
                                                     <div class="btn btn-primary" style="margin-top:0%" id="php"    name="php"    onclick="setlang('php')">php</div>
                                                     <div class="btn btn-primary" style="margin-top:0%" id="sql"    name="sql"    onclick="setlang('sql')">sql</div>
                                                     <div class="btn btn-primary" style="margin-top:0%" id="html"    name="html"  onclick="setlang('xml')">html</div><br>
-                                                    <div id="scelta"></div>
+                                                    
                                                 </div>
-                                                <div id="codice" ></div>
+                                                <br>
+                                                <div id="scelta" style="background-color:#282a36; color:#fff; width:100px; text-align:center;" ></div>
+                                                <div id="codice"></div>
                                         </div>
                                     </div>
                         </div>
@@ -107,7 +110,7 @@
     <script>
            var editor
            function setlang(lang){
-               document.getElementById('scelta').innerHTML = "<h6>"+lang+ "</h6> <input type=\"hidden\" name=\"linguaggio\" value=\""+lang+"\"> ";
+               document.getElementById('scelta').innerHTML = "<span class='font-weight-light'>"+lang+ "</span> <input type=\"hidden\" name=\"linguaggio\" value=\""+lang+"\"> ";
                document.getElementById('codice').innerHTML = '<textarea name="code" id="editor"></textarea>';
                editor= CodeMirror.fromTextArea(document.getElementById('editor'), {
                mode: lang,
