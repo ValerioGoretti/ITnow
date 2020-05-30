@@ -46,14 +46,16 @@
                             $msg="problema ricerca corso";
                         /*
                             Inserisci Post e prendi id  per utilizzarlo nell'insert del file
-                        */
+                        
 
                         $query= "INSERT INTO public.post(
                             intestazione, testo, anno, docente, codice, linguaggio)
                            VALUES ( '$titolo', '$testo', '$id_corso', '$email', '$codice', '$lang')
                             RETURNING id;";
-                            
-                        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+                        */
+                        $array=array('intestazione'=>$titolo,'testo'=>$testo,'anno'=>$id_corso,'docente'=>$email,'codice'=>$codice,'linguaggio'=>$lang);
+   
+                        $result = pg_insert($dbconn,'post',$array) or die ('Query failed: '.pg_last_error());
                         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
                         {
                           $id_post=$line['id'];
