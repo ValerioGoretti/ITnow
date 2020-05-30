@@ -240,8 +240,12 @@
         <div id="chat"class="chat">
             <div class="chatNome">nome </div>
             <div class="line" style="width:100%;"></div>
-            <div></div>
-        </div>                       
+            <span class="inputArea ">
+                    <span style="height:100%; width:70%; left:0; margin-rigth:30px"><textarea class="txtmsg"  placeholder="Scrivi qui il tuo messaggio"></textarea></span>
+                    <button class="btn btn-primary2" style="margin-top:0;float:right">Invia</button>
+            </span>
+        </div> 
+                        
     </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

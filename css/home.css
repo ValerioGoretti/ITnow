@@ -459,9 +459,34 @@
     
 }
 
+.chat div{
+    position: relative;
+}
+
+.chat span{
+    position: absolute;
+}
+
 .chatNome{
     font-size: x-large;
     color: #000;
     overflow-wrap: break-word;
+}
+
+.inputArea{
+    background-color: #822433;
+    color:black;
+    bottom: 0;
+    width: 100%;
+    height: fit-content;
+    left:0;
+    font-size: large;
+    padding: 1px;
+}
+
+.txtmsg{
+    margin-top: 5px;
+    width: 100%;
+    height: 100%;
 }
 
