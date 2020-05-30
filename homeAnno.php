@@ -244,7 +244,7 @@
                                             
                     <div class="messaggio">
                         <div class="immagineMia"></div>
-                        <div class="textmsgMio">testo</div>
+                        <div class="textmsgMio">testooooooooooooooooooooooooooooooooooooo</div>
                         <div class="nomeMio">nome</div>
                     </div>
 

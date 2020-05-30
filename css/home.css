@@ -505,6 +505,7 @@
     float: right;
     font-size: 20px;
     margin-top: 5%;
+    overflow-wrap: break-word;
 }
 .textmsgTuo{
     border-radius: 10px;
@@ -515,6 +516,7 @@
     float: left;
     font-size: 20px;
     margin-top: 5%;
+    overflow-wrap: break-word;
 }
 
 .immagineMia{
