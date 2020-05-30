@@ -246,18 +246,20 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    $('#chat').hide();
     $('document').ready(function(){
-        $('#tondoChat').click(function(){
-            $('#chat').show();
-            
-        });
+        
         window.addEventListener('click', function(e){   
-            if (document.getElementById('chat').contains(e.target)){
-                console.log("dentro");
-            } else{
-                console.log("fuori");
+            
+            if (document.getElementById('tondoChat').contains(e.target)){
+                $('#chat').show();
+                $('#tondoChat').hide();
+            } 
+            else if (!(document.getElementById('chat').contains(e.target))){
                 $('#chat').hide();
-            }
+                $('#tondoChat').show();
+            } 
+
             });
     });
         
