@@ -54,6 +54,9 @@
                 $(window.location).attr('href',"index.html#login");
 
             }
+            $('document').ready(function(){
+                $('#files').hide();
+            });
 
            
 
