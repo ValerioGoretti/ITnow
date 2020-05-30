@@ -16,18 +16,32 @@
 </div>  
 <div class="spazioPost">
             <?php       
-                        include "updatePost.php";
+                        
                         $matricola=($_SESSION['matricola']);
-                        run($matricola);
-                        $string=file_get_contents('json/post.json', 'r');
-                        if(!$string){
+                       
+                       
+
+                        
+                        
+                        $query= 
+                        "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, post.codice, post.linguaggio, d.nome, d.cognome, d.email, post.data
+                        from anno_didattico as ad join post on ad.id=post.anno join docente as d on post.docente=d.email join studente_corso as st on post.anno=st.anno
+                        where st.studente=$matricola
+                        order by post.id desc
+                        limit 10
+                        ";
+                        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+                        $ciSono=false;
+                        while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
+                                $post[]=array('idCorso'=>$line['id'],'corso'=>$line["corso"],'anno'=>$line['anno'],'idpost'=>$line['idpost'],'titolo'=>$line['intestazione'],'testo'=>$line['testo'],'timestamp'=>$line['data'],'nomeDoc'=>$line["nome"],'cognomeDoc'=>$line["cognome"],'emailDoc'=>$line["email"], 'data' => $line['data'], 'codice'=> $line['codice'], 'linguaggio' => $line['linguaggio']);
+                                $ciSono=true;
+                            }                        
+                        if(!$ciSono){
                             echo '<div class="containerErrore">';
                             echo'<p style="font-size:20px;" class="font-weight-light">Al momento non ci sono post da mostrare. Per vedere nuovi post, inizia a seguire dei corsi .</p>';
                             echo '</div>';
                         }
                         else{
-                        $post=json_decode($string,true);
-                        
                         foreach ($post as $p){?>
                                                           
                             <div class="post">
@@ -70,8 +84,9 @@
         
 <script>
     
+    
     $("document").ready(function(){
-        $('#files').hide();    
+           
                 
              
     });

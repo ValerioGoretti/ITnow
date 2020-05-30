@@ -35,7 +35,7 @@
                     $_SESSION["nome"]=$line["nome"];
                     $_SESSION["email"]=$line["email"];
 
-                   
+                
                 }
             $_SESSION['ruolo']='docente';
             $_SESSION['img']=$_SESSION["email"];
@@ -104,17 +104,31 @@ function validaDocente($matricola,$password)
 
     if((!empty($matricola))&&(!empty($password)))
     {
-    $data=file_get_contents("json/dati_docenti.json");
-    $data=json_decode($data,true);
+
     
-    $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+    
     $password2=md5($password);
-    $query= "SELECT *
-            FROM docente 
-            WHERE email='$matricola' and password='$password2'";
-    $result = pg_query_params($dbconn,$query,array()) or die ('Query failed: '.pg_last_error());
-    if(pg_num_rows($result)!=0)return true;
-    return false;
+    try{
+        $mypdo=new PDO("pgsql:host=rogue.db.elephantsql.com;dbname=xsyvwldl","xsyvwldl","3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev",array(PDO::ATTR_PERSISTENT => true));
+        
+        $query= "SELECT *
+        FROM docente 
+        WHERE email=:matricola and password=:password";
+        $stm=$mypdo->prepare($query);
+        $stm->bindValue(':matricola',$matricola,PDO::PARAM_STR);
+        $stm->bindValue(':password',$password2,PDO::PARAM_STR);
+
+        $result=$stm->execute();
+        if($result){$user=$stm->fetch();
+            if($user){return true;}               
+        }
+        else{return false;}
+
+
+        
+    }
+    catch(PDOException $e){echo $e->getMessage();}
+
     }
     return false;
 }
@@ -122,23 +136,36 @@ function validaDocente($matricola,$password)
 function validaStudente($matricola,$password)
 {
 
-    if((!empty($matricola))&&(!empty($password)))
-    {
+
         if((!empty($matricola))&&(!empty($password)))
         {
-        $data=file_get_contents("json/dati_docenti.json");
-        $data=json_decode($data,true);
+ 
         
-        $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+        
         $password2=md5($password);
-        $query= "SELECT *
-                FROM studente 
-                WHERE matricola='$matricola' and password='$password2'";
-        $result = pg_query_params($dbconn,$query,array()) or die ('Query failed: '.pg_last_error());
-        if(pg_num_rows($result)!=0)return true;
-        return false;
+        try{
+            $mypdo=new PDO("pgsql:host=rogue.db.elephantsql.com;dbname=xsyvwldl","xsyvwldl","3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev",array(PDO::ATTR_PERSISTENT => true));
+            
+            $query= "SELECT *
+            FROM studente 
+            WHERE matricola=:matricola and password=:password";
+            $stm=$mypdo->prepare($query);
+            $stm->bindValue(':matricola',$matricola,PDO::PARAM_STR);
+            $stm->bindValue(':password',$password2,PDO::PARAM_STR);
+
+            $result=$stm->execute();
+            if($result){$user=$stm->fetch();
+                if($user){return true;}               
+            }
+            else{return false;}
+
+
+            
+        }
+        catch(PDOException $e){echo $e->getMessage();}
+
         }
         return false;
-    }
+    
 }
 ?>
