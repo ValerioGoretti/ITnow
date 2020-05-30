@@ -426,3 +426,42 @@
     height: 50px;
 
 }
+
+.tondoChat {
+    background-color: #822433;
+    color: #fff;
+    position: fixed;
+    bottom: 1%;
+    border-radius: 50%;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    right: 3%;
+    padding: 13px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.chat{
+    background-color: #fff;
+    border: 3px solid #822433;
+    border-radius: 7px;
+    color: #fff;
+    position: fixed;
+    bottom: 1%;
+    text-align: center;
+    width: 300px;
+    height: 450px;
+    right: 3%;
+    padding: 13px;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+}
+
+.chatNome{
+    font-size: x-large;
+    color: #000;
+    overflow-wrap: break-word;
+}
+

@@ -99,7 +99,7 @@
                                     $mail=$line["email"]." ".$mail;
                                     $stato=$line['stato'];
                             }
-?>
+                        ?>
 
                     <?php $query= 
                                             "SELECT ad.id, ad.corso, ad.anno,post.id as idpost, post.intestazione, post.testo, post.data, d.nome, d.cognome, d.email
@@ -234,15 +234,36 @@
 
                                 ?>
             </div>
-           
+            
         </div>
-       
-        
+        <div id="tondoChat" class="tondoChat grow"><i class="fas fa-comment-dots"></i></div>         
+        <div id="chat"class="chat">
+            <div class="chatNome">nome </div>
+            <div class="line" style="width:100%;"></div>
+            <div></div>
+        </div>                       
     </body>
 </html>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    $('document').ready(function(){
+        $('#tondoChat').click(function(){
+            $('#chat').show();
+            
+        });
+        window.addEventListener('click', function(e){   
+            if (document.getElementById('chat').contains(e.target)){
+                console.log("dentro");
+            } else{
+                console.log("fuori");
+                $('#chat').hide();
+            }
+            });
+    });
+        
+        
     
+
 
     
 
