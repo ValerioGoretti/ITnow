@@ -463,7 +463,9 @@
     position: relative;
 }
 
-
+.chat textarea{
+    height:5px;
+}
 .chatNome{
     font-size: x-large;
     color: #000;
