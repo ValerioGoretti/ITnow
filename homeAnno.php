@@ -240,10 +240,25 @@
         <div id="chat"class="chat">
             <div class="chatNome">nome </div>
             <div class="line" style="width:100%;"></div>
-            <div style="background-color:pink;width:100%;height:82%">aaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            <div style="width:100%;height:82%">
+                                            
+                    <div class="messaggio">
+                        <div class="immagineMia"></div>
+                        <div class="textmsgMio">testo</div>
+                        <div class="nomeMio">nome</div>
+                    </div>
+
+
+                    <div class="messaggio">
+                        <div class="immagineTua"></div>
+                        <div class="textmsgTuo">testo</div>
+                        <div class="nomeTuo">nome</div>
+                    </div>
+
+            </div>
             <span class="inputArea ">
                     <textarea style="float:left;min-height:40px;width:79%;resize:none;"></textarea>
-                    <button  style="float:right;width:20%;">Invia</button>
+                    <button  class="chatbtn" >Invia</button>
             </span>
         </div> 
                         

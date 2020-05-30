@@ -490,3 +490,70 @@
     height: 50px;
 }
 
+.messaggio{
+    width: 100%;
+    height: fit-content;
+    margin-top: 5%;
+}
+
+.textmsgMio{
+    border-radius: 10px;
+    background-color: #822433;
+    color: #fff;
+    width: 70%;
+    height: fit-content;
+    float: right;
+    font-size: 20px;
+    margin-top: 5%;
+}
+.textmsgTuo{
+    border-radius: 10px;
+    background-color: #eee;
+    width: 70%;
+    color: #000;
+    height: fit-content;
+    float: left;
+    font-size: 20px;
+    margin-top: 5%;
+}
+
+.immagineMia{
+ width: 25%;
+ height: 60px;
+ background-color: #822433;
+ float: right;
+ border-radius: 50%;
+}
+
+.immagineTua{
+    width: 25%;
+    height: 60px;
+    background-color: #eee;
+    float: left;
+    border-radius: 50%;
+   }
+
+.nomeMio{
+    font-size: small;
+    color: #000;
+}
+
+.nomeTuo{
+    font-size: small;
+    color: #000;
+}
+
+
+
+
+
+
+
+.chatbtn{
+    float:right;
+    width:20%;
+    border: none;
+    color: #822433;
+    background-color: #fff;
+}
+
