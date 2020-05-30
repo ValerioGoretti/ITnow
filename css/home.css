@@ -463,9 +463,6 @@
     position: relative;
 }
 
-.chat span{
-    position: absolute;
-}
 
 .chatNome{
     font-size: x-large;
@@ -475,6 +472,7 @@
 
 .inputArea{
     background-color: #822433;
+    position: absolute;
     color:black;
     bottom: 0;
     width: 100%;
@@ -487,6 +485,6 @@
 .txtmsg{
     margin-top: 5px;
     width: 100%;
-    height: 100%;
+    height: 50px;
 }
 
