@@ -257,8 +257,8 @@
 
             </div>
             <span class="inputArea ">
-                    <textarea style="float:left;min-height:40px;width:79%;resize:none;"></textarea>
-                    <button  class="chatbtn" >Invia</button>
+                    <textarea id="testoMessaggio" style="float:left;min-height:40px;width:79%;resize:none;"></textarea>
+                    <button id="invia" class="chatbtn" >Invia</button>
             </span>
         </div> 
                         
@@ -281,6 +281,21 @@
             } 
 
             });
+
+            
+            var mittente = '<?php echo $mittente = $_SESSION['ruolo']=='docente' ?   $_SESSION['email'] :  $_SESSION['matricola']; ?>';
+            
+            var inizio=0;
+            $('#invia').click(function(){
+                    $.ajax({
+                            type: "POST",
+                            url: "inviaMessaggio.php",
+                            data: {testo: $('#testoMessaggio').val(), anno: <?php echo $corso;?>,mittente: mittente},
+                            success: function(msg){
+                            console.log(msg);                              
+                            }
+                 });
+            });  
     });
         
         
