@@ -95,15 +95,14 @@
                         <option disabled selected>Corso</option>
                         <?php   
                         
-                        $string=file_get_contents('json/corsi.json', 'r');
-                        $corsi=json_decode($string,true);
-                        $no_dup =[];
-                        foreach($corsi as $c){
-                            if(!in_array($c['nomeCorso'],$no_dup))
-                            {?>
-                                <option class="prova" value="<?php echo $c['nomeCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
-                                <?php array_push($no_dup,$c['nomeCorso']);
-                        }}?>
+                        $query="SELECT * FROM  corso;";
+                        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+                        while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
+                        {
+                       ?>
+                                <option class="prova" value="<?php echo $line['nome'] ?>"><?php echo $line['nome'] ?></option>
+                                <?php 
+                        }?>
                         
                 </select>
                 
