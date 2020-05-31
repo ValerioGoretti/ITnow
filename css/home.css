@@ -467,7 +467,7 @@
     height:5px;
 }
 .chatNome{
-    font-size: large;
+    font-size: medium;
     color: #000;
     overflow-wrap: break-word;
 }

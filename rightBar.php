@@ -43,11 +43,11 @@
             $('#crea').click(function(){
                 
                 var d1=new Date($('#data').val());
-                var d2=new Date();
+                var d2=new Date('<?php echo date("Y-m-d")?>');
                 console.log(d1);
                 console.log(d2);
 
-                if(verificaEmail(listaCrea)&& (!listaCrea.includes('<?php echo $_SESSION['email']?>'))&&(d1>=d2)){
+                if(verificaEmail(listaCrea)&&(!listaCrea.includes('<?php echo $_SESSION['email']?>'))&&(d1>=d2)){
                 $.ajax({
                             type: "GET",
                             url: "crea-anno.php",
@@ -57,7 +57,7 @@
                             alert(msg);                              
                             }
                  });}
-                 else{alert("Dati inseriti non validi");}  
+                 else{console.log();}  
 
                     
             });
@@ -79,6 +79,7 @@
                   }
                     if (!presente) return false;
                 }
+                console.log(presente);
                 return true;
         }    
     </script>
@@ -92,7 +93,7 @@
         <div style="margin:0 auto;background-color:white;whidth:70%;height:fit-content;border-radius:6px;padding:5px;">
         
                 <select class="selezionaCorso" id="cars" name="corso" style="width:100%;height:30px;" required>
-                        <option disabled selected>Corso</option>
+                        
                         <?php   
                         
                         $query="SELECT * FROM  corso;";

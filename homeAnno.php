@@ -307,12 +307,15 @@
     function stampa(el){
         var ora=el.timestamp.slice(10,-10);
         var data=el.timestamp.slice(0,10);
+        
         var mio = '<?php echo $mittente = $_SESSION['ruolo']=='docente' ?   $_SESSION['email'] :  $_SESSION['matricola']; ?>';
+        
+
         if(el.mittente==mio){
-            var mex="<div class='messaggio'><div class='immagineMia'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgMio'>"+el.testo+"</div><div class='nomeMio'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
+            var mex="<div class='messaggio'><div class='immagineMia'><?php if(file_exists("img_docente/"+img".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo "<i class='fas fa-user' ></i>" ?></div><div class='textmsgMio'>"+el.testo+"</div><div class='nomeMio'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
         }
         else{
-            var mex="<div class='messaggio'><div class='immagineTua'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgTuo'>"+el.testo+"</div><div class='nomeTuo'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
+            var mex="<div class='messaggio'><div class='immagineTua'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo "<i class='fas fa-user' ></i>" ?></div><div class='textmsgTuo'>"+el.testo+"</div><div class='nomeTuo'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
         }              
         return mex;
 
