@@ -236,19 +236,20 @@
             </div>
             
         </div>
+
+
+        <!-- CHAT -->
+
         <div id="tondoChat" class="tondoChat grow"><i class="fas fa-comment-dots"></i></div>         
         <div id="chat"class="chat">
             <div class="chatNome"><?php echo $nome." ".$anno?><br><?php echo $docenti?></div>
             <div class="line" style="width:100%;"></div>
             <div style="width:100%;height:80%;overflow:auto;"id="containerMex">
-                                            
-                    
-                    
-
+                                      
             </div>
             <span class="inputArea ">
-                    <textarea id="testoMessaggio" style="float:left;min-height:40px;width:79%;resize:none;"></textarea>
-                    <button id="invia" class="chatbtn" >Invia</button>
+                    <textarea id="testoMessaggio" style="float:left;min-height:40px;width:84%;resize:none;"></textarea>
+                    <button id="invia" class="chatbtn" ><i class="fas fa-paper-plane"></i></button>
             </span>
         </div> 
                         
@@ -264,6 +265,7 @@
             
             if (document.getElementById('tondoChat').contains(e.target)){
                 $('#chat').show();
+                var objDiv = document.getElementById("containerMex");objDiv.scrollTop = objDiv.scrollHeight;
                 $('#tondoChat').hide();
             } 
             else if (!(document.getElementById('chat').contains(e.target))){
@@ -285,6 +287,7 @@
                             success: function(msg){                             
                             }
                  });
+                 $('#testoMessaggio').val('');
             }); 
     });
         
@@ -293,7 +296,7 @@
 
     function load(){
                 $.get("inviaMessaggio.php/?start="+start+"&anno=<?php echo $corso?>",function(ris){
-                    ris.forEach(el=>{console.log(el.id);start=el.id;$('#containerMex').append(stampa(el))});
+                    ris.forEach(el=>{console.log(el.id);start=el.id;$('#containerMex').append(stampa(el));var objDiv = document.getElementById("containerMex");objDiv.scrollTop = objDiv.scrollHeight;});
                     load();                 
                 });
                 
@@ -304,8 +307,13 @@
     function stampa(el){
         var ora=el.timestamp.slice(10,-10);
         var data=el.timestamp.slice(0,10);
-        var mex="<div class='messaggio'><div class='immagineMia'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgMio'>"+el.testo+"</div><div class='nomeMio'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
-                        
+        var mio = '<?php echo $mittente = $_SESSION['ruolo']=='docente' ?   $_SESSION['email'] :  $_SESSION['matricola']; ?>';
+        if(el.mittente==mio){
+            var mex="<div class='messaggio'><div class='immagineMia'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgMio'>"+el.testo+"</div><div class='nomeMio'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
+        }
+        else{
+            var mex="<div class='messaggio'><div class='immagineTua'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgTuo'>"+el.testo+"</div><div class='nomeTuo'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
+        }              
         return mex;
 
     }
