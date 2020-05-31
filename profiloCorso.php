@@ -117,7 +117,7 @@
     return relevantChildren;
 }
 var element = document.getElementById("riga");
-if(getCount(element,false)=2)
+if(getCount(element,false)<=2)
 $('.rigaCorso').css('height','250px');             
 </script>   
     </body>
