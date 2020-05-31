@@ -582,5 +582,11 @@
     margin-right: 5px;
     margin-top: 3px;
     border-radius: 50%;
+    outline: none;
+    text-align: center; 
+    transition: 0.3s;
 }
+
+
+
 

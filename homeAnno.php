@@ -249,7 +249,7 @@
             </div>
             <span class="inputArea ">
                     <textarea id="testoMessaggio" style="float:left;min-height:40px;width:84%;resize:none;"></textarea>
-                    <button id="invia" class="chatbtn" ><i class="fas fa-paper-plane"></i></button>
+                    <div id="invia" class="chatbtn" ><i style="margin-top:8px" class="fas fa-paper-plane"></i></div>
             </span>
         </div> 
                         
