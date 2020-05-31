@@ -42,13 +42,10 @@
     <body >
 
     <?php session_start(); include 'header.php';
-        include 'updateCorsi.php';
-        run();
+        
     
     
                 $corso = $_GET['corso'];
-                $string=file_get_contents('json/corsi.json', 'r');
-                $corsi=json_decode($string,true);
     
     
     ?>
@@ -63,11 +60,13 @@
         
         <!--riepilogo dati-->
         <?php
-        $query="select corso from anno_didattico
-                where id=$corso;";
+        $nomeCorso='';
+        $query="select *
+                from corso
+                where nome='$corso';";
         $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
         while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC)){
-                $nomeCorso=$line['corso'];
+                $nomeCorso=$line['nome'];
         }
         ?>
        
@@ -79,23 +78,20 @@
             
                
                 <?php
-                     foreach($corsi as $c){
-                        if($c['nomeCorso']==$nomeCorso){?>
-                        
+                      $query2="select anno_didattico.id as anno_id, corso.nome as nome_corso,corso.descrizione as descrizione_corso, anno_didattico.anno as anno_corso,docente.nome as nome_docente,docente.cognome as cognome_docente,docente.email as email_docente,anno_didattico.stato
+                      from corso join anno_didattico on corso.nome=anno_didattico.corso join anno_docente on anno_didattico.id=anno_docente.anno join docente on anno_docente.docente=docente.email
+                      where corso.nome='$corso';";
+                      $result2 = pg_query($dbconn,$query2) or die ('Query failed: '.pg_last_error());
+                      while ($line2  = pg_fetch_array($result2,null,PGSQL_ASSOC)){                     
+                     ?>
                         <div class="card cartaCorso grow" style="color:white;background-color:#822433;margin-bottom:20px;">
-                    
                             <div class="card-body">
-                            <h5 class="card-title"><?php echo $c['nomeDoc'].' '.$c['cognomeDoc']?></h5>
-                            <p class="card-text font-weight-light">Anno:<?php echo $c['anno']?><br>Stato:<?php echo $c['stato']?></p>
-                            <button href="#" class="btn btn-primary2" value="<?php echo $c['idCorso']?>" name="corso">Vai all'anno didattico</a>
-                    </div>
-                </div>
-                <?php }}?> 
-
-               
-                
-               
-                
+                            <h5 class="card-title"><?php echo $line2['nome_docente'].' '.$line2['cognome_docente']?></h5>
+                            <p class="card-text font-weight-light">Anno:<?php echo $line2['anno_corso']?><br>Stato:<?php echo $line2['stato']?></p>
+                            <button href="#" class="btn btn-primary2" value="<?php echo $line2['anno_id']?>" name="corso">Vai all'anno didattico</a>
+                            </div>
+                        </div>
+                    <?php } ?>       
             </div>    
             
            
