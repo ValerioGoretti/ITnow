@@ -12,16 +12,15 @@ $val=$_SESSION['img'];
                 <select id="corsoheader" name="corso" style="width:100%; outline:none;"  onchange="document.corsoform.submit();">
                     <option class="prova" value="" selected disabled>Seleziona un corso</option>
                     <?php   
-                        
-                            $string=file_get_contents('json/corsi.json', 'r');
-                            $corsi=json_decode($string,true);
-                            $no_dup =[];
-                            foreach($corsi as $c){
-                                if(!in_array($c['nomeCorso'],$no_dup))
-                                {?>
-                                    <option class="prova" value="<?php echo $c['idCorso'] ?>"><?php echo $c['nomeCorso'] ?></option>
-                                    <?php array_push($no_dup,$c['nomeCorso']);
-                            }}?>
+                             $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+                             $query="SELECT * FROM  corso;";
+                             $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+                             while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
+                             {
+                            ?>
+                                    <option class="prova" value="<?php echo $line['nome'] ?>"><?php echo $line['nome'] ?></option>
+                                    <?php 
+                            }?>
                 </select>
                 </form>
             </div>
