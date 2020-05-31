@@ -238,22 +238,12 @@
         </div>
         <div id="tondoChat" class="tondoChat grow"><i class="fas fa-comment-dots"></i></div>         
         <div id="chat"class="chat">
-            <div class="chatNome">nome </div>
+            <div class="chatNome"><?php echo $nome." ".$anno?><br><?php echo $docenti?></div>
             <div class="line" style="width:100%;"></div>
-            <div style="width:100%;height:82%">
+            <div style="width:100%;height:80%;overflow:auto;"id="containerMex">
                                             
-                    <div class="messaggio">
-                        <div class="immagineMia"></div>
-                        <div class="textmsgMio">testooooooooooooooooooooooooooooooooooooo</div>
-                        <div class="nomeMio">nome</div>
-                    </div>
-
-
-                    <div class="messaggio">
-                        <div class="immagineTua"></div>
-                        <div class="textmsgTuo">testo</div>
-                        <div class="nomeTuo">nome</div>
-                    </div>
+                    
+                    
 
             </div>
             <span class="inputArea ">
@@ -266,6 +256,7 @@
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
+    var start=0;
     $('#chat').hide();
     $('document').ready(function(){
         
@@ -284,24 +275,38 @@
 
             
             var mittente = '<?php echo $mittente = $_SESSION['ruolo']=='docente' ?   $_SESSION['email'] :  $_SESSION['matricola']; ?>';
-            
-            var inizio=0;
+            load();
+          
             $('#invia').click(function(){
                     $.ajax({
                             type: "POST",
                             url: "inviaMessaggio.php",
                             data: {testo: $('#testoMessaggio').val(), anno: <?php echo $corso;?>,mittente: mittente},
-                            success: function(msg){
-                            console.log(msg);                              
+                            success: function(msg){                             
                             }
                  });
-            });  
+            }); 
     });
         
         
     
 
+    function load(){
+                $.get("inviaMessaggio.php/?start="+start+"&anno=<?php echo $corso?>",function(ris){
+                    ris.forEach(el=>{console.log(el.id);start=el.id;$('#containerMex').append(stampa(el))});
+                    load();                 
+                });
+                
+                
 
+            }  
     
+    function stampa(el){
+        var ora=el.timestamp.slice(10,-10);
+        var data=el.timestamp.slice(0,10);
+        var mex="<div class='messaggio'><div class='immagineMia'><?php if(file_exists("img_docente/".$val.".png")) echo "<img src='img_docente/$val.png' style='width: 100%;margin-bottom:40px'>"?><?php if(!file_exists("img_docente/".$val.".png")) echo '<i class="fas fa-user" ></i>' ?></div><div class='textmsgMio'>"+el.testo+"</div><div class='nomeMio'>"+el.nome+"<br><i class='fas fa-clock'></i>"+ora+"&nbsp;&nbsp;&nbsp;<i class='fas fa-calendar-alt'></i>"+data+"</div></div>";
+                        
+        return mex;
 
+    }
 </script>

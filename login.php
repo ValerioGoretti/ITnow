@@ -32,16 +32,17 @@
             $res = pg_query($dbconn,$que) or die ('Query failed: '.pg_last_error());
             while ($line  = pg_fetch_array($res,null,PGSQL_ASSOC)){
                 
-                    $_SESSION["nome"]=$line["nome"];
+                    $_SESSION["nome"]=$line["nome"]." ".$line["cognome"];
                     $_SESSION["email"]=$line["email"];
 
                 
                 }
             $_SESSION['ruolo']='docente';
             $_SESSION['img']=$_SESSION["email"];
+            pg_close($dbconn);
             header("Location: Home.php");
             //echo("<br><a href='logout.php'>Effettua il logout</a>");
-
+            
     
         }
     
@@ -65,20 +66,22 @@ else
 
         $mat=$_SESSION["matricola"];
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-        $que="select matricola,nome,email 
+        $que="select matricola,nome,cognome,email 
               from studente
               where matricola='$mat'
               ";
         $res = pg_query($dbconn,$que) or die ('Query failed: '.pg_last_error());
         while ($line  = pg_fetch_array($res,null,PGSQL_ASSOC)){
             
-                $_SESSION["nome"]=$line["nome"];
+                $_SESSION["nome"]=$line["nome"]." ".$line["cognome"];
                 $_SESSION["email"]=$line["email"];
                 
             }
             $_SESSION["ruolo"]='studente';
             $_SESSION['img']=$_SESSION["matricola"];
+            
             header("Location: Home.php");
+            pg_close($dbconn);
             
         
     
@@ -89,6 +92,7 @@ else
     
     
 }
+pg_close($dbconn);
 
 
 
@@ -123,13 +127,14 @@ function validaDocente($matricola,$password)
             if($user){return true;}               
         }
         else{return false;}
-
+        $mypdo=null;
 
         
     }
     catch(PDOException $e){echo $e->getMessage();}
 
     }
+    
     return false;
 }
 
@@ -158,6 +163,7 @@ function validaStudente($matricola,$password)
                 if($user){return true;}               
             }
             else{return false;}
+            $mypdo=null;
 
 
             
@@ -166,6 +172,6 @@ function validaStudente($matricola,$password)
 
         }
         return false;
-    
+        
 }
 ?>
