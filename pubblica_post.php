@@ -53,19 +53,23 @@
                            VALUES ( '$titolo', '$testo', '$id_corso', '$email', '$codice', '$lang')
                             RETURNING id;";
                         */
-                        $array=array('intestazione'=>$titolo,'testo'=>$testo,'anno'=>$id_corso,'docente'=>$email,'codice'=>$codice,'linguaggio'=>$lang);
-   
-                        $result = pg_insert($dbconn,'post',$array) or die ('Query failed: '.pg_last_error());
-                        while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
-                        {
-                          $id_post=$line['id'];
-                        }
-                        if($result){
-                            if($controllo=1)
-                                $controllo=2;
-                            else
-                                $msg= $msg .", problema caricamento post";
-                        }
+                        $pdo=new PDO("pgsql:host=rogue.db.elephantsql.com;dbname=xsyvwldl","xsyvwldl","3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev",array(PDO::ATTR_PERSISTENT => true));
+                    
+                        $query = "INSERT INTO public.post(intestazione, testo, anno, docente, codice, linguaggio) 
+                                    VALUES (:intestazione, :testo , :anno, :docente, :codice, :linguaggio)";
+                        $stmt = $pdo->prepare($query);
+                        $params = array(
+                            'intestazione'=>$titolo,
+                            'testo'=>$testo,
+                            'anno'=>$id_corso,
+                            'docente'=>$email,
+                            'codice'=>$codice,
+                            'linguaggio'=>$lang
+                        );
+
+                        $data = $stmt->execute($params);
+
+                        $id_post = $pdo->lastInsertId();
 
                         
 
