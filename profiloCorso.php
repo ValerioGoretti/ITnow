@@ -46,6 +46,7 @@
     
     
                 $corso = $_GET['corso'];
+                $corso=ucfirst($corso);
     
     
     ?>
