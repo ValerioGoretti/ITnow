@@ -1,4 +1,5 @@
 <?php session_start();  
+        
       
       function eliminaVirgola($stringa){
         return substr($stringa, 0, strlen($stringa)-2);
@@ -244,7 +245,7 @@
         <div id="chat"class="chat">
             <div class="chatNome"><?php echo $nome." ".$anno?><br><?php echo $docenti?></div>
             <div class="line" style="width:100%;"></div>
-            <div style="width:100%;height:80%;overflow:auto;"id="containerMex">
+            <div style="width:100%;height:78%;overflow:auto;"id="containerMex">
                                       
             </div>
             <span class="inputArea ">

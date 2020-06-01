@@ -79,9 +79,10 @@ else
             }
             $_SESSION["ruolo"]='studente';
             $_SESSION['img']=$_SESSION["matricola"];
-            
-            header("Location: Home.php");
             pg_close($dbconn);
+            session_write_close();
+            header("Location: Home.php");
+            
             
         
     
