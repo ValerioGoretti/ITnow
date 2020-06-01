@@ -116,14 +116,7 @@
 
         
         </div>
-        <div id="spazioCollaboratori">
-            <p style=";">Aggiungi collaboratore<p>
-        </div>
         
-        <div class="row">
-            <input type="email" id="collaboratore" style="margin-left:15px; width:190px;"placeholder="Email collaboratore">
-            <a id="add" ><i style="font-size:25px;margin-left:20px;" class="fas fa-user-plus" ></i></a>
-        </div>
         <button href="#" id="crea"style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
         </form>
     </div>
