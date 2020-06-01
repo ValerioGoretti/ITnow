@@ -10,6 +10,7 @@
     $mittente= $_POST['mittente'];
 
     session_start();
+    
     $nome=$_SESSION['nome'];
     $array=array('mittente'=>$mittente,'testo'=>$testo,'anno_didattico'=>$anno,'nome'=>$nome);
     $result = pg_insert($dbconn,'chat',$array) or die ('Query failed: '.pg_last_error());

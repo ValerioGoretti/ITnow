@@ -54,7 +54,7 @@
         <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
             <div class="immagini">
                     <div class="circle ">
-                        <?php if(!file_exists("img_docente/".$matricola.".png")) echo '<img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
+                        <?php if(!file_exists("img_docente/".$matricola.".png")) echo '<img src="img_docente/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
                         <?php if(file_exists("img_docente/".$matricola.".png"))   echo "<img src='img_docente/$matricola.png' style='width: 90%; margin-top: 13px; margin-left: 13px;'>"?>
                     </div>
                     <a href="javascript:PopupCentrata()"><div class="btn btn-xl btn-primary inserimento"  style="background-color:#fff;color:#822433">inserisci immagine</div></a>  
@@ -157,7 +157,7 @@
                 <div class="immm" style="width: 30%; margin-left:13%;  float:left;">
                     <div class="immagini">
                             <div class="circle ">
-                                <?php if(!file_exists("img_docente/".$email.".png")) echo '<img src="/assets/img/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
+                                <?php if(!file_exists("img_docente/".$email.".png")) echo '<img src="img_docente/utente.png" style="width: 60%; margin-top: 50px; margin-left: 20%;">' ?>
                                 <?php if(file_exists("img_docente/".$email.".png"))   echo "<img src='img_docente/$email.png' style='width: 90%; margin-top: 13px; margin-left: 13px;'>"?>
                                 
                             </div>
