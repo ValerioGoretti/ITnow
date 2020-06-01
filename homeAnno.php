@@ -1,5 +1,6 @@
 <?php session_start();  
-        
+         
+         
       
       function eliminaVirgola($stringa){
         return substr($stringa, 0, strlen($stringa)-2);
