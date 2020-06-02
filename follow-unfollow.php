@@ -7,10 +7,16 @@
                      $array=array('studente'=>$_GET['studente'],'anno'=>$_GET['id']);
                      $anno=$_GET['id'];
                      $studente=$_GET['studente'];
-                     $risultatoConto=pg_query($dbconn, "select *  from post where anno='$anno';");
+                     $risultatoConto=pg_query($dbconn, "SELECT MAX(id)
+                                                        FROM public.post
+                                                        where anno='$anno';");
+                     $lastId;                                    
                      
-                     $visti=pg_num_rows($risultatoConto);
-                     $resultNotifica=pg_query($dbconn, "INSERT INTO notifiche(studente,anno,visti) values($studente,$anno,$visti)");
+                     while ($line  = pg_fetch_array($risultatoConto,null,PGSQL_ASSOC))
+                    {
+                        $lastId=$line['max'];
+                    }
+                     $resultNotifica=pg_query($dbconn, "INSERT INTO notifiche(studente,anno,visti) values($studente,$anno,$lastId)");
                      $result = pg_insert($dbconn,'studente_corso',$array) or die ('Query failed: '.pg_last_error());
                      echo $resultNotifica;
     }

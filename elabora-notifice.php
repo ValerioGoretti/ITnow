@@ -5,7 +5,7 @@ if(isset($_POST['studente']))
 {
     $studente=$_POST['studente'];
     $conn= pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-    $postReali=pg_query($conn, "SELECT studente, notifiche.anno as idanno, visti ,count(post.anno), docente.nome, docente.cognome, corso, anno_didattico.anno
+    $postReali=pg_query($conn, "SELECT studente, notifiche.anno as idanno, visti ,Max(post.id), docente.nome, docente.cognome, corso, anno_didattico.anno
     from notifiche LEFT JOIN post on notifiche.anno=post.anno join docente on post.docente=docente.email join anno_didattico on anno_didattico.id=post.anno
     where studente='$studente'
     group by notifiche.anno, notifiche.studente, docente.nome, docente.cognome,anno_didattico.corso,anno_didattico.anno;");
@@ -13,10 +13,11 @@ if(isset($_POST['studente']))
     $contatore=0;
     while ($line  = pg_fetch_array($postReali,null,PGSQL_ASSOC))
     {
-        if($line['visti']<$line['count']){
+        if($line['visti']<$line['max']){
         $visti=$line['visti'];
-        $count=$line['count'];
-        $nuovi=$count-$visti;
+        $count=$line['max'];
+        $corso=$line['idanno'];
+        $nuovi=contaNotifiche($visti,$corso,$conn);
         $corso=$line['corso'];
         $a=$line['anno'];
         $nome=$line['nome'];
@@ -53,5 +54,14 @@ if(isset($_POST['studente']))
 
 
     
+}
+function contaNotifiche($visti,$corso,$conn){
+   
+    $contapost=pg_query($conn, "SELECT count(id) from post where anno='$corso' and post.id>'$visti'");
+    $numero;
+    while ($line  = pg_fetch_array($contapost,null,PGSQL_ASSOC)){
+            $numero=$line['count'];
+        }
+    return $numero;
 }
 ?>

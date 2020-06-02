@@ -101,8 +101,8 @@
                                     $mail=$line["email"]." ".$mail;
                                     $stato=$line['stato'];
                             }
-                        include 'vedi-notifiche.php';
-                        pareggiaVisite($corso,$dbconn2);
+                                    include 'vedi-notifiche.php';
+                                    pareggiaVisite($corso,$dbconn2);
                         ?>
 
                     <?php $query= 

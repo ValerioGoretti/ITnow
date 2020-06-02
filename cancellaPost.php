@@ -11,16 +11,8 @@
         
     $result1 = pg_query($dbconn,$query1) or die ('Query failed: '.pg_last_error());
     $result2 = pg_query($dbconn,$query2) or die ('Query failed: '.pg_last_error());
-    if($result1 && $result2){
+    
 
-        $risultatoConto=pg_query($dbconn, "select *  from post where anno='$id_anno';");
-        $n_aggiornato=pg_num_rows($risultatoConto);
-        $qqq="UPDATE notifiche set visti='$n_aggiornato' where visti>'$n_aggiornato' and anno='$id_anno'";
-        pg_query($dbconn,$qqq);
-
-
-    }
-    //RIVEDERE LA REDIREZIONE
     header("Location: HomeAnno.php?corso=$id_anno");
     
 ?>
