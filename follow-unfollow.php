@@ -10,12 +10,13 @@
                      $risultatoConto=pg_query($dbconn, "SELECT MAX(id)
                                                         FROM public.post
                                                         where anno='$anno';");
-                     $lastId;                                    
-                     
+                                                    
+                     $lastId;
                      while ($line  = pg_fetch_array($risultatoConto,null,PGSQL_ASSOC))
                     {
                         $lastId=$line['max'];
                     }
+                     if($lastId=='') $lastId=0;
                      $resultNotifica=pg_query($dbconn, "INSERT INTO notifiche(studente,anno,visti) values($studente,$anno,$lastId)");
                      $result = pg_insert($dbconn,'studente_corso',$array) or die ('Query failed: '.pg_last_error());
                      echo $resultNotifica;
