@@ -37,6 +37,9 @@
                         echo('<p style="font-size:25px ;padding:10px class="font-weight-bold" >Ciao ' . $nome . ' ,</p>');
                         echo('</div>');
                         echo('<p style="font-size:20px ;padding:10px" class="font-weight row" >benvenuto in Itnow! Effettua il login per entrare nel portale.</p>');
+                        $originale = 'assets/img/utente.png';
+                        $copia = "img_docente/$matricola.png";
+                        copy($originale, $copia);
                     } else {
                         echo('<p style="font-size:20px ;padding:10px" class="font-weight row" >Registrazione non riuscita , per favore riprovare.</p>');
                     }
