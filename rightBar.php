@@ -98,15 +98,8 @@
 
         
         </div>
-<<<<<<< HEAD
 
         <button href="#" id="crea" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno
             didattico</button>
     </form>
 </div>
-=======
-        
-        <button href="#" id="crea"style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
-        </form>
-    </div>
->>>>>>> parent of 16f56c7... Formattazione codice
