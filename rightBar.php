@@ -1,106 +1,112 @@
+
 <?php
-include 'updateDocentiJson.php';
-runDoc();
+    include 'updateDocentiJson.php';
+    runDoc();
 ?>
-<head>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/registrazione.css">
-    <link href="css/profilo.css" rel="stylesheet"/>
-    <link href="css/styles.css" rel="stylesheet"/>
-    <link href="css/home.css" rel="stylesheet">
-    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
-
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/registrazione.css">
+        <link href="css/profilo.css" rel="stylesheet" />
+        <link href="css/styles.css" rel="stylesheet"/>
+        <link href="css/home.css" rel="stylesheet">
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <script type="text/javascript"src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+        
     <script>
-
-        var listaCrea = [];
-
-        function ValidateEmail(mail) {
-            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-                return (true)
-            }
-            alert("Email inserita non valida!")
-            return (false)
+         
+         var listaCrea=[];
+         function ValidateEmail(mail) 
+        {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+        {
+            return (true)
         }
+        alert("Email inserita non valida!")
+        return (false)
+        }
+         $("document").ready(function(){
+            $('#add').click(function(){
+                    if(($('#collaboratore').val()!="") &&
+                    (ValidateEmail($('#collaboratore').val()))&&(!(listaCrea.includes($('#collaboratore').val()))))
+                    {
+                      
+                        $('#spazioCollaboratori').append($('#collaboratore').val()+"<br>");
+                        listaCrea.push($('#collaboratore').val());
+                        console.log(listaCrea);
+                    }
 
-        $("document").ready(function () {
-            $('#add').click(function () {
-                if (($('#collaboratore').val() != "") &&
-                    (ValidateEmail($('#collaboratore').val())) && (!(listaCrea.includes($('#collaboratore').val())))) {
-
-                    $('#spazioCollaboratori').append($('#collaboratore').val() + "<br>");
-                    listaCrea.push($('#collaboratore').val());
-                    console.log(listaCrea);
-                }
-
-
+                    
             });
-            $('#crea').click(function () {
-
-                var d1 = new Date($('#data').val());
-                var d2 = new Date('<?php echo date("Y-m-d")?>');
+            $('#crea').click(function(){
+                
+                var d1=new Date($('#data').val());
+                var d2=new Date('<?php echo date("Y-m-d")?>');
                 console.log(d1);
                 console.log(d2);
 
-                if (d1 >= d2) {
-                    $.ajax({
-                        type: "GET",
-                        url: "crea-anno.php",
-                        data: {
-                            corso: $('#cars').val(),
-                            data: $('#data').val(),
-                            docente: '<?php echo $_SESSION['email'];?>',
-                            col: listaCrea.join(";")
-                        },
-                        success: function (msg) {
+                if(d1>=d2){
+                $.ajax({
+                            type: "GET",
+                            url: "crea-anno.php",
+                            data: {corso:$('#cars').val(),data:$('#data').val(),docente:'<?php echo $_SESSION['email'];?>',col: listaCrea.join(";")},
+                            success: function(msg){
                             window.location.reload();
-                            alert(msg);
-                        }
-                    });
-                } else {
-                    console.log();
-                }
+                            alert(msg);                              
+                            }
+                 });}
+                 else{console.log();}  
 
-
+                    
             });
-
-        });
-
+            
+            });
+            
     </script>
+         
 
 
-</head>
-<div class="rightBar font-weight-light" style="width:250px;padding:5px;color:white;">
-    <h5>Crea anno didattico</h5>
-    <form action="">
+    </head>
+    <div class="rightBar font-weight-light" style="width:250px;padding:5px;color:white;">
+        <h5>Crea anno didattico</h5>
+        <form action="">
         <div style="margin:0 auto;background-color:white;whidth:70%;height:fit-content;border-radius:6px;padding:5px;">
+        
+                <select class="selezionaCorso" id="cars" name="corso" style="width:100%;height:30px;" required>
+                        
+                        <?php   
+                        
+                        $query="SELECT * FROM  corso;";
+                        $result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
+                        while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
+                        {
+                       ?>
+                                <option class="prova" value="<?php echo $line['nome'] ?>"><?php echo $line['nome'] ?></option>
+                                <?php 
+                        }?>
+                        
+                </select>
+                
+                <div class="line" style="margin-top:20px"></div>
+                <p style="margin:10px auto;color:black;">Data di inizio</p>
+                <input type="date" name="data" min='<?php echo date("Y-m-d")?>' id="data" style="width:100%;" placeholder="inserisci la data in formato gg-mm-aaaa">
+    
+  
+              
 
-            <select class="selezionaCorso" id="cars" name="corso" style="width:100%;height:30px;" required>
-
-                <?php
-
-                $query = "SELECT * FROM  corso;";
-                $result = pg_query($dbconn, $query) or die ('Query failed: ' . pg_last_error());
-                while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-                    ?>
-                    <option class="prova" value="<?php echo $line['nome'] ?>"><?php echo $line['nome'] ?></option>
-                    <?php
-                } ?>
-
-            </select>
-
-            <div class="line" style="margin-top:20px"></div>
-            <p style="margin:10px auto;color:black;">Data di inizio</p>
-            <input type="date" name="data" min='<?php echo date("Y-m-d") ?>' id="data" style="width:100%;"
-                   placeholder="inserisci la data in formato gg-mm-aaaa">
-
-
+        
         </div>
+<<<<<<< HEAD
 
         <button href="#" id="crea" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno
             didattico</button>
     </form>
 </div>
+=======
+        
+        <button href="#" id="crea"style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno didattico</a>
+        </form>
+    </div>
+>>>>>>> parent of 16f56c7... Formattazione codice
