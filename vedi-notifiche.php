@@ -1,12 +1,5 @@
 <?php
-
-    
-    
-    
-
-
-
-    
+   
 function pareggiaVisite($anno,$dbconn2){
     
     
@@ -14,13 +7,9 @@ function pareggiaVisite($anno,$dbconn2){
     $risultatoConto=pg_query($dbconn2, "select *  from post where anno='$anno';");
     $m=$_SESSION['matricola'];                 
     $visti=pg_num_rows($risultatoConto);
-    $que="UPDATE notifiche Set visti='$visti' where studente='$m'";
+    $que="UPDATE notifiche Set visti='$visti' where studente='$m' and anno='$anno'";
     $r=pg_query($dbconn2,$que);
     
     }
-
-
-
-
 }    
 ?>
