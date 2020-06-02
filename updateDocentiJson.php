@@ -1,19 +1,21 @@
 <?php
-function ottieniDatiDoc(){
-$dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
-$query= "SELECT * FROM docente";
-$result = pg_query($dbconn,$query) or die ('Query failed: '.pg_last_error());
-$array=array();
-while ($line  = pg_fetch_array($result,null,PGSQL_ASSOC))
+function ottieniDatiDoc()
 {
-    $array[]=array('mail'=>$line['email']);
+    $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+    $query = "SELECT * FROM docente";
+    $result = pg_query($dbconn, $query) or die ('Query failed: ' . pg_last_error());
+    $array = array();
+    while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
+        $array[] = array('mail' => $line['email']);
+    }
+    return json_encode($array);
 }
-return json_encode($array);
-}
-function runDoc(){
-$file_name='registrazione.json';
 
-file_put_contents("json/dati_docenti.json",ottieniDatiDoc());
+function runDoc()
+{
+    $file_name = 'registrazione.json';
+
+    file_put_contents("json/dati_docenti.json", ottieniDatiDoc());
 }
 
 
