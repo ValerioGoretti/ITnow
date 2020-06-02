@@ -33,15 +33,10 @@
                     $id=$line['id'];break;}
                     $array2=array('anno'=>$id,'docente'=>$docente);
                     $result2=pg_insert($dbconn,'anno_docente',$array2) or die ('Query failed: '.pg_last_error());
-                    if($result2&&(isset($_GET['col']))&&($_GET['col']!="")){
-                        $col=explode(";",$_GET['col']);
-                        foreach($col as $doc){
-                            $array4=array('anno_didattico'=>$id,'email'=>$doc);
-                            $result4=pg_insert($dbconn,'collaboratori',$array4) or die ('Query failed: '.pg_last_error());
-                        }
-                    }
                     echo 'Anno didattico creato correttamente!';
                     }
+                    
+                    
                     else
                     {
                         echo 'Non è stato possibile creare il corso';

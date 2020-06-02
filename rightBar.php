@@ -47,7 +47,7 @@
                 console.log(d1);
                 console.log(d2);
 
-                if(verificaEmail(listaCrea)&&(!listaCrea.includes('<?php echo $_SESSION['email']?>'))&&(d1>=d2)){
+                if(d1>=d2){
                 $.ajax({
                             type: "GET",
                             url: "crea-anno.php",
@@ -63,25 +63,7 @@
             });
             
             });
-            function verificaEmail(array)
-        {
-           
-            var request2 = new XMLHttpRequest();
-                request2.open("GET", "json/dati_docenti.json", false);
-                request2.send(null);
-                var risultato2 = JSON.parse(request2.responseText);
-                for (i=0;i<array.length;i++)
-                {   
-                    var presente=false;
-                    for(n=0;n<risultato2.length;n++)
-                    {
-                        if((risultato2[n]['mail'])==array[i]) {presente=true;}
-                  }
-                    if (!presente) return false;
-                }
-                console.log(presente);
-                return true;
-        }    
+            
     </script>
          
 
