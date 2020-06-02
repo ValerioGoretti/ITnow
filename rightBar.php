@@ -100,7 +100,7 @@ runDoc();
 
         </div>
 
-        <a href="#" id="crea" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno
-            didattico</a>
+        <button href="#" id="crea" style="margin:20px 35px;" class="btn btn-primary2" name="corso">Crea anno
+            didattico</button>
     </form>
 </div>

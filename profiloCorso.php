@@ -91,8 +91,8 @@ $corso = ucfirst($corso);
                         <h5 class="card-title"><?php echo $line2['nome_docente'] . ' ' . $line2['cognome_docente'] ?></h5>
                         <p class="card-text font-weight-light">Anno:<?php echo $line2['anno_corso'] ?>
                             <br>Stato:<?php echo $line2['stato'] ?></p>
-                        <a href="#" class="btn btn-primary2" value="<?php echo $line2['anno_id'] ?>" name="corso">
-                            Vai all'anno didattico</a>
+                        <button href="#" class="btn btn-primary2" value="<?php echo $line2['anno_id'] ?>" name="corso">
+                            Vai all'anno didattico</button>
                     </div>
                 </div>
             <?php } ?>
