@@ -1,5 +1,5 @@
 <?php
-    
+    //codice php incluso in profilo.php per la visualizzazione dei dati studenti
 
     
     $matricola=$_SESSION['matricola'];

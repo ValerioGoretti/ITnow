@@ -1,5 +1,7 @@
 <?php
-   
+   //codice php utilizzato per il corretto meccanismo delle notifiche.Utilizzato ad ogni visita dello studente
+   //alla homeAnno di un anno didattico.
+   //studente visita-->vede tutti i post-->la notifica scomprare
 function pareggiaVisite($anno,$dbconn2){
     
     

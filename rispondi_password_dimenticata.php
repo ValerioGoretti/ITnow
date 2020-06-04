@@ -1,5 +1,5 @@
 <?php
-//index.php
+//php che si occupa dell'invio della generazione di una nuova mail e dell'invio all'utente richiedente
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 

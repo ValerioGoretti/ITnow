@@ -1,4 +1,6 @@
-<?php if($_SESSION['ruolo']=='docente') {$dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
+<?php 
+            //codice php relativo alla gestione dello switch rightbar studente/docente in homeAnno.php
+            if($_SESSION['ruolo']=='docente') {$dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
             $em=$_SESSION['email'];
             $corso = $_GET['corso'];
             $query10="SELECT docente.email, anno_docente.anno

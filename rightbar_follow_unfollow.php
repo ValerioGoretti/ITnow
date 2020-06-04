@@ -1,7 +1,7 @@
 <?php
                         
                        
-                        
+                        //codice php per la gestione dei del meccanismo follow/unfollow nella rightbar studenti in homeAnno.php
                         $follow;
                         $corso = $_GET['corso'];
                         $matricola=$_SESSION['matricola'];

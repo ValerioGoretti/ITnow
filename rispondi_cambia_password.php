@@ -1,4 +1,5 @@
 <?php
+    //php di risposta alla richiesta di cambio della password
     session_start();
     if(isset($_POST["submit"]))
     {

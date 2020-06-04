@@ -11,7 +11,7 @@
 <body >
                 <?php
                     session_start();
-                    //include "updateDocentiJson.php";             
+            
                     if(isset($_POST['pubblica'])){   
                         $corso=$_POST['corso'];
                         $titolo=$_POST['titolo'];
@@ -47,11 +47,6 @@
                         /*
                             Inserisci Post e prendi id  per utilizzarlo nell'insert del file
                         
-
-                        $query= "INSERT INTO public.post(
-                            intestazione, testo, anno, docente, codice, linguaggio)
-                           VALUES ( '$titolo', '$testo', '$id_corso', '$email', '$codice', '$lang')
-                            RETURNING id;";
                         */
                         $pdo=new PDO("pgsql:host=rogue.db.elephantsql.com;dbname=xsyvwldl","xsyvwldl","3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev",array(PDO::ATTR_PERSISTENT => true));
                     
