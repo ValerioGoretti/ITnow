@@ -1,6 +1,10 @@
 <?php session_start();  
          
-
+    /**
+     * Home adHoc per ogni anno_didattico dove possiamo trovare tutti i post di quell'anno  e la chat.
+     * Nel caso in cui l'utente è un docente può aggiungere e rimuovere collaboratori mente gli studenti possono
+     * fare il follow-unfollow del corso.
+     */
       
       function eliminaVirgola($stringa){
         return substr($stringa, 0, strlen($stringa)-2);

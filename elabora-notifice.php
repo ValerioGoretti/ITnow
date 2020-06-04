@@ -1,4 +1,7 @@
 <?php
+/**
+ * Gestione dei div contententi le notifichie 
+ */
 
 if(isset($_POST['studente']))
 

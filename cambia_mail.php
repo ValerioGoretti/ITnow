@@ -1,4 +1,8 @@
 <?php
+    /**
+     * Pagina utilizzata per sottomettere il cambiamento dell'email da parte di uno studente.
+     * In questa pagina vengono fatti tutti i controlli relativi ai campi e all'inserimento.
+     */
     include 'updateStudentiJson.php';
     run2();
     session_start();

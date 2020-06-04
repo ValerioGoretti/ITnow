@@ -1,4 +1,7 @@
-
+<!--Left bar che contiene nel caso di uno studente i corsi che segue mentre nel caso di un docente quelli che tiene e in cui collabora.
+    Gli studenti sulla left bar avranno TUTTI i corsi che seguono, sia se sono terminati che in corso.
+    I docenti invece sulla left bar avranno solamente i propri corsi che sono in corso e quelli (sempre in corso) in cui collaborano
+-->
 
     <div class="leftBar font-weight-light" id="leftbar"> 
         <div class="ciao" id="titolo"><b>Ciao,<?php echo $_SESSION['nome'] ?></b></div>

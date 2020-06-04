@@ -1,3 +1,5 @@
+
+<!-- Pannello docente che verrà mostrato sulla home per la pubblicazione di un post su uno dei corsi tenuti dal professore che ha fatto l'accesso -->
 <div class='row'>                            
 <p class="font-weight-light" style="margin-left:110px;font-size:40px;">Pubblicazione veloce</p>
 <div class="line2" style="width:320px;"></div>

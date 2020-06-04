@@ -1,4 +1,7 @@
 <?php
+    /**
+     * pagina adibita alla distruzione della sessione una volta richiesto il logout con relativo feedback all'utente
+     */
     session_start();
     
     session_destroy();

@@ -1,6 +1,8 @@
 <?php
     
-   
+   /**
+    * Gestione del tasto follow-unfollow di un corso da parte di uno studente, utilizzato anche per l' inizializzazione delle  notifiche
+    */
     $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
     if($_GET['stato']=='follow')
     {

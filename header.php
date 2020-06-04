@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * Header utilizzato in quasi tutte le pagine del progetto. contiene i vari pulsanti per tornare al profilo, home ed effettuare il logout
+ */
 $val=$_SESSION['img'];
 
 ?>

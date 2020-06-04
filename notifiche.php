@@ -2,6 +2,9 @@
 <?php
     //include 'updateDocentiJson.php';
     //runDoc();
+    /**
+     * Contiene la parte di front-end sulla right bar che se viene cliccata esegue la chiamata ajax elabora-notifice.php 
+     */
 ?>
     <head>
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">    

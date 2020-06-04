@@ -1,3 +1,5 @@
+
+<!--Pagina PHP utilizzata per implementare le funzionalità del pannello utilizzato per il caricamento delle immagini-->
 <!doctype html>
 <html lang="en">
 <head>

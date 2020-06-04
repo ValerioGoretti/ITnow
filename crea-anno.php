@@ -1,4 +1,7 @@
 <?php 
+    /**
+     * PHP utilizzato per per la creazione dell'anno d parte di un docente
+     */
     if(isset($_GET['docente'])&&isset($_GET['data'])&&isset($_GET['corso'])&&!($_GET['corso']=='Corso'))
     {
         
@@ -43,7 +46,6 @@
                     }
             }
             pg_close($dbconn);
-
     }
     else{
         echo 'Dati inseriti non validi';

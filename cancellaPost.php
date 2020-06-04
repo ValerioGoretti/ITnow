@@ -1,4 +1,7 @@
 <?php
+    /**
+     * Pagina php che permette l'eliminazione di un post da parte di un docente proprietario dello stesso.
+     */
     $idPost=$_GET['post'];
     $id_anno=$_GET['annod_id'];
     $query1="DELETE FROM public.file

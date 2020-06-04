@@ -1,3 +1,4 @@
+<!-- Pannello utilizzato per la visualizzazione dei post dei corsi che l'utente ha scelto di seguire-->
 <script>function creaCodeMirror(ling,id)
     {
         var lingu = document.getElementById(ling).innerText;

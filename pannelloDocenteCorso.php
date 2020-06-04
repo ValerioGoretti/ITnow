@@ -1,5 +1,8 @@
 <?php
-        
+    /**
+     * Pannello docente che verrà mostrato sulla pagina dell'anno didattico per la pubblicazione di un post su quell'anno.
+     * Verrà mostrato se l'utente che ha effettuato l'accesso è proprietario del anno didattico oppure è un collaboratore
+     */ 
         $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
         $email=$_SESSION['email'];
         

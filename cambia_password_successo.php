@@ -1,4 +1,7 @@
 <?php
+    /**
+     * pagina di riscontro positivo per l'avvenuto cambiamento della password
+     */
     session_start();
 ?>
 <!doctype html>

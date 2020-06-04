@@ -1,4 +1,8 @@
 <?php
+    /**
+     * Home principale che gestisce gli ultimi post (con limite di 10 ) per gli studenti
+     * e nel caso del docente verrà mostrata la pubblicazione veloce dei post sui corsi che il docente tiene.
+     */
     session_start();
     $logged=isset($_SESSION['logged']);
     

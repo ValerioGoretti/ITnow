@@ -1,4 +1,8 @@
 <?php
+    /**
+     * Pagina chiamarta dall'index una volta inseriti i dati per effettuare il login.
+     * I dati inseriti dall'utente vengono gestiti con i PDO per evitare i possibili datti provocati da SQLINJECTION
+     */
     include "updateDocentiJson.php";
     include "updateStudentiJson.php";
     runDoc();

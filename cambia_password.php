@@ -1,4 +1,8 @@
 <?php
+    /**
+     * Pagina utilizzata per sottomettere il cambiamento della password da parte di uno studente o un docente.
+     * In questa pagina vengono fatti tutti i controlli relativi ai campi.
+     */
     session_start();
 ?>
 <!doctype html>

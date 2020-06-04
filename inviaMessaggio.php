@@ -1,6 +1,9 @@
 
 
 <?php
+    /**
+     * codice php che permette l'invio dei messaggi nella chat del anno didattico
+     */
     $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
     $anno=(isset($_POST['anno']))? $_POST['anno']:$_GET['anno'];
     
