@@ -74,7 +74,7 @@
         <div class="core" style="width:1000px">
             <?php 
                 if($_SESSION['ruolo']=='docente'){
-                    include 'pannelloDocente.php'; 
+                    include 'PannelloDocente.php'; 
                 }
                 if($_SESSION['ruolo']=='studente'){     
                     include 'pannelloStudente.php';
