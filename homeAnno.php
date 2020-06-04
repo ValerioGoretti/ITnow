@@ -152,7 +152,7 @@
                 $result8= pg_query($dbconn2,$query8) or die ('Query failed: '.pg_last_error());
                 while ($lin  = pg_fetch_array($result8,null,PGSQL_ASSOC)){
                      if($lin['email']==$_SESSION['email'] and $stato=='In corso'){
-                        include 'PannelloDocenteCorso.php';
+                        include 'pannelloDocenteCorso.php';
                      }
                 }
                
