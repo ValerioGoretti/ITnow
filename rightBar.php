@@ -4,6 +4,7 @@
     runDoc();
 ?>
     <head>
+        <!-- rightbar docente situata in home per la creazione dell'anno generata mediante php-->
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -18,28 +19,9 @@
     <script>
          
          var listaCrea=[];
-         function ValidateEmail(mail) 
-        {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-        {
-            return (true)
-        }
-        alert("Email inserita non valida!")
-        return (false)
-        }
+         
          $("document").ready(function(){
-            $('#add').click(function(){
-                    if(($('#collaboratore').val()!="") &&
-                    (ValidateEmail($('#collaboratore').val()))&&(!(listaCrea.includes($('#collaboratore').val()))))
-                    {
-                      
-                        $('#spazioCollaboratori').append($('#collaboratore').val()+"<br>");
-                        listaCrea.push($('#collaboratore').val());
-                        console.log(listaCrea);
-                    }
-
-                    
-            });
+            
             $('#crea').click(function(){
                 
                 var d1=new Date($('#data').val());

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--pagina php per la visualizzazione di tutti gli anni didattici per un dato corso-->
 <html>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">

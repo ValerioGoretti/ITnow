@@ -1,6 +1,6 @@
 <?php
                         
-                       
+                        //codice php per la visualizzazione del rightbar di controllo per i docenti nell'anno didattico 
                         $follow="";
                         $corso = $_GET['corso'];
                         $docente=$_SESSION['email'];

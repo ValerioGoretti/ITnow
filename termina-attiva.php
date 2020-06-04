@@ -1,5 +1,5 @@
 <?php
-    
+    //codice php relativo all meccanismo di attiva/termina di un anno didattico.Funzionalità docente
     $dbconn2 = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
     
     if($_GET['stato']=='follow')

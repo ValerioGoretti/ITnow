@@ -1,6 +1,6 @@
 <?php
     
-    
+    //php di risposta al cambio email
     $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
     if(isset($_GET['email']))
     {

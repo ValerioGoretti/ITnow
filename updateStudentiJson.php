@@ -1,4 +1,6 @@
 <?php
+//codice php relativo all'aggiornamento del file json contentente i dati dei studenti già presenti
+//per i controlli della registrazione
 function ottieniDati2(){
 $dbconn = pg_connect("host=rogue.db.elephantsql.com port=5432 dbname=xsyvwldl user=xsyvwldl password=3GQ9zjDsifaXMFcQkLPrEdDM2lWiPGev");
 $query= "SELECT * FROM studente";

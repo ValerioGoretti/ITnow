@@ -6,6 +6,7 @@
                     
 ?>
 <html>
+<!--pagina php contenente i form da sottomettere per la registrazione-->    
     <head>
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
         
